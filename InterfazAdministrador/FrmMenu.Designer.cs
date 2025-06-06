@@ -221,9 +221,9 @@
             this.panelDatosBiometricos.Controls.Add(this.label2);
             this.panelDatosBiometricos.Controls.Add(this.dgvEmpleadosCaras);
             this.panelDatosBiometricos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDatosBiometricos.Location = new System.Drawing.Point(700, 0);
+            this.panelDatosBiometricos.Location = new System.Drawing.Point(0, 0);
             this.panelDatosBiometricos.Name = "panelDatosBiometricos";
-            this.panelDatosBiometricos.Size = new System.Drawing.Size(10, 595);
+            this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
             this.panelDatosBiometricos.TabIndex = 8;
             // 
             // btnEliminarFiltro
