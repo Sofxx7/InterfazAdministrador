@@ -250,7 +250,7 @@
             // 
             this.lblMostrarIniciandoCamara.AutoSize = true;
             this.lblMostrarIniciandoCamara.ForeColor = System.Drawing.Color.Red;
-            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(487, 456);
+            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(348, 450);
             this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
             this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(35, 13);
             this.lblMostrarIniciandoCamara.TabIndex = 10;
@@ -264,6 +264,7 @@
             this.btnEliminarCara.TabIndex = 9;
             this.btnEliminarCara.Text = "Eliminar Cara";
             this.btnEliminarCara.UseVisualStyleBackColor = true;
+            this.btnEliminarCara.Click += new System.EventHandler(this.btnEliminarCara_Click);
             // 
             // btnAgregarCara
             // 
@@ -273,6 +274,7 @@
             this.btnAgregarCara.TabIndex = 8;
             this.btnAgregarCara.Text = "Agregar Cara";
             this.btnAgregarCara.UseVisualStyleBackColor = true;
+            this.btnAgregarCara.Click += new System.EventHandler(this.btnAgregarCara_Click);
             // 
             // btnSiguiente
             // 
