@@ -173,5 +173,10 @@ namespace InterfazAdministrador
 
             lblCantidadCaras.Text = texto ? $"{caraIndex + 1}/{caraList.Count}" : string.Empty;
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
