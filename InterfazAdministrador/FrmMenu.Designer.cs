@@ -40,9 +40,10 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.panelAsistencia = new System.Windows.Forms.Panel();
             this.panelDatosBiometricos = new System.Windows.Forms.Panel();
+            this.btnEliminarFiltro = new System.Windows.Forms.Button();
             this.lblCantidadCaras = new System.Windows.Forms.Label();
             this.lblMostrarIniciandoCamara = new System.Windows.Forms.Label();
-            this.btnModificarCara = new System.Windows.Forms.Button();
+            this.btnEliminarCara = new System.Windows.Forms.Button();
             this.btnAgregarCara = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@
             this.cmbAno = new System.Windows.Forms.ComboBox();
             this.dgvMostrarReporteMes = new System.Windows.Forms.DataGridView();
             this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminarFiltro = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAsistencia.SuspendLayout();
@@ -210,7 +210,7 @@
             this.panelDatosBiometricos.Controls.Add(this.btnEliminarFiltro);
             this.panelDatosBiometricos.Controls.Add(this.lblCantidadCaras);
             this.panelDatosBiometricos.Controls.Add(this.lblMostrarIniciandoCamara);
-            this.panelDatosBiometricos.Controls.Add(this.btnModificarCara);
+            this.panelDatosBiometricos.Controls.Add(this.btnEliminarCara);
             this.panelDatosBiometricos.Controls.Add(this.btnAgregarCara);
             this.panelDatosBiometricos.Controls.Add(this.btnSiguiente);
             this.panelDatosBiometricos.Controls.Add(this.btnAnterior);
@@ -224,6 +224,16 @@
             this.panelDatosBiometricos.Name = "panelDatosBiometricos";
             this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
             this.panelDatosBiometricos.TabIndex = 8;
+            // 
+            // btnEliminarFiltro
+            // 
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(502, 30);
+            this.btnEliminarFiltro.Name = "btnEliminarFiltro";
+            this.btnEliminarFiltro.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarFiltro.TabIndex = 12;
+            this.btnEliminarFiltro.Text = "EliminarFiltro";
+            this.btnEliminarFiltro.UseVisualStyleBackColor = true;
+            this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
             // 
             // lblCantidadCaras
             // 
@@ -245,14 +255,14 @@
             this.lblMostrarIniciandoCamara.TabIndex = 10;
             this.lblMostrarIniciandoCamara.Text = "label3";
             // 
-            // btnModificarCara
+            // btnEliminarCara
             // 
-            this.btnModificarCara.Location = new System.Drawing.Point(520, 409);
-            this.btnModificarCara.Name = "btnModificarCara";
-            this.btnModificarCara.Size = new System.Drawing.Size(103, 23);
-            this.btnModificarCara.TabIndex = 9;
-            this.btnModificarCara.Text = "Eliminar Cara";
-            this.btnModificarCara.UseVisualStyleBackColor = true;
+            this.btnEliminarCara.Location = new System.Drawing.Point(520, 409);
+            this.btnEliminarCara.Name = "btnEliminarCara";
+            this.btnEliminarCara.Size = new System.Drawing.Size(103, 23);
+            this.btnEliminarCara.TabIndex = 9;
+            this.btnEliminarCara.Text = "Eliminar Cara";
+            this.btnEliminarCara.UseVisualStyleBackColor = true;
             // 
             // btnAgregarCara
             // 
@@ -271,6 +281,7 @@
             this.btnSiguiente.TabIndex = 7;
             this.btnSiguiente.Text = ">>";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAnterior
             // 
@@ -280,12 +291,14 @@
             this.btnAnterior.TabIndex = 6;
             this.btnAnterior.Text = "<<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // pbMostrarCaras
             // 
             this.pbMostrarCaras.Location = new System.Drawing.Point(351, 76);
             this.pbMostrarCaras.Name = "pbMostrarCaras";
             this.pbMostrarCaras.Size = new System.Drawing.Size(320, 274);
+            this.pbMostrarCaras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbMostrarCaras.TabIndex = 5;
             this.pbMostrarCaras.TabStop = false;
             // 
@@ -327,8 +340,10 @@
             this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
             this.dgvEmpleadosCaras.ReadOnly = true;
             this.dgvEmpleadosCaras.RowHeadersWidth = 51;
+            this.dgvEmpleadosCaras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleadosCaras.Size = new System.Drawing.Size(274, 480);
             this.dgvEmpleadosCaras.TabIndex = 0;
+            this.dgvEmpleadosCaras.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleadosCaras_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -450,16 +465,6 @@
             this.ColEmpleado.ReadOnly = true;
             this.ColEmpleado.Width = 120;
             // 
-            // btnEliminarFiltro
-            // 
-            this.btnEliminarFiltro.Location = new System.Drawing.Point(502, 30);
-            this.btnEliminarFiltro.Name = "btnEliminarFiltro";
-            this.btnEliminarFiltro.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminarFiltro.TabIndex = 12;
-            this.btnEliminarFiltro.Text = "EliminarFiltro";
-            this.btnEliminarFiltro.UseVisualStyleBackColor = true;
-            this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,7 +518,7 @@
         private System.Windows.Forms.Panel panelDatosBiometricos;
         private System.Windows.Forms.Label lblCantidadCaras;
         private System.Windows.Forms.Label lblMostrarIniciandoCamara;
-        private System.Windows.Forms.Button btnModificarCara;
+        private System.Windows.Forms.Button btnEliminarCara;
         private System.Windows.Forms.Button btnAgregarCara;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;

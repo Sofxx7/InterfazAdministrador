@@ -11,5 +11,10 @@ namespace InterfazAdministrador.Data
         {
             return db.Cara.Any(c => c.idEmpleado.Equals(idEmpleado));
         }
+
+        public List<Cara> ListarCaras(string idEmpleado)
+        {
+            return db.Cara.Where(c => c.idEmpleado.Equals(idEmpleado)).ToList();
+        }
     }
 }
