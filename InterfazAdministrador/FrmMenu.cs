@@ -23,6 +23,7 @@ namespace InterfazAdministrador
         private readonly FaceDetectionService faceDetectionService = new FaceDetectionService();
         private readonly EmpleadoRepository empleadoRepository = new EmpleadoRepository();
         private readonly CaraRepository caraRepository = new CaraRepository();
+        private readonly FechaRepository fechaRepository = new FechaRepository();
         private Tool tool = new Tool();
 
         private Empleado empleadoSeleccionado = null;
@@ -32,10 +33,31 @@ namespace InterfazAdministrador
         public FrmMenu()
         {
             InitializeComponent();
+            IniciarPanelDatosBiometricos();
+            IniciarPanelAsistencia();
+        }
 
+        private void IniciarPanelDatosBiometricos()
+        {
             lblMostrarIniciandoCamara.Text = string.Empty;
+            lblCantidadCaras.Text = string.Empty;
 
             llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
+        }
+
+        private void IniciarPanelAsistencia()
+        {
+            cmbAno.DataSource = fechaRepository.ObtenerLosAnos();
+            if (cmbAno.Items.Count > 0)
+            {
+                cmbAno.SelectedIndex = 0;
+            }
+
+            cmbMes.DataSource = fechaRepository.ObtenerLosMesesPorAno(cmbAno.SelectedItem.ToString());
+            if (cmbMes.Items.Count > 0)
+            {
+                cmbMes.SelectedIndex = cmbMes.Items.Count -1;
+            }
         }
 
         private void btnFiltrarPanelCara_Click(object sender, EventArgs e)

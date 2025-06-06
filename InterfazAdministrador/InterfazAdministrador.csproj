@@ -66,6 +66,7 @@
       <DependentUpon>DataClassesTable.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\EmpleadoRepository.cs" />
+    <Compile Include="Data\FechaRepository.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

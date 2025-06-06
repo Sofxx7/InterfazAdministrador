@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDatosBiometricos = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this.btnExportarMes = new System.Windows.Forms.Button();
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.cmbAno = new System.Windows.Forms.ComboBox();
-            this.dgvMostrarReporteMes = new System.Windows.Forms.DataGridView();
+            this.dgvMostrarReporteDia = new System.Windows.Forms.DataGridView();
             this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,14 +72,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnDatosBiometricos);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
@@ -105,16 +105,16 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDatosBiometricos
             // 
-            this.button2.Location = new System.Drawing.Point(63, 279);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 33);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Datos biométricos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDatosBiometricos.Location = new System.Drawing.Point(63, 279);
+            this.btnDatosBiometricos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatosBiometricos.Name = "btnDatosBiometricos";
+            this.btnDatosBiometricos.Size = new System.Drawing.Size(126, 33);
+            this.btnDatosBiometricos.TabIndex = 7;
+            this.btnDatosBiometricos.Text = "Datos biométricos";
+            this.btnDatosBiometricos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDatosBiometricos.UseVisualStyleBackColor = true;
             // 
             // btnSalir
             // 
@@ -199,7 +199,7 @@
             this.panelAsistencia.Controls.Add(this.btnExportarMes);
             this.panelAsistencia.Controls.Add(this.cmbMes);
             this.panelAsistencia.Controls.Add(this.cmbAno);
-            this.panelAsistencia.Controls.Add(this.dgvMostrarReporteMes);
+            this.panelAsistencia.Controls.Add(this.dgvMostrarReporteDia);
             this.panelAsistencia.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelAsistencia.Location = new System.Drawing.Point(223, 0);
             this.panelAsistencia.Name = "panelAsistencia";
@@ -221,9 +221,9 @@
             this.panelDatosBiometricos.Controls.Add(this.label2);
             this.panelDatosBiometricos.Controls.Add(this.dgvEmpleadosCaras);
             this.panelDatosBiometricos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDatosBiometricos.Location = new System.Drawing.Point(0, 0);
+            this.panelDatosBiometricos.Location = new System.Drawing.Point(700, 0);
             this.panelDatosBiometricos.Name = "panelDatosBiometricos";
-            this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
+            this.panelDatosBiometricos.Size = new System.Drawing.Size(10, 595);
             this.panelDatosBiometricos.TabIndex = 8;
             // 
             // btnEliminarFiltro
@@ -367,7 +367,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 304);
+            this.label1.Location = new System.Drawing.Point(36, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 5;
@@ -387,7 +387,7 @@
             this.dgvMostrarATF.Name = "dgvMostrarATF";
             this.dgvMostrarATF.ReadOnly = true;
             this.dgvMostrarATF.RowHeadersWidth = 51;
-            this.dgvMostrarATF.Size = new System.Drawing.Size(513, 210);
+            this.dgvMostrarATF.Size = new System.Drawing.Size(631, 210);
             this.dgvMostrarATF.TabIndex = 4;
             // 
             // ColEmpleado2
@@ -446,19 +446,19 @@
             this.cmbAno.Size = new System.Drawing.Size(87, 21);
             this.cmbAno.TabIndex = 1;
             // 
-            // dgvMostrarReporteMes
+            // dgvMostrarReporteDia
             // 
-            this.dgvMostrarReporteMes.AllowUserToAddRows = false;
-            this.dgvMostrarReporteMes.AllowUserToDeleteRows = false;
-            this.dgvMostrarReporteMes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarReporteMes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMostrarReporteDia.AllowUserToAddRows = false;
+            this.dgvMostrarReporteDia.AllowUserToDeleteRows = false;
+            this.dgvMostrarReporteDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMostrarReporteDia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColEmpleado});
-            this.dgvMostrarReporteMes.Location = new System.Drawing.Point(39, 94);
-            this.dgvMostrarReporteMes.Name = "dgvMostrarReporteMes";
-            this.dgvMostrarReporteMes.ReadOnly = true;
-            this.dgvMostrarReporteMes.RowHeadersWidth = 51;
-            this.dgvMostrarReporteMes.Size = new System.Drawing.Size(631, 179);
-            this.dgvMostrarReporteMes.TabIndex = 0;
+            this.dgvMostrarReporteDia.Location = new System.Drawing.Point(39, 94);
+            this.dgvMostrarReporteDia.Name = "dgvMostrarReporteDia";
+            this.dgvMostrarReporteDia.ReadOnly = true;
+            this.dgvMostrarReporteDia.RowHeadersWidth = 51;
+            this.dgvMostrarReporteDia.Size = new System.Drawing.Size(631, 179);
+            this.dgvMostrarReporteDia.TabIndex = 0;
             // 
             // ColEmpleado
             // 
@@ -489,7 +489,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,7 +505,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDatosBiometricos;
         private System.Windows.Forms.Panel panelAsistencia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvMostrarATF;
@@ -516,7 +516,7 @@
         private System.Windows.Forms.Button btnExportarMes;
         private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.ComboBox cmbAno;
-        private System.Windows.Forms.DataGridView dgvMostrarReporteMes;
+        private System.Windows.Forms.DataGridView dgvMostrarReporteDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
         private System.Windows.Forms.Panel panelDatosBiometricos;
         private System.Windows.Forms.Label lblCantidadCaras;
