@@ -38,16 +38,40 @@
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.PaneldeControl = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
+            this.panelAsistencia = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvMostrarATF = new System.Windows.Forms.DataGridView();
+            this.ColEmpleado2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTardanzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFaltas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportarMes = new System.Windows.Forms.Button();
+            this.cmbMes = new System.Windows.Forms.ComboBox();
+            this.cmbAno = new System.Windows.Forms.ComboBox();
+            this.dgvMostrarReporteMes = new System.Windows.Forms.DataGridView();
+            this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelDatosBiometricos = new System.Windows.Forms.Panel();
+            this.lblMostrarIniciandoCamara = new System.Windows.Forms.Label();
+            this.btnModificarCara = new System.Windows.Forms.Button();
+            this.btnAgregarCara = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.pbMostrarCaras = new System.Windows.Forms.PictureBox();
+            this.btnFiltrarPanelCara = new System.Windows.Forms.Button();
+            this.txtFiltrarPanelCara = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvEmpleadosCaras = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCaras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCantidadCaras = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.PaneldeControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelAsistencia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).BeginInit();
+            this.panelDatosBiometricos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,15 +88,15 @@
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(218, 595);
+            this.panel1.Size = new System.Drawing.Size(225, 595);
             this.panel1.TabIndex = 0;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(30, 334);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 33);
             this.button3.TabIndex = 8;
@@ -83,7 +107,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(63, 279);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 33);
             this.button2.TabIndex = 7;
@@ -94,7 +118,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(50, 544);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 24);
             this.button6.TabIndex = 6;
@@ -104,7 +128,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(63, 231);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 33);
             this.button5.TabIndex = 5;
@@ -115,7 +139,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(30, 184);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 33);
             this.button4.TabIndex = 4;
@@ -127,7 +151,7 @@
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(63, 134);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(92, 33);
             this.btnModificar.TabIndex = 3;
@@ -138,7 +162,7 @@
             // btnAsistencia
             // 
             this.btnAsistencia.Location = new System.Drawing.Point(30, 87);
-            this.btnAsistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAsistencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(112, 33);
             this.btnAsistencia.TabIndex = 2;
@@ -149,7 +173,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 28);
             this.pictureBox1.TabIndex = 1;
@@ -166,77 +190,286 @@
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "label1";
             // 
-            // PaneldeControl
+            // panelAsistencia
             // 
-            this.PaneldeControl.Controls.Add(this.lblHora);
-            this.PaneldeControl.Controls.Add(this.lblFecha);
-            this.PaneldeControl.Controls.Add(this.dataGridView2);
-            this.PaneldeControl.Controls.Add(this.dataGridView1);
-            this.PaneldeControl.Location = new System.Drawing.Point(241, 12);
-            this.PaneldeControl.Name = "PaneldeControl";
-            this.PaneldeControl.Size = new System.Drawing.Size(718, 595);
-            this.PaneldeControl.TabIndex = 1;
+            this.panelAsistencia.Controls.Add(this.panelDatosBiometricos);
+            this.panelAsistencia.Controls.Add(this.label1);
+            this.panelAsistencia.Controls.Add(this.dgvMostrarATF);
+            this.panelAsistencia.Controls.Add(this.btnExportarMes);
+            this.panelAsistencia.Controls.Add(this.cmbMes);
+            this.panelAsistencia.Controls.Add(this.cmbAno);
+            this.panelAsistencia.Controls.Add(this.dgvMostrarReporteMes);
+            this.panelAsistencia.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelAsistencia.Location = new System.Drawing.Point(223, 0);
+            this.panelAsistencia.Name = "panelAsistencia";
+            this.panelAsistencia.Size = new System.Drawing.Size(710, 595);
+            this.panelAsistencia.TabIndex = 3;
             // 
-            // dataGridView2
+            // label1
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(36, 104);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(626, 189);
-            this.dataGridView2.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 304);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Resumen del Mes";
             // 
-            // dataGridView1
+            // dgvMostrarATF
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 304);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 211);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvMostrarATF.AllowUserToAddRows = false;
+            this.dgvMostrarATF.AllowUserToDeleteRows = false;
+            this.dgvMostrarATF.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMostrarATF.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColEmpleado2,
+            this.ColAsistencias,
+            this.ColTardanzas,
+            this.ColFaltas});
+            this.dgvMostrarATF.Location = new System.Drawing.Point(39, 345);
+            this.dgvMostrarATF.Name = "dgvMostrarATF";
+            this.dgvMostrarATF.ReadOnly = true;
+            this.dgvMostrarATF.RowHeadersWidth = 51;
+            this.dgvMostrarATF.Size = new System.Drawing.Size(513, 210);
+            this.dgvMostrarATF.TabIndex = 4;
             // 
-            // lblFecha
+            // ColEmpleado2
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(33, 24);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(39, 13);
-            this.lblFecha.TabIndex = 2;
-            this.lblFecha.Text = "fecha";
+            this.ColEmpleado2.HeaderText = "Empleado";
+            this.ColEmpleado2.MinimumWidth = 6;
+            this.ColEmpleado2.Name = "ColEmpleado2";
+            this.ColEmpleado2.ReadOnly = true;
+            this.ColEmpleado2.Width = 170;
             // 
-            // lblHora
+            // ColAsistencias
             // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.Location = new System.Drawing.Point(630, 24);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(32, 13);
-            this.lblHora.TabIndex = 3;
-            this.lblHora.Text = "hora";
+            this.ColAsistencias.HeaderText = "Asistencias";
+            this.ColAsistencias.MinimumWidth = 6;
+            this.ColAsistencias.Name = "ColAsistencias";
+            this.ColAsistencias.ReadOnly = true;
+            this.ColAsistencias.Width = 125;
+            // 
+            // ColTardanzas
+            // 
+            this.ColTardanzas.HeaderText = "Tardanzas";
+            this.ColTardanzas.MinimumWidth = 6;
+            this.ColTardanzas.Name = "ColTardanzas";
+            this.ColTardanzas.ReadOnly = true;
+            this.ColTardanzas.Width = 125;
+            // 
+            // ColFaltas
+            // 
+            this.ColFaltas.HeaderText = "Faltas";
+            this.ColFaltas.MinimumWidth = 6;
+            this.ColFaltas.Name = "ColFaltas";
+            this.ColFaltas.ReadOnly = true;
+            this.ColFaltas.Width = 125;
+            // 
+            // btnExportarMes
+            // 
+            this.btnExportarMes.Location = new System.Drawing.Point(411, 47);
+            this.btnExportarMes.Name = "btnExportarMes";
+            this.btnExportarMes.Size = new System.Drawing.Size(33, 31);
+            this.btnExportarMes.TabIndex = 3;
+            this.btnExportarMes.UseVisualStyleBackColor = true;
+            // 
+            // cmbMes
+            // 
+            this.cmbMes.FormattingEnabled = true;
+            this.cmbMes.Location = new System.Drawing.Point(458, 53);
+            this.cmbMes.Name = "cmbMes";
+            this.cmbMes.Size = new System.Drawing.Size(119, 21);
+            this.cmbMes.TabIndex = 2;
+            // 
+            // cmbAno
+            // 
+            this.cmbAno.FormattingEnabled = true;
+            this.cmbAno.Location = new System.Drawing.Point(583, 53);
+            this.cmbAno.Name = "cmbAno";
+            this.cmbAno.Size = new System.Drawing.Size(87, 21);
+            this.cmbAno.TabIndex = 1;
+            // 
+            // dgvMostrarReporteMes
+            // 
+            this.dgvMostrarReporteMes.AllowUserToAddRows = false;
+            this.dgvMostrarReporteMes.AllowUserToDeleteRows = false;
+            this.dgvMostrarReporteMes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMostrarReporteMes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColEmpleado});
+            this.dgvMostrarReporteMes.Location = new System.Drawing.Point(39, 94);
+            this.dgvMostrarReporteMes.Name = "dgvMostrarReporteMes";
+            this.dgvMostrarReporteMes.ReadOnly = true;
+            this.dgvMostrarReporteMes.RowHeadersWidth = 51;
+            this.dgvMostrarReporteMes.Size = new System.Drawing.Size(631, 179);
+            this.dgvMostrarReporteMes.TabIndex = 0;
+            // 
+            // ColEmpleado
+            // 
+            this.ColEmpleado.HeaderText = "Empleado";
+            this.ColEmpleado.MinimumWidth = 6;
+            this.ColEmpleado.Name = "ColEmpleado";
+            this.ColEmpleado.ReadOnly = true;
+            this.ColEmpleado.Width = 120;
+            // 
+            // panelDatosBiometricos
+            // 
+            this.panelDatosBiometricos.Controls.Add(this.lblCantidadCaras);
+            this.panelDatosBiometricos.Controls.Add(this.lblMostrarIniciandoCamara);
+            this.panelDatosBiometricos.Controls.Add(this.btnModificarCara);
+            this.panelDatosBiometricos.Controls.Add(this.btnAgregarCara);
+            this.panelDatosBiometricos.Controls.Add(this.btnSiguiente);
+            this.panelDatosBiometricos.Controls.Add(this.btnAnterior);
+            this.panelDatosBiometricos.Controls.Add(this.pbMostrarCaras);
+            this.panelDatosBiometricos.Controls.Add(this.btnFiltrarPanelCara);
+            this.panelDatosBiometricos.Controls.Add(this.txtFiltrarPanelCara);
+            this.panelDatosBiometricos.Controls.Add(this.label2);
+            this.panelDatosBiometricos.Controls.Add(this.dgvEmpleadosCaras);
+            this.panelDatosBiometricos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDatosBiometricos.Location = new System.Drawing.Point(0, 0);
+            this.panelDatosBiometricos.Name = "panelDatosBiometricos";
+            this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
+            this.panelDatosBiometricos.TabIndex = 8;
+            // 
+            // lblMostrarIniciandoCamara
+            // 
+            this.lblMostrarIniciandoCamara.AutoSize = true;
+            this.lblMostrarIniciandoCamara.ForeColor = System.Drawing.Color.Red;
+            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(487, 456);
+            this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
+            this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(35, 13);
+            this.lblMostrarIniciandoCamara.TabIndex = 10;
+            this.lblMostrarIniciandoCamara.Text = "label3";
+            // 
+            // btnModificarCara
+            // 
+            this.btnModificarCara.Location = new System.Drawing.Point(520, 409);
+            this.btnModificarCara.Name = "btnModificarCara";
+            this.btnModificarCara.Size = new System.Drawing.Size(103, 23);
+            this.btnModificarCara.TabIndex = 9;
+            this.btnModificarCara.Text = "Eliminar Cara";
+            this.btnModificarCara.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarCara
+            // 
+            this.btnAgregarCara.Location = new System.Drawing.Point(391, 409);
+            this.btnAgregarCara.Name = "btnAgregarCara";
+            this.btnAgregarCara.Size = new System.Drawing.Size(105, 23);
+            this.btnAgregarCara.TabIndex = 8;
+            this.btnAgregarCara.Text = "Agregar Cara";
+            this.btnAgregarCara.UseVisualStyleBackColor = true;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(565, 367);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 7;
+            this.btnSiguiente.Text = ">>";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Location = new System.Drawing.Point(378, 367);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
+            this.btnAnterior.TabIndex = 6;
+            this.btnAnterior.Text = "<<";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            // 
+            // pbMostrarCaras
+            // 
+            this.pbMostrarCaras.Location = new System.Drawing.Point(351, 76);
+            this.pbMostrarCaras.Name = "pbMostrarCaras";
+            this.pbMostrarCaras.Size = new System.Drawing.Size(320, 274);
+            this.pbMostrarCaras.TabIndex = 5;
+            this.pbMostrarCaras.TabStop = false;
+            // 
+            // btnFiltrarPanelCara
+            // 
+            this.btnFiltrarPanelCara.Location = new System.Drawing.Point(441, 30);
+            this.btnFiltrarPanelCara.Name = "btnFiltrarPanelCara";
+            this.btnFiltrarPanelCara.Size = new System.Drawing.Size(55, 23);
+            this.btnFiltrarPanelCara.TabIndex = 4;
+            this.btnFiltrarPanelCara.Text = "Filtrar";
+            this.btnFiltrarPanelCara.UseVisualStyleBackColor = true;
+            // 
+            // txtFiltrarPanelCara
+            // 
+            this.txtFiltrarPanelCara.Location = new System.Drawing.Point(127, 32);
+            this.txtFiltrarPanelCara.Name = "txtFiltrarPanelCara";
+            this.txtFiltrarPanelCara.Size = new System.Drawing.Size(299, 20);
+            this.txtFiltrarPanelCara.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Filtrar Empleado:";
+            // 
+            // dgvEmpleadosCaras
+            // 
+            this.dgvEmpleadosCaras.AllowUserToAddRows = false;
+            this.dgvEmpleadosCaras.AllowUserToDeleteRows = false;
+            this.dgvEmpleadosCaras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleadosCaras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.ColCaras});
+            this.dgvEmpleadosCaras.Location = new System.Drawing.Point(39, 76);
+            this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
+            this.dgvEmpleadosCaras.ReadOnly = true;
+            this.dgvEmpleadosCaras.RowHeadersWidth = 51;
+            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(274, 480);
+            this.dgvEmpleadosCaras.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Empleado";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 170;
+            // 
+            // ColCaras
+            // 
+            this.ColCaras.HeaderText = "Caras";
+            this.ColCaras.MinimumWidth = 6;
+            this.ColCaras.Name = "ColCaras";
+            this.ColCaras.ReadOnly = true;
+            this.ColCaras.Width = 50;
+            // 
+            // lblCantidadCaras
+            // 
+            this.lblCantidadCaras.AutoSize = true;
+            this.lblCantidadCaras.ForeColor = System.Drawing.Color.Blue;
+            this.lblCantidadCaras.Location = new System.Drawing.Point(492, 372);
+            this.lblCantidadCaras.Name = "lblCantidadCaras";
+            this.lblCantidadCaras.Size = new System.Drawing.Size(35, 13);
+            this.lblCantidadCaras.TabIndex = 11;
+            this.lblCantidadCaras.Text = "label3";
             // 
             // FrmMenuP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 595);
-            this.Controls.Add(this.PaneldeControl);
+            this.Controls.Add(this.panelAsistencia);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmMenuP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuP";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.PaneldeControl.ResumeLayout(false);
-            this.PaneldeControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelAsistencia.ResumeLayout(false);
+            this.panelAsistencia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).EndInit();
+            this.panelDatosBiometricos.ResumeLayout(false);
+            this.panelDatosBiometricos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,10 +486,31 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel PaneldeControl;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lblHora;
-        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Panel panelAsistencia;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvMostrarATF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAsistencias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColTardanzas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFaltas;
+        private System.Windows.Forms.Button btnExportarMes;
+        private System.Windows.Forms.ComboBox cmbMes;
+        private System.Windows.Forms.ComboBox cmbAno;
+        private System.Windows.Forms.DataGridView dgvMostrarReporteMes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
+        private System.Windows.Forms.Panel panelDatosBiometricos;
+        private System.Windows.Forms.Label lblCantidadCaras;
+        private System.Windows.Forms.Label lblMostrarIniciandoCamara;
+        private System.Windows.Forms.Button btnModificarCara;
+        private System.Windows.Forms.Button btnAgregarCara;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.PictureBox pbMostrarCaras;
+        private System.Windows.Forms.Button btnFiltrarPanelCara;
+        private System.Windows.Forms.TextBox txtFiltrarPanelCara;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvEmpleadosCaras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCaras;
     }
 }
