@@ -190,6 +190,12 @@ namespace InterfazAdministrador
 
         private void btnAgregarCara_Click(object sender, EventArgs e)
         {
+            if (empleadoSeleccionado == null)
+            {
+                MessageBox.Show("Por favor, seleccione un empleado antes de agregar una cara.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             RunCamara();
             lblMostrarIniciandoCamara.Text = "Cámara iniciada. Por favor, espere a que se muestre la imagen.";
 
@@ -208,12 +214,12 @@ namespace InterfazAdministrador
                     if (pbMostrarCaras.Image != null)
                         frameCopy = new Bitmap(pbMostrarCaras.Image);
                 });
+                StopCamera();
                 if (frameCopy == null)
                 {
                     Invoke(new Action(() =>
                     {
                         lblMostrarIniciandoCamara.Text = "No se pudo capturar la imagen de la cámara.";
-                        StopCamera();
                     }));
                     return;
                 }
@@ -228,6 +234,7 @@ namespace InterfazAdministrador
                     {
                         ActualizarImagenCara(caraIndex);
                         lblMostrarIniciandoCamara.Text = "Cara agregada exitosamente.";
+                        llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
                     }));
                 }
                 else
@@ -236,8 +243,8 @@ namespace InterfazAdministrador
                     {
                         lblMostrarIniciandoCamara.Text = "Error al agregar la cara. Intente nuevamente.";
                     }));
+                    LimpiarInterfazCaras();
                 }
-                StopCamera();
             });
         }
 
@@ -261,6 +268,7 @@ namespace InterfazAdministrador
                 caraIndex = Math.Min(caraIndex, caraList.Count - 1);
                 ActualizarImagenCara(caraIndex);
                 lblMostrarIniciandoCamara.Text = "Cara eliminada exitosamente.";
+                llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
             }
             else
             {
