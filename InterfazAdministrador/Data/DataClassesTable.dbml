@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_asistencia" Class="DataClassesTableDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=proyectos-upt.database.windows.net;Initial Catalog=db_asistencia;Persist Security Info=True;User ID=proyectos;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="InterfazAdministrador.Properties.Settings" SettingsPropertyName="db_asistenciaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cara" Member="Cara">
+    <Type Name="Cara">
+      <Column Name="idCara" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="caraBase64" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Empleado_Cara" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Turno" Member="Turno">
+    <Type Name="Turno">
+      <Column Name="idTurno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreTurno" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="horaInicio" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="horaFin" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Turno_Empleado" Member="Empleado" ThisKey="idTurno" OtherKey="idTurno" Type="Empleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empleado" Member="Empleado">
+    <Type Name="Empleado">
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombreEmpleado" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoEmpleado" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idTurno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Empleado_Cara" Member="Cara" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Cara" />
+      <Association Name="Empleado_HoraExtra" Member="HoraExtra" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="HoraExtra" />
+      <Association Name="Empleado_RegistroDiario" Member="RegistroDiario" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="RegistroDiario" />
+      <Association Name="Turno_Empleado" Member="Turno" ThisKey="idTurno" OtherKey="idTurno" Type="Turno" IsForeignKey="true" />
+      <Association Name="Rol_Empleado" Member="Rol" ThisKey="idRol" OtherKey="idRol" Type="Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fecha" Member="Fecha">
+    <Type Name="Fecha">
+      <Column Name="idFecha" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dia" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="mes" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ano" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Association Name="Fecha_HoraExtra" Member="HoraExtra" ThisKey="idFecha" OtherKey="idFecha" Type="HoraExtra" />
+      <Association Name="Fecha_RegistroDiario" Member="RegistroDiario" ThisKey="idFecha" OtherKey="idFecha" Type="RegistroDiario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoraExtra" Member="HoraExtra">
+    <Type Name="HoraExtra">
+      <Column Name="idFecha" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="minutosHorasExtras" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Empleado_HoraExtra" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" />
+      <Association Name="Fecha_HoraExtra" Member="Fecha" ThisKey="idFecha" OtherKey="idFecha" Type="Fecha" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistroDiario" Member="RegistroDiario">
+    <Type Name="RegistroDiario">
+      <Column Name="idFecha" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="horaEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="inicioDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="finDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="horaSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Empleado_RegistroDiario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" />
+      <Association Name="Fecha_RegistroDiario" Member="Fecha" ThisKey="idFecha" OtherKey="idFecha" Type="Fecha" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rol">
+    <Type Name="Rol">
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreRol" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Rol_Empleado" Member="Empleado" ThisKey="idRol" OtherKey="idRol" Type="Empleado" />
+    </Type>
+  </Table>
+</Database>

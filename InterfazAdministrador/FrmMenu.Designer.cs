@@ -1,6 +1,6 @@
 ﻿namespace InterfazAdministrador
 {
-    partial class FrmMenuP
+    partial class FrmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -39,18 +39,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.panelAsistencia = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvMostrarATF = new System.Windows.Forms.DataGridView();
-            this.ColEmpleado2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTardanzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFaltas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExportarMes = new System.Windows.Forms.Button();
-            this.cmbMes = new System.Windows.Forms.ComboBox();
-            this.cmbAno = new System.Windows.Forms.ComboBox();
-            this.dgvMostrarReporteMes = new System.Windows.Forms.DataGridView();
-            this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDatosBiometricos = new System.Windows.Forms.Panel();
+            this.lblCantidadCaras = new System.Windows.Forms.Label();
             this.lblMostrarIniciandoCamara = new System.Windows.Forms.Label();
             this.btnModificarCara = new System.Windows.Forms.Button();
             this.btnAgregarCara = new System.Windows.Forms.Button();
@@ -63,15 +53,26 @@
             this.dgvEmpleadosCaras = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCaras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCantidadCaras = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvMostrarATF = new System.Windows.Forms.DataGridView();
+            this.ColEmpleado2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColTardanzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFaltas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportarMes = new System.Windows.Forms.Button();
+            this.cmbMes = new System.Windows.Forms.ComboBox();
+            this.cmbAno = new System.Windows.Forms.ComboBox();
+            this.dgvMostrarReporteMes = new System.Windows.Forms.DataGridView();
+            this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminarFiltro = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAsistencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).BeginInit();
             this.panelDatosBiometricos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -79,7 +80,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.btnModificar);
@@ -88,7 +89,7 @@
             this.panel1.Controls.Add(this.lblUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 595);
             this.panel1.TabIndex = 0;
@@ -96,7 +97,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(30, 334);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 33);
             this.button3.TabIndex = 8;
@@ -107,7 +108,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(63, 279);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 33);
             this.button2.TabIndex = 7;
@@ -115,20 +116,20 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnSalir
             // 
-            this.button6.Location = new System.Drawing.Point(50, 544);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 24);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Salir";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(50, 544);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(112, 24);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(63, 231);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 33);
             this.button5.TabIndex = 5;
@@ -139,19 +140,18 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(30, 184);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 33);
             this.button4.TabIndex = 4;
             this.button4.Text = "Empleados";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(63, 134);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(92, 33);
             this.btnModificar.TabIndex = 3;
@@ -162,7 +162,7 @@
             // btnAsistencia
             // 
             this.btnAsistencia.Location = new System.Drawing.Point(30, 87);
-            this.btnAsistencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAsistencia.Margin = new System.Windows.Forms.Padding(2);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(112, 33);
             this.btnAsistencia.TabIndex = 2;
@@ -173,7 +173,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 28);
             this.pictureBox1.TabIndex = 1;
@@ -204,6 +204,147 @@
             this.panelAsistencia.Name = "panelAsistencia";
             this.panelAsistencia.Size = new System.Drawing.Size(710, 595);
             this.panelAsistencia.TabIndex = 3;
+            // 
+            // panelDatosBiometricos
+            // 
+            this.panelDatosBiometricos.Controls.Add(this.btnEliminarFiltro);
+            this.panelDatosBiometricos.Controls.Add(this.lblCantidadCaras);
+            this.panelDatosBiometricos.Controls.Add(this.lblMostrarIniciandoCamara);
+            this.panelDatosBiometricos.Controls.Add(this.btnModificarCara);
+            this.panelDatosBiometricos.Controls.Add(this.btnAgregarCara);
+            this.panelDatosBiometricos.Controls.Add(this.btnSiguiente);
+            this.panelDatosBiometricos.Controls.Add(this.btnAnterior);
+            this.panelDatosBiometricos.Controls.Add(this.pbMostrarCaras);
+            this.panelDatosBiometricos.Controls.Add(this.btnFiltrarPanelCara);
+            this.panelDatosBiometricos.Controls.Add(this.txtFiltrarPanelCara);
+            this.panelDatosBiometricos.Controls.Add(this.label2);
+            this.panelDatosBiometricos.Controls.Add(this.dgvEmpleadosCaras);
+            this.panelDatosBiometricos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelDatosBiometricos.Location = new System.Drawing.Point(0, 0);
+            this.panelDatosBiometricos.Name = "panelDatosBiometricos";
+            this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
+            this.panelDatosBiometricos.TabIndex = 8;
+            // 
+            // lblCantidadCaras
+            // 
+            this.lblCantidadCaras.AutoSize = true;
+            this.lblCantidadCaras.ForeColor = System.Drawing.Color.Blue;
+            this.lblCantidadCaras.Location = new System.Drawing.Point(492, 372);
+            this.lblCantidadCaras.Name = "lblCantidadCaras";
+            this.lblCantidadCaras.Size = new System.Drawing.Size(35, 13);
+            this.lblCantidadCaras.TabIndex = 11;
+            this.lblCantidadCaras.Text = "label3";
+            // 
+            // lblMostrarIniciandoCamara
+            // 
+            this.lblMostrarIniciandoCamara.AutoSize = true;
+            this.lblMostrarIniciandoCamara.ForeColor = System.Drawing.Color.Red;
+            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(487, 456);
+            this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
+            this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(35, 13);
+            this.lblMostrarIniciandoCamara.TabIndex = 10;
+            this.lblMostrarIniciandoCamara.Text = "label3";
+            // 
+            // btnModificarCara
+            // 
+            this.btnModificarCara.Location = new System.Drawing.Point(520, 409);
+            this.btnModificarCara.Name = "btnModificarCara";
+            this.btnModificarCara.Size = new System.Drawing.Size(103, 23);
+            this.btnModificarCara.TabIndex = 9;
+            this.btnModificarCara.Text = "Eliminar Cara";
+            this.btnModificarCara.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarCara
+            // 
+            this.btnAgregarCara.Location = new System.Drawing.Point(391, 409);
+            this.btnAgregarCara.Name = "btnAgregarCara";
+            this.btnAgregarCara.Size = new System.Drawing.Size(105, 23);
+            this.btnAgregarCara.TabIndex = 8;
+            this.btnAgregarCara.Text = "Agregar Cara";
+            this.btnAgregarCara.UseVisualStyleBackColor = true;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(565, 367);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 7;
+            this.btnSiguiente.Text = ">>";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Location = new System.Drawing.Point(378, 367);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
+            this.btnAnterior.TabIndex = 6;
+            this.btnAnterior.Text = "<<";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            // 
+            // pbMostrarCaras
+            // 
+            this.pbMostrarCaras.Location = new System.Drawing.Point(351, 76);
+            this.pbMostrarCaras.Name = "pbMostrarCaras";
+            this.pbMostrarCaras.Size = new System.Drawing.Size(320, 274);
+            this.pbMostrarCaras.TabIndex = 5;
+            this.pbMostrarCaras.TabStop = false;
+            // 
+            // btnFiltrarPanelCara
+            // 
+            this.btnFiltrarPanelCara.Location = new System.Drawing.Point(441, 30);
+            this.btnFiltrarPanelCara.Name = "btnFiltrarPanelCara";
+            this.btnFiltrarPanelCara.Size = new System.Drawing.Size(55, 23);
+            this.btnFiltrarPanelCara.TabIndex = 4;
+            this.btnFiltrarPanelCara.Text = "Filtrar";
+            this.btnFiltrarPanelCara.UseVisualStyleBackColor = true;
+            this.btnFiltrarPanelCara.Click += new System.EventHandler(this.btnFiltrarPanelCara_Click);
+            // 
+            // txtFiltrarPanelCara
+            // 
+            this.txtFiltrarPanelCara.Location = new System.Drawing.Point(127, 32);
+            this.txtFiltrarPanelCara.Name = "txtFiltrarPanelCara";
+            this.txtFiltrarPanelCara.Size = new System.Drawing.Size(299, 20);
+            this.txtFiltrarPanelCara.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Filtrar Empleado:";
+            // 
+            // dgvEmpleadosCaras
+            // 
+            this.dgvEmpleadosCaras.AllowUserToAddRows = false;
+            this.dgvEmpleadosCaras.AllowUserToDeleteRows = false;
+            this.dgvEmpleadosCaras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleadosCaras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.ColCaras});
+            this.dgvEmpleadosCaras.Location = new System.Drawing.Point(39, 76);
+            this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
+            this.dgvEmpleadosCaras.ReadOnly = true;
+            this.dgvEmpleadosCaras.RowHeadersWidth = 51;
+            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(274, 480);
+            this.dgvEmpleadosCaras.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Empleado";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 170;
+            // 
+            // ColCaras
+            // 
+            this.ColCaras.HeaderText = "Caras";
+            this.ColCaras.MinimumWidth = 6;
+            this.ColCaras.Name = "ColCaras";
+            this.ColCaras.ReadOnly = true;
+            this.ColCaras.Width = 50;
             // 
             // label1
             // 
@@ -309,154 +450,25 @@
             this.ColEmpleado.ReadOnly = true;
             this.ColEmpleado.Width = 120;
             // 
-            // panelDatosBiometricos
+            // btnEliminarFiltro
             // 
-            this.panelDatosBiometricos.Controls.Add(this.lblCantidadCaras);
-            this.panelDatosBiometricos.Controls.Add(this.lblMostrarIniciandoCamara);
-            this.panelDatosBiometricos.Controls.Add(this.btnModificarCara);
-            this.panelDatosBiometricos.Controls.Add(this.btnAgregarCara);
-            this.panelDatosBiometricos.Controls.Add(this.btnSiguiente);
-            this.panelDatosBiometricos.Controls.Add(this.btnAnterior);
-            this.panelDatosBiometricos.Controls.Add(this.pbMostrarCaras);
-            this.panelDatosBiometricos.Controls.Add(this.btnFiltrarPanelCara);
-            this.panelDatosBiometricos.Controls.Add(this.txtFiltrarPanelCara);
-            this.panelDatosBiometricos.Controls.Add(this.label2);
-            this.panelDatosBiometricos.Controls.Add(this.dgvEmpleadosCaras);
-            this.panelDatosBiometricos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDatosBiometricos.Location = new System.Drawing.Point(0, 0);
-            this.panelDatosBiometricos.Name = "panelDatosBiometricos";
-            this.panelDatosBiometricos.Size = new System.Drawing.Size(710, 595);
-            this.panelDatosBiometricos.TabIndex = 8;
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(502, 30);
+            this.btnEliminarFiltro.Name = "btnEliminarFiltro";
+            this.btnEliminarFiltro.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarFiltro.TabIndex = 12;
+            this.btnEliminarFiltro.Text = "EliminarFiltro";
+            this.btnEliminarFiltro.UseVisualStyleBackColor = true;
+            this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
             // 
-            // lblMostrarIniciandoCamara
-            // 
-            this.lblMostrarIniciandoCamara.AutoSize = true;
-            this.lblMostrarIniciandoCamara.ForeColor = System.Drawing.Color.Red;
-            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(487, 456);
-            this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
-            this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(35, 13);
-            this.lblMostrarIniciandoCamara.TabIndex = 10;
-            this.lblMostrarIniciandoCamara.Text = "label3";
-            // 
-            // btnModificarCara
-            // 
-            this.btnModificarCara.Location = new System.Drawing.Point(520, 409);
-            this.btnModificarCara.Name = "btnModificarCara";
-            this.btnModificarCara.Size = new System.Drawing.Size(103, 23);
-            this.btnModificarCara.TabIndex = 9;
-            this.btnModificarCara.Text = "Eliminar Cara";
-            this.btnModificarCara.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarCara
-            // 
-            this.btnAgregarCara.Location = new System.Drawing.Point(391, 409);
-            this.btnAgregarCara.Name = "btnAgregarCara";
-            this.btnAgregarCara.Size = new System.Drawing.Size(105, 23);
-            this.btnAgregarCara.TabIndex = 8;
-            this.btnAgregarCara.Text = "Agregar Cara";
-            this.btnAgregarCara.UseVisualStyleBackColor = true;
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Location = new System.Drawing.Point(565, 367);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.btnSiguiente.TabIndex = 7;
-            this.btnSiguiente.Text = ">>";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            // 
-            // btnAnterior
-            // 
-            this.btnAnterior.Location = new System.Drawing.Point(378, 367);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
-            this.btnAnterior.TabIndex = 6;
-            this.btnAnterior.Text = "<<";
-            this.btnAnterior.UseVisualStyleBackColor = true;
-            // 
-            // pbMostrarCaras
-            // 
-            this.pbMostrarCaras.Location = new System.Drawing.Point(351, 76);
-            this.pbMostrarCaras.Name = "pbMostrarCaras";
-            this.pbMostrarCaras.Size = new System.Drawing.Size(320, 274);
-            this.pbMostrarCaras.TabIndex = 5;
-            this.pbMostrarCaras.TabStop = false;
-            // 
-            // btnFiltrarPanelCara
-            // 
-            this.btnFiltrarPanelCara.Location = new System.Drawing.Point(441, 30);
-            this.btnFiltrarPanelCara.Name = "btnFiltrarPanelCara";
-            this.btnFiltrarPanelCara.Size = new System.Drawing.Size(55, 23);
-            this.btnFiltrarPanelCara.TabIndex = 4;
-            this.btnFiltrarPanelCara.Text = "Filtrar";
-            this.btnFiltrarPanelCara.UseVisualStyleBackColor = true;
-            // 
-            // txtFiltrarPanelCara
-            // 
-            this.txtFiltrarPanelCara.Location = new System.Drawing.Point(127, 32);
-            this.txtFiltrarPanelCara.Name = "txtFiltrarPanelCara";
-            this.txtFiltrarPanelCara.Size = new System.Drawing.Size(299, 20);
-            this.txtFiltrarPanelCara.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Filtrar Empleado:";
-            // 
-            // dgvEmpleadosCaras
-            // 
-            this.dgvEmpleadosCaras.AllowUserToAddRows = false;
-            this.dgvEmpleadosCaras.AllowUserToDeleteRows = false;
-            this.dgvEmpleadosCaras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleadosCaras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.ColCaras});
-            this.dgvEmpleadosCaras.Location = new System.Drawing.Point(39, 76);
-            this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
-            this.dgvEmpleadosCaras.ReadOnly = true;
-            this.dgvEmpleadosCaras.RowHeadersWidth = 51;
-            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(274, 480);
-            this.dgvEmpleadosCaras.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Empleado";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 170;
-            // 
-            // ColCaras
-            // 
-            this.ColCaras.HeaderText = "Caras";
-            this.ColCaras.MinimumWidth = 6;
-            this.ColCaras.Name = "ColCaras";
-            this.ColCaras.ReadOnly = true;
-            this.ColCaras.Width = 50;
-            // 
-            // lblCantidadCaras
-            // 
-            this.lblCantidadCaras.AutoSize = true;
-            this.lblCantidadCaras.ForeColor = System.Drawing.Color.Blue;
-            this.lblCantidadCaras.Location = new System.Drawing.Point(492, 372);
-            this.lblCantidadCaras.Name = "lblCantidadCaras";
-            this.lblCantidadCaras.Size = new System.Drawing.Size(35, 13);
-            this.lblCantidadCaras.TabIndex = 11;
-            this.lblCantidadCaras.Text = "label3";
-            // 
-            // FrmMenuP
+            // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 595);
             this.Controls.Add(this.panelAsistencia);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "FrmMenuP";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuP";
             this.panel1.ResumeLayout(false);
@@ -464,12 +476,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelAsistencia.ResumeLayout(false);
             this.panelAsistencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).EndInit();
             this.panelDatosBiometricos.ResumeLayout(false);
             this.panelDatosBiometricos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteMes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,7 +489,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnModificar;
@@ -512,5 +524,6 @@
         private System.Windows.Forms.DataGridView dgvEmpleadosCaras;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCaras;
+        private System.Windows.Forms.Button btnEliminarFiltro;
     }
 }

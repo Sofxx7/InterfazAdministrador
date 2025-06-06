@@ -35,8 +35,8 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.Location = new System.Drawing.Point(130, 39);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(114, 20);
             this.txtUsuario.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.txtContrasena.BackColor = System.Drawing.Color.White;
             this.txtContrasena.Location = new System.Drawing.Point(130, 70);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(148, 20);
             this.txtContrasena.TabIndex = 5;
@@ -96,7 +96,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(345, 84);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(122, 142);
             this.pictureBox1.TabIndex = 2;
@@ -105,17 +105,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(143)))), ((int)(((byte)(60)))));
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.txtContrasena);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Location = new System.Drawing.Point(28, 84);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 142);
             this.panel1.TabIndex = 4;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(16, 103);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(262, 23);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Iniciar Sesión";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label4
             // 
@@ -127,16 +137,6 @@
             this.label4.Size = new System.Drawing.Size(117, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "Datos de Acceso:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(16, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(262, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Iniciar Sesión";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
@@ -148,7 +148,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogin";
             this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -171,7 +171,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 
