@@ -1,12 +1,7 @@
 ﻿using InterfazAdministrador.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using InterfazAdministrador.Tools;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfazAdministrador.Interfaces
@@ -14,6 +9,7 @@ namespace InterfazAdministrador.Interfaces
     public partial class FrmAsistencia : Form
     {
         private readonly FechaRepository fechaRepository = new FechaRepository();
+        private readonly Tool tool = new Tool();
 
         public FrmAsistencia()
         {
@@ -25,7 +21,9 @@ namespace InterfazAdministrador.Interfaces
                 cmbAno.SelectedIndex = 0;
             }
 
-            cmbMes.DataSource = fechaRepository.ObtenerLosMesesPorAno(cmbAno.SelectedItem.ToString());
+            cmbMes.DataSource = fechaRepository.ObtenerLosMesesPorAno(cmbAno.SelectedItem.ToString())
+                   .Select(mes => tool.numberToMonth(int.Parse(mes)))
+                   .ToList();
             if (cmbMes.Items.Count > 0)
             {
                 cmbMes.SelectedIndex = cmbMes.Items.Count - 1;

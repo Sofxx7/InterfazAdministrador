@@ -21,9 +21,19 @@ namespace InterfazAdministrador.Tools
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error converting Base64 to Image: {ex.Message}");
+                Console.WriteLine($"Error convirtiendo base64 a Imagen: {ex.Message}");
                 return null;
             }
+        }
+
+        public string numberToMonth(int monthNumber)
+        {
+            if (monthNumber < 1 || monthNumber > 12)
+            {
+                throw new ArgumentOutOfRangeException(nameof(monthNumber), "El numero del mes debe ser entre 1 a 12.");
+            }
+            var mes = new DateTime(1, monthNumber, 1).ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
+            return char.ToUpper(mes[0]) + mes.Substring(1);
         }
     }
 }
