@@ -35,5 +35,15 @@ namespace InterfazAdministrador.Tools
             var mes = new DateTime(1, monthNumber, 1).ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
             return char.ToUpper(mes[0]) + mes.Substring(1);
         }
+
+        public string monthToNumber(string monthName)
+        {
+            if (string.IsNullOrEmpty(monthName))
+            {
+                throw new ArgumentNullException(nameof(monthName), "El nombre del mes no puede ser nulo o vacío.");
+            }
+            var dateTime = DateTime.ParseExact(monthName, "MMMM", new System.Globalization.CultureInfo("es-ES"));
+            return dateTime.Month.ToString();
+        }
     }
 }

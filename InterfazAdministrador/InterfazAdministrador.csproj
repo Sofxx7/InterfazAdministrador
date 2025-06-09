@@ -67,6 +67,7 @@
     </Compile>
     <Compile Include="Data\EmpleadoRepository.cs" />
     <Compile Include="Data\FechaRepository.cs" />
+    <Compile Include="Data\RegistroDiarioRepository.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,14 +112,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Data\DataClassesTable.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesTable.designer.cs</LastGenOutput>
@@ -142,17 +137,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\photo-1544914379-806667cd9489.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\istockphoto-1397509122-612x612.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\istockphoto-1289562025-612x612.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

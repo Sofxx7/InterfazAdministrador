@@ -39,6 +39,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.btnDatosBiometricos);
             this.panel1.Controls.Add(this.btnSalir);
@@ -64,7 +66,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(30, 334);
+            this.button3.Location = new System.Drawing.Point(30, 381);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 33);
@@ -75,7 +77,7 @@
             // 
             // btnDatosBiometricos
             // 
-            this.btnDatosBiometricos.Location = new System.Drawing.Point(63, 279);
+            this.btnDatosBiometricos.Location = new System.Drawing.Point(63, 326);
             this.btnDatosBiometricos.Margin = new System.Windows.Forms.Padding(2);
             this.btnDatosBiometricos.Name = "btnDatosBiometricos";
             this.btnDatosBiometricos.Size = new System.Drawing.Size(126, 33);
@@ -98,7 +100,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(63, 231);
+            this.button5.Location = new System.Drawing.Point(63, 278);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 33);
@@ -109,7 +111,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(30, 184);
+            this.button4.Location = new System.Drawing.Point(30, 231);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 33);
@@ -169,6 +171,17 @@
             this.pnlContenedor.Size = new System.Drawing.Size(708, 595);
             this.pnlContenedor.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(63, 183);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 33);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Horas Extras";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnDatosBiometricos;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Button button1;
     }
 }

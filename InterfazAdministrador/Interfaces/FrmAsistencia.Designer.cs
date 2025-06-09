@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblResumenMes = new System.Windows.Forms.Label();
             this.dgvMostrarATF = new System.Windows.Forms.DataGridView();
             this.ColEmpleado2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +43,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblResumenMes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 305);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Resumen del Mes";
+            this.lblResumenMes.AutoSize = true;
+            this.lblResumenMes.Location = new System.Drawing.Point(38, 312);
+            this.lblResumenMes.Name = "lblResumenMes";
+            this.lblResumenMes.Size = new System.Drawing.Size(158, 13);
+            this.lblResumenMes.TabIndex = 11;
+            this.lblResumenMes.Text = "Resumen de Asistencia del Mes";
             // 
             // dgvMostrarATF
             // 
@@ -116,6 +116,7 @@
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(119, 21);
             this.cmbMes.TabIndex = 8;
+            this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
             // cmbAno
             // 
@@ -124,6 +125,7 @@
             this.cmbAno.Name = "cmbAno";
             this.cmbAno.Size = new System.Drawing.Size(87, 21);
             this.cmbAno.TabIndex = 7;
+            this.cmbAno.SelectedIndexChanged += new System.EventHandler(this.cmbAno_SelectedIndexChanged);
             // 
             // dgvMostrarReporteDia
             // 
@@ -147,19 +149,19 @@
             this.ColEmpleado.ReadOnly = true;
             this.ColEmpleado.Width = 120;
             // 
-            // Asistencia
+            // FrmAsistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 595);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblResumenMes);
             this.Controls.Add(this.dgvMostrarATF);
             this.Controls.Add(this.btnExportarMes);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.cmbAno);
             this.Controls.Add(this.dgvMostrarReporteDia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Asistencia";
+            this.Name = "FrmAsistencia";
             this.Text = "Asisyencia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).EndInit();
@@ -170,7 +172,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblResumenMes;
         private System.Windows.Forms.DataGridView dgvMostrarATF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAsistencias;
