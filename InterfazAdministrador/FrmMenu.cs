@@ -1,4 +1,5 @@
-﻿using InterfazAdministrador.Interfaces;
+﻿using InterfazAdministrador.Data;
+using InterfazAdministrador.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -6,9 +7,14 @@ namespace InterfazAdministrador
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu()
+        private Empleado administrador;
+
+        public FrmMenu(Empleado empleado)
         {
             InitializeComponent();
+            administrador = empleado;
+
+            lblUsuario.Text = $"{administrador.nombreEmpleado} {administrador.apellidoEmpleado}";
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

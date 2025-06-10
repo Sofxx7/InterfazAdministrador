@@ -11,5 +11,10 @@ namespace InterfazAdministrador.Data
         {
             return db.Empleado.ToList();
         }
+
+        public Empleado ObtenerEmpleadoPorId(string id)
+        {
+            return db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(id));
+        }
     }
 }

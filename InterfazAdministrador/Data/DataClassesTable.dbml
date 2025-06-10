@@ -17,6 +17,14 @@
       <Association Name="Turno_Empleado" Member="Empleado" ThisKey="idTurno" OtherKey="idTurno" Type="Empleado" />
     </Type>
   </Table>
+  <Table Name="dbo.Credencial" Member="Credencial">
+    <Type Name="Credencial">
+      <Column Name="idCredencial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="hash_contrasena" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="sal_contrasena" Type="System.String" DbType="VarChar(64) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Empleado" Member="Empleado">
     <Type Name="Empleado">
       <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -29,6 +37,13 @@
       <Association Name="Empleado_RegistroDiario" Member="RegistroDiario" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="RegistroDiario" />
       <Association Name="Turno_Empleado" Member="Turno" ThisKey="idTurno" OtherKey="idTurno" Type="Turno" IsForeignKey="true" />
       <Association Name="Rol_Empleado" Member="Rol" ThisKey="idRol" OtherKey="idRol" Type="Rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadoAsistencia" Member="EstadoAsistencia">
+    <Type Name="EstadoAsistencia">
+      <Column Name="idEvento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreEvento" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="EstadoAsistencia_RegistroDiario" Member="RegistroDiario" ThisKey="idEvento" OtherKey="idEstadoAsistencia" Type="RegistroDiario" />
     </Type>
   </Table>
   <Table Name="dbo.Fecha" Member="Fecha">
@@ -58,6 +73,8 @@
       <Column Name="inicioDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="finDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="horaSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="idEstadoAsistencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="EstadoAsistencia_RegistroDiario" Member="EstadoAsistencia" ThisKey="idEstadoAsistencia" OtherKey="idEvento" Type="EstadoAsistencia" IsForeignKey="true" />
       <Association Name="Empleado_RegistroDiario" Member="Empleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="Empleado" IsForeignKey="true" />
       <Association Name="Fecha_RegistroDiario" Member="Fecha" ThisKey="idFecha" OtherKey="idFecha" Type="Fecha" IsForeignKey="true" />
     </Type>
