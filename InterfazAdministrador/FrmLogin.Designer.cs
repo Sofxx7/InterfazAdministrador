@@ -90,6 +90,7 @@
             this.txtContrasena.Location = new System.Drawing.Point(130, 70);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(148, 20);
             this.txtContrasena.TabIndex = 5;
             // 

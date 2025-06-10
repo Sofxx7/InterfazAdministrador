@@ -32,6 +32,10 @@ namespace InterfazAdministrador.Interfaces
 
             lblMostrarIniciandoCamara.Text = string.Empty;
             lblCantidadCaras.Text = string.Empty;
+            btnAgregarCara.Enabled = false;
+            btnEliminarCara.Enabled = false;
+            btnSiguiente.Enabled = false;
+            btnAnterior.Enabled = false;
 
             llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
         }

@@ -20,7 +20,6 @@ namespace InterfazAdministrador.Service
             try
             {
                 string base64Image = ConvertImageToBase64(cara);
-                Console.WriteLine($"{base64Image}");
 
                 var dto = new AgregarDto
                 {
