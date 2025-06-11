@@ -1,6 +1,7 @@
 ﻿using InterfazAdministrador.Data;
 using InterfazAdministrador.Tools;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,10 +13,13 @@ namespace InterfazAdministrador.Interfaces
         private readonly FechaRepository fechaRepository = new FechaRepository();
         private readonly EmpleadoRepository empleadoRepository = new EmpleadoRepository();
         private readonly RegistroDiarioRepository registroDiarioRepository = new RegistroDiarioRepository();
+        private readonly EstadoAsistenciaRepository estadoAsistenciaRepository = new EstadoAsistenciaRepository();
         private readonly Tool tool = new Tool();
 
         private int actualMonth;
         private string actualYear;
+
+        List<EstadoAsistencia> estadosAsistencia;
 
         private const int toleranciaAsistencia = 15;
         private const int tiempoFalta = 30;
@@ -118,6 +122,7 @@ namespace InterfazAdministrador.Interfaces
 
             var empleados = empleadoRepository.ListarEmpleados();
             var registros = registroDiarioRepository.ListarRegistrosDiarios();
+            estadosAsistencia = estadoAsistenciaRepository.ListarEstadoAsistencia();
 
             foreach (var empleado in empleados)
             {
@@ -135,14 +140,13 @@ namespace InterfazAdministrador.Interfaces
                 {
                     if (registro.horaEntrada.HasValue)
                     {
-                        var horaEntradaTurno = empleado.Turno.horaInicio;
-                        var minutosRetraso = (registro.horaEntrada.Value - horaEntradaTurno).TotalMinutes;
+                        var estado = estadosAsistencia.Single(estadosAsistencia => estadosAsistencia.idEvento.Equals(registro.idEstadoAsistencia.Value)).nombreEvento;
 
-                        if (minutosRetraso <= toleranciaAsistencia)
+                        if (estado.Equals("Asistencia"))
                         {
                             asistencias++;
                         }
-                        else if (minutosRetraso >= tiempoFalta)
+                        else if (estado.Equals("Falta"))
                         {
                             faltas++;
                         }
