@@ -19,21 +19,24 @@ namespace InterfazAdministrador.Interfaces
         private int actualMonth;
         private string actualYear;
 
-        List<EstadoAsistencia> estadosAsistencia;
-
-        private const int toleranciaAsistencia = 15;
-        private const int tiempoFalta = 30;
+        private List<Empleado> empleadosCache;
+        private List<EstadoAsistencia> estadosAsistenciaCache;
 
         public FrmAsistencia()
         {
             InitializeComponent();
+            empleadosCache = empleadoRepository.ListarEmpleados();
+            estadosAsistenciaCache = estadoAsistenciaRepository.ListarEstadoAsistencia();
             LoadComboBoxes();
-
+            CargarDgvReporteDia();
             CargarDgvATF();
         }
 
         private void LoadComboBoxes()
         {
+            cmbAno.SelectedIndexChanged -= cmbAno_SelectedIndexChanged;
+            cmbMes.SelectedIndexChanged -= cmbMes_SelectedIndexChanged;
+
             DateTime currentDate = DateTime.Now;
             actualMonth = currentDate.Month;
             actualYear = currentDate.Year.ToString();
@@ -55,6 +58,9 @@ namespace InterfazAdministrador.Interfaces
             }
 
             LoadMonthsForSelectedYear();
+
+            cmbAno.SelectedIndexChanged += cmbAno_SelectedIndexChanged;
+            cmbMes.SelectedIndexChanged += cmbMes_SelectedIndexChanged;
         }
 
         private void LoadMonthsForSelectedYear()
@@ -110,6 +116,11 @@ namespace InterfazAdministrador.Interfaces
             CargarDgvATF();
         }
 
+        private void CargarDgvReporteDia()
+        {
+            
+        }
+
         private void CargarDgvATF()
         {
             dgvMostrarATF.Rows.Clear();
@@ -120,9 +131,9 @@ namespace InterfazAdministrador.Interfaces
             if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado))
                 return;
 
-            var empleados = empleadoRepository.ListarEmpleados();
-            var registros = registroDiarioRepository.ListarRegistrosDiarios();
-            estadosAsistencia = estadoAsistenciaRepository.ListarEstadoAsistencia();
+            var empleados = empleadosCache;
+            var estadosAsistencia = estadosAsistenciaCache;
+            var registros = registroDiarioRepository.ListarRegistrosDiarios(anoSeleccionado, int.Parse(tool.monthToNumber(mesSeleccionado)));
 
             foreach (var empleado in empleados)
             {
@@ -140,7 +151,7 @@ namespace InterfazAdministrador.Interfaces
                 {
                     if (registro.horaEntrada.HasValue)
                     {
-                        var estado = estadosAsistencia.Single(estadosAsistencia => estadosAsistencia.idEvento.Equals(registro.idEstadoAsistencia.Value)).nombreEvento;
+                        var estado = estadosAsistencia.Single(e => e.idEvento.Equals(registro.idEstadoAsistencia.Value)).nombreEvento;
 
                         if (estado.Equals("Asistencia"))
                         {

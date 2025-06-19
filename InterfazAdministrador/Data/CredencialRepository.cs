@@ -16,5 +16,16 @@ namespace InterfazAdministrador.Data
 
             return await passwordService.VerificarContrasena(contrasena, credencial.hash_contrasena);
         }
+
+        public async Task<bool> ActualizarContrasenaAsync(string idEmpleado, string nuevaContrasena)
+        {
+            var credencial = db.Credencial.SingleOrDefault(c => c.idEmpleado.Equals(idEmpleado));
+            if (credencial == null) return false;
+
+            string hash = await passwordService.HashContrasena(nuevaContrasena);
+            credencial.hash_contrasena = hash;
+            db.SubmitChanges();
+            return true;
+        }
     }
 }

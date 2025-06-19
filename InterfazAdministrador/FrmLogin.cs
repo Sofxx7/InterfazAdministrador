@@ -26,8 +26,9 @@ namespace InterfazAdministrador
             if (esValido)
             {
                 FrmMenu menu = new FrmMenu(empleado);
+                this.Hide();
+                menu.FormClosed += (s, args) => this.Close();
                 menu.Show();
-                Hide();
             }
             else
             {

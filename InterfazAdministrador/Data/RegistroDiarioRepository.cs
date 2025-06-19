@@ -7,9 +7,11 @@ namespace InterfazAdministrador.Data
     {
         DataClassesTableDataContext db = new DataClassesTableDataContext();
 
-        public List<RegistroDiario> ListarRegistrosDiarios()
+        public List<RegistroDiario> ListarRegistrosDiarios(string ano, int mes)
         {
-            return db.RegistroDiario.ToList();
+            return db.RegistroDiario
+                .Where(r => r.Fecha.ano.Equals(ano) && r.Fecha.mes.Equals(mes))
+                .ToList();
         }
     }
 }
