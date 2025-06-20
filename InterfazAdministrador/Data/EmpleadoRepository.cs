@@ -16,5 +16,14 @@ namespace InterfazAdministrador.Data
         {
             return db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(id));
         }
+
+        public bool EliminarEmpleado(string id)
+        {
+            var empleado = db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(id));
+            if (empleado == null) return false;
+            db.Empleado.DeleteOnSubmit(empleado);
+            db.SubmitChanges();
+            return true;
+        }
     }
 }

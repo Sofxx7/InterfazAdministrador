@@ -36,7 +36,6 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.pbMostrarCaras = new System.Windows.Forms.PictureBox();
-            this.btnFiltrarPanelCara = new System.Windows.Forms.Button();
             this.txtFiltrarPanelCara = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvEmpleadosCaras = new System.Windows.Forms.DataGridView();
@@ -48,7 +47,7 @@
             // 
             // btnEliminarFiltro
             // 
-            this.btnEliminarFiltro.Location = new System.Drawing.Point(504, 34);
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(443, 34);
             this.btnEliminarFiltro.Name = "btnEliminarFiltro";
             this.btnEliminarFiltro.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarFiltro.TabIndex = 24;
@@ -125,22 +124,13 @@
             this.pbMostrarCaras.TabIndex = 17;
             this.pbMostrarCaras.TabStop = false;
             // 
-            // btnFiltrarPanelCara
-            // 
-            this.btnFiltrarPanelCara.Location = new System.Drawing.Point(443, 34);
-            this.btnFiltrarPanelCara.Name = "btnFiltrarPanelCara";
-            this.btnFiltrarPanelCara.Size = new System.Drawing.Size(55, 23);
-            this.btnFiltrarPanelCara.TabIndex = 16;
-            this.btnFiltrarPanelCara.Text = "Filtrar";
-            this.btnFiltrarPanelCara.UseVisualStyleBackColor = true;
-            this.btnFiltrarPanelCara.Click += new System.EventHandler(this.btnFiltrarPanelCara_Click);
-            // 
             // txtFiltrarPanelCara
             // 
             this.txtFiltrarPanelCara.Location = new System.Drawing.Point(129, 36);
             this.txtFiltrarPanelCara.Name = "txtFiltrarPanelCara";
             this.txtFiltrarPanelCara.Size = new System.Drawing.Size(299, 20);
             this.txtFiltrarPanelCara.TabIndex = 15;
+            this.txtFiltrarPanelCara.TextChanged += new System.EventHandler(this.txtFiltrarPanelCara_TextChanged);
             // 
             // label2
             // 
@@ -184,7 +174,7 @@
             this.ColCaras.ReadOnly = true;
             this.ColCaras.Width = 50;
             // 
-            // DatatosBiometricos
+            // FrmDatosBiometricos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,12 +187,11 @@
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.pbMostrarCaras);
-            this.Controls.Add(this.btnFiltrarPanelCara);
             this.Controls.Add(this.txtFiltrarPanelCara);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvEmpleadosCaras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DatatosBiometricos";
+            this.Name = "FrmDatosBiometricos";
             this.Text = "DatatosBiometricos";
             ((System.ComponentModel.ISupportInitialize)(this.pbMostrarCaras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).EndInit();
@@ -221,7 +210,6 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.PictureBox pbMostrarCaras;
-        private System.Windows.Forms.Button btnFiltrarPanelCara;
         private System.Windows.Forms.TextBox txtFiltrarPanelCara;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvEmpleadosCaras;

@@ -40,15 +40,11 @@ namespace InterfazAdministrador.Interfaces
             llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
         }
 
-        private void btnFiltrarPanelCara_Click(object sender, EventArgs e)
+        private void txtFiltrarPanelCara_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltrarPanelCara.Text.ToLower();
 
-            if (string.IsNullOrEmpty(buscar))
-            {
-                MessageBox.Show("Por favor, ingrese un nombre o apellido para filtrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            if (string.IsNullOrEmpty(buscar)) return;
 
             List<Empleado> empleadosFiltrados = empleadoRepository.ListarEmpleados()
                 .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))

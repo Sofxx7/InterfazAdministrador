@@ -48,5 +48,10 @@ namespace InterfazAdministrador
         {
             CargarFormulario(new FrmConfiguracion(administrador.idEmpleado));
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmDatosPersonales());
+        }
     }
 }

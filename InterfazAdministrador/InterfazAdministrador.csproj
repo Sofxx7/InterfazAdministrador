@@ -89,6 +89,8 @@
     <Compile Include="Data\EstadoAsistenciaRepository.cs" />
     <Compile Include="Data\FechaRepository.cs" />
     <Compile Include="Data\RegistroDiarioRepository.cs" />
+    <Compile Include="Data\RolRepository.cs" />
+    <Compile Include="Data\TurnoRepository.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +121,12 @@
     <Compile Include="Interfaces\FrmDatosBiometricos.Designer.cs">
       <DependentUpon>FrmDatosBiometricos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\FrmDatosPersonales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\FrmDatosPersonales.Designer.cs">
+      <DependentUpon>FrmDatosPersonales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dto\AgregarDto.cs" />
     <Compile Include="Models\Dto\DeleteDto.cs" />
     <Compile Include="Program.cs" />
@@ -145,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FrmDatosBiometricos.resx">
       <DependentUpon>FrmDatosBiometricos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmDatosPersonales.resx">
+      <DependentUpon>FrmDatosPersonales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
