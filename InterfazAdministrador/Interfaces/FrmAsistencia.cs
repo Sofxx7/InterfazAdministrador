@@ -1,8 +1,10 @@
 ﻿using InterfazAdministrador.Data;
 using InterfazAdministrador.Tools;
+using InterfazAdministrador.Service;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -116,12 +118,14 @@ namespace InterfazAdministrador.Interfaces
         private void cmbMes_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarDgvATF();
+            CargarDgvReporte();
         }
 
         private void cmbAno_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadMonthsForSelectedYear();
             CargarDgvATF();
+            CargarDgvReporte();
         }
 
         private void CargarDgvReporte()
@@ -253,6 +257,47 @@ namespace InterfazAdministrador.Interfaces
                     tardanzas,
                     faltas
                 );
+            }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if (dgvMostrarReporte.Rows.Count == 0 && dgvMostrarATF.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string mes = cmbMes.SelectedItem?.ToString() ?? "Mes";
+            string ano = cmbAno.SelectedItem?.ToString() ?? "Año";
+            string defaultFileName = $"{mes}{ano}.xlsx";
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Archivos Excel (*.xlsx)|*.xlsx";
+                sfd.FileName = defaultFileName;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        var excelService = new ExcelServicecs();
+                        var grids = new Dictionary<string, DataGridView>
+                        {
+                            { "Reporte", dgvMostrarReporte },
+                            { "Resumen", dgvMostrarATF }
+                        };
+                        excelService.ExportMultipleDataGridViewsToExcel(grids, sfd.FileName);
+                        MessageBox.Show("Exportación exitosa.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show($"Error al guardar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

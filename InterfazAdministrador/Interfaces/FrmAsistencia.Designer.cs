@@ -107,6 +107,7 @@
             this.btnExportarMes.Size = new System.Drawing.Size(33, 31);
             this.btnExportarMes.TabIndex = 9;
             this.btnExportarMes.UseVisualStyleBackColor = true;
+            this.btnExportarMes.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // cmbMes
             // 
