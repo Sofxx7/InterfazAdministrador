@@ -19,7 +19,9 @@ namespace InterfazAdministrador.Interfaces
         private int actualMonth;
         private string actualYear;
 
+        private List<Fecha> fechasCache;
         private List<Empleado> empleadosCache;
+        private List<RegistroDiario> registrosDiariosCache;
         private List<EstadoAsistencia> estadosAsistenciaCache;
 
         public FrmAsistencia()
@@ -27,6 +29,8 @@ namespace InterfazAdministrador.Interfaces
             InitializeComponent();
             empleadosCache = empleadoRepository.ListarEmpleados();
             estadosAsistenciaCache = estadoAsistenciaRepository.ListarEstadoAsistencia();
+            fechasCache = fechaRepository.ObtenerFechas();
+            registrosDiariosCache = new List<RegistroDiario>();
             LoadComboBoxes();
             CargarDgvReporteDia();
             CargarDgvATF();
@@ -41,7 +45,7 @@ namespace InterfazAdministrador.Interfaces
             actualMonth = currentDate.Month;
             actualYear = currentDate.Year.ToString();
 
-            var years = fechaRepository.ObtenerLosAnos();
+            var years = fechasCache.Select(f => f.ano).Distinct().ToList();
             if (years != null && years.Any())
             {
                 cmbAno.DataSource = years;
@@ -68,7 +72,11 @@ namespace InterfazAdministrador.Interfaces
             if (cmbAno.SelectedItem == null) return;
 
             string selectedYear = cmbAno.SelectedItem.ToString();
-            var months = fechaRepository.ObtenerLosMesesPorAno(selectedYear);
+            var months = fechasCache
+                .Where(f => f.ano == selectedYear)
+                .Select(f => f.mes)
+                .Distinct()
+                .ToList();
 
             if (months != null && months.Any())
             {
@@ -131,33 +139,32 @@ namespace InterfazAdministrador.Interfaces
             if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado))
                 return;
 
-            var empleados = empleadosCache;
-            var estadosAsistencia = estadosAsistenciaCache;
-            var registros = registroDiarioRepository.ListarRegistrosDiarios(anoSeleccionado, int.Parse(tool.monthToNumber(mesSeleccionado)));
+            var registrosJoin = registroDiarioRepository.ListarRegistrosDiariosJoin(anoSeleccionado, int.Parse(tool.monthToNumber(mesSeleccionado)));
 
-            foreach (var empleado in empleados)
+            var empleadosAgrupados = registrosJoin
+                .GroupBy(x => x.empleado)
+                .ToList();
+
+            foreach (var grupo in empleadosAgrupados)
             {
                 int asistencias = 0;
                 int tardanzas = 0;
                 int faltas = 0;
+                var empleado = grupo.Key;
 
-                var registrosEmpleado = registros.Where(r =>
-                    r.idEmpleado == empleado.idEmpleado &&
-                    r.Fecha.mes == tool.monthToNumber(mesSeleccionado) &&
-                    r.Fecha.ano == anoSeleccionado
-                );
-
-                foreach (var registro in registrosEmpleado)
+                foreach (var x in grupo)
                 {
+                    var registro = x.registro;
+                    var estado = x.estado;
+
                     if (registro.horaEntrada.HasValue)
                     {
-                        var estado = estadosAsistencia.Single(e => e.idEvento.Equals(registro.idEstadoAsistencia.Value)).nombreEvento;
-
-                        if (estado.Equals("Asistencia"))
+                        var nombreEstado = estado?.nombreEvento ?? string.Empty;
+                        if (nombreEstado.Equals("Asistencia"))
                         {
                             asistencias++;
                         }
-                        else if (estado.Equals("Falta"))
+                        else if (nombreEstado.Equals("Falta"))
                         {
                             faltas++;
                         }

@@ -7,6 +7,11 @@ namespace InterfazAdministrador.Data
     {
         DataClassesTableDataContext db = new DataClassesTableDataContext();
 
+        public List<Fecha> ObtenerFechas()
+        {
+            return db.Fecha.ToList();
+        }
+
         public List<string> ObtenerLosAnos()
         {
             var fechas = db.Fecha.ToList();

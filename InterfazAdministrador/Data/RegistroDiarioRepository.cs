@@ -13,5 +13,18 @@ namespace InterfazAdministrador.Data
                 .Where(r => r.Fecha.ano.Equals(ano) && r.Fecha.mes.Equals(mes))
                 .ToList();
         }
+
+        public List<(RegistroDiario registro, Empleado empleado, EstadoAsistencia estado, Fecha fecha)> ListarRegistrosDiariosJoin(string ano, int mes)
+        {
+            var query = from r in db.RegistroDiario
+                        join e in db.Empleado on r.idEmpleado equals e.idEmpleado
+                        join f in db.Fecha on r.idFecha equals f.idFecha
+                        join ea in db.EstadoAsistencia on r.idEstadoAsistencia equals ea.idEvento into eaJoin
+                        from ea in eaJoin.DefaultIfEmpty()
+                        where f.ano == ano && f.mes == mes.ToString()
+                        select new { registro = r, empleado = e, estado = ea, fecha = f };
+
+            return query.ToList().Select(x => (x.registro, x.empleado, x.estado, x.fecha)).ToList();
+        }
     }
 }

@@ -38,10 +38,6 @@
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.cmbAno = new System.Windows.Forms.ComboBox();
             this.dgvMostrarReporteDia = new System.Windows.Forms.DataGridView();
-            this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColHoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColHoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).BeginInit();
             this.SuspendLayout();
@@ -135,43 +131,12 @@
             this.dgvMostrarReporteDia.AllowUserToAddRows = false;
             this.dgvMostrarReporteDia.AllowUserToDeleteRows = false;
             this.dgvMostrarReporteDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarReporteDia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColEmpleado,
-            this.ColHoraEntrada,
-            this.ColHoraSalida,
-            this.ColEstado});
             this.dgvMostrarReporteDia.Location = new System.Drawing.Point(41, 90);
             this.dgvMostrarReporteDia.Name = "dgvMostrarReporteDia";
             this.dgvMostrarReporteDia.ReadOnly = true;
             this.dgvMostrarReporteDia.RowHeadersWidth = 51;
             this.dgvMostrarReporteDia.Size = new System.Drawing.Size(631, 179);
             this.dgvMostrarReporteDia.TabIndex = 6;
-            // 
-            // ColEmpleado
-            // 
-            this.ColEmpleado.HeaderText = "Empleado";
-            this.ColEmpleado.MinimumWidth = 6;
-            this.ColEmpleado.Name = "ColEmpleado";
-            this.ColEmpleado.ReadOnly = true;
-            this.ColEmpleado.Width = 120;
-            // 
-            // ColHoraEntrada
-            // 
-            this.ColHoraEntrada.HeaderText = "HoraEntrada";
-            this.ColHoraEntrada.Name = "ColHoraEntrada";
-            this.ColHoraEntrada.ReadOnly = true;
-            // 
-            // ColHoraSalida
-            // 
-            this.ColHoraSalida.HeaderText = "HoraSalida";
-            this.ColHoraSalida.Name = "ColHoraSalida";
-            this.ColHoraSalida.ReadOnly = true;
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.ReadOnly = true;
             // 
             // FrmAsistencia
             // 
@@ -206,9 +171,5 @@
         private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.ComboBox cmbAno;
         private System.Windows.Forms.DataGridView dgvMostrarReporteDia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraSalida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
     }
 }
