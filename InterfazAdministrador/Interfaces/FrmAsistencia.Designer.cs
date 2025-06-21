@@ -37,9 +37,9 @@
             this.btnExportarMes = new System.Windows.Forms.Button();
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.cmbAno = new System.Windows.Forms.ComboBox();
-            this.dgvMostrarReporteDia = new System.Windows.Forms.DataGridView();
+            this.dgvMostrarReporte = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporte)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResumenMes
@@ -126,17 +126,17 @@
             this.cmbAno.TabIndex = 7;
             this.cmbAno.SelectedIndexChanged += new System.EventHandler(this.cmbAno_SelectedIndexChanged);
             // 
-            // dgvMostrarReporteDia
+            // dgvMostrarReporte
             // 
-            this.dgvMostrarReporteDia.AllowUserToAddRows = false;
-            this.dgvMostrarReporteDia.AllowUserToDeleteRows = false;
-            this.dgvMostrarReporteDia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarReporteDia.Location = new System.Drawing.Point(41, 90);
-            this.dgvMostrarReporteDia.Name = "dgvMostrarReporteDia";
-            this.dgvMostrarReporteDia.ReadOnly = true;
-            this.dgvMostrarReporteDia.RowHeadersWidth = 51;
-            this.dgvMostrarReporteDia.Size = new System.Drawing.Size(631, 179);
-            this.dgvMostrarReporteDia.TabIndex = 6;
+            this.dgvMostrarReporte.AllowUserToAddRows = false;
+            this.dgvMostrarReporte.AllowUserToDeleteRows = false;
+            this.dgvMostrarReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMostrarReporte.Location = new System.Drawing.Point(41, 90);
+            this.dgvMostrarReporte.Name = "dgvMostrarReporte";
+            this.dgvMostrarReporte.ReadOnly = true;
+            this.dgvMostrarReporte.RowHeadersWidth = 51;
+            this.dgvMostrarReporte.Size = new System.Drawing.Size(631, 179);
+            this.dgvMostrarReporte.TabIndex = 6;
             // 
             // FrmAsistencia
             // 
@@ -148,12 +148,12 @@
             this.Controls.Add(this.btnExportarMes);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.cmbAno);
-            this.Controls.Add(this.dgvMostrarReporteDia);
+            this.Controls.Add(this.dgvMostrarReporte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAsistencia";
             this.Text = "Asisyencia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarATF)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporteDia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +170,6 @@
         private System.Windows.Forms.Button btnExportarMes;
         private System.Windows.Forms.ComboBox cmbMes;
         private System.Windows.Forms.ComboBox cmbAno;
-        private System.Windows.Forms.DataGridView dgvMostrarReporteDia;
+        private System.Windows.Forms.DataGridView dgvMostrarReporte;
     }
 }

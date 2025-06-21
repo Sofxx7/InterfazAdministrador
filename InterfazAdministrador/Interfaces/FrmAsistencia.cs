@@ -32,7 +32,7 @@ namespace InterfazAdministrador.Interfaces
             fechasCache = fechaRepository.ObtenerFechas();
             registrosDiariosCache = new List<RegistroDiario>();
             LoadComboBoxes();
-            CargarDgvReporteDia();
+            CargarDgvReporte();
             CargarDgvATF();
         }
 
@@ -124,9 +124,77 @@ namespace InterfazAdministrador.Interfaces
             CargarDgvATF();
         }
 
-        private void CargarDgvReporteDia()
+        private void CargarDgvReporte()
         {
-            
+            dgvMostrarReporte.Columns.Clear();
+            dgvMostrarReporte.Rows.Clear();
+
+            string mesSeleccionado = cmbMes.SelectedItem?.ToString();
+            string anoSeleccionado = cmbAno.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado))
+                return;
+
+            int mesNumero = int.Parse(tool.monthToNumber(mesSeleccionado));
+
+            var registrosJoin = registroDiarioRepository.ListarRegistrosDiariosJoin(anoSeleccionado, mesNumero);
+
+            // Obtener solo los días con registros
+            var diasConRegistros = registrosJoin
+                .Select(x => int.Parse(x.fecha.dia))
+                .Distinct()
+                .OrderBy(d => d)
+                .ToList();
+
+            dgvMostrarReporte.Columns.Add("Empleado", "Empleado");
+            dgvMostrarReporte.Columns[0].Width = 170;
+            foreach (var dia in diasConRegistros)
+            {
+                int colIndex = dgvMostrarReporte.Columns.Add($"Dia{dia}", dia.ToString());
+                dgvMostrarReporte.Columns[colIndex].Width = 30;
+            }
+
+            dgvMostrarReporte.RowTemplate.Height = 30;
+
+            var estadoPorEmpleadoDia = new Dictionary<string, Dictionary<int, string>>();
+            foreach (var x in registrosJoin)
+            {
+                var empleado = x.empleado;
+                var fecha = x.fecha;
+                var estado = x.estado;
+                int dia = int.Parse(fecha.dia);
+                string idEmpleado = empleado.idEmpleado;
+                string simbolo = "";
+                if (estado != null)
+                {
+                    if (estado.nombreEvento == "Asistencia") simbolo = "A";
+                    else if (estado.nombreEvento == "Falta") simbolo = "F";
+                    else simbolo = "T";
+                }
+                else
+                {
+                    simbolo = "F";
+                }
+                if (!estadoPorEmpleadoDia.ContainsKey(idEmpleado))
+                    estadoPorEmpleadoDia[idEmpleado] = new Dictionary<int, string>();
+                estadoPorEmpleadoDia[idEmpleado][dia] = simbolo;
+            }
+
+            foreach (var empleado in empleadosCache)
+            {
+                var fila = new List<object>();
+                fila.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
+                foreach (var dia in diasConRegistros)
+                {
+                    string simbolo = "";
+                    if (estadoPorEmpleadoDia.ContainsKey(empleado.idEmpleado) && estadoPorEmpleadoDia[empleado.idEmpleado].ContainsKey(dia))
+                        simbolo = estadoPorEmpleadoDia[empleado.idEmpleado][dia];
+                    else
+                        simbolo = "";
+                    fila.Add(simbolo);
+                }
+                dgvMostrarReporte.Rows.Add(fila.ToArray());
+            }
         }
 
         private void CargarDgvATF()
