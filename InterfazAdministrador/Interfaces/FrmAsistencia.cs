@@ -173,6 +173,7 @@ namespace InterfazAdministrador.Interfaces
                 {
                     if (estado.nombreEvento == "Asistencia") simbolo = "A";
                     else if (estado.nombreEvento == "Falta") simbolo = "F";
+                    else if (estado.nombreEvento == "Justificado") simbolo = "J";
                     else simbolo = "T";
                 }
                 else

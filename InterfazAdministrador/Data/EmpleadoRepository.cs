@@ -17,6 +17,11 @@ namespace InterfazAdministrador.Data
             return db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(id));
         }
 
+        public Empleado BuscarEmpleadoPorNombre(string apellido, string nombre)
+        {
+            return db.Empleado.FirstOrDefault(e => e.apellidoEmpleado == apellido && e.nombreEmpleado == nombre);
+        }
+
         public bool EliminarEmpleado(string id)
         {
             var empleado = db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(id));

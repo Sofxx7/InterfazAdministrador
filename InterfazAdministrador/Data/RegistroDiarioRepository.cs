@@ -35,5 +35,17 @@ namespace InterfazAdministrador.Data
                         select r;
             return query.ToList();
         }
+
+        public bool ActualizarEstadoAsistencia(string idEmpleado, string dia, string mes, string ano, int idEstadoAsistencia)
+        {
+            var registro = (from r in db.RegistroDiario
+                             join f in db.Fecha on r.idFecha equals f.idFecha
+                             where r.idEmpleado == idEmpleado && f.dia == dia && f.mes == mes && f.ano == ano
+                             select r).FirstOrDefault();
+            if (registro == null) return false;
+            registro.idEstadoAsistencia = idEstadoAsistencia;
+            db.SubmitChanges();
+            return true;
+        }
     }
 }

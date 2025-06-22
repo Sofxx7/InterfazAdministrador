@@ -35,11 +35,12 @@
             this.cmbAno = new System.Windows.Forms.ComboBox();
             this.cmbDia = new System.Windows.Forms.ComboBox();
             this.dgvRegistro = new System.Windows.Forms.DataGridView();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColEstado = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistro)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,18 +109,8 @@
             this.ColEstado});
             this.dgvRegistro.Location = new System.Drawing.Point(12, 73);
             this.dgvRegistro.Name = "dgvRegistro";
-            this.dgvRegistro.ReadOnly = false;
-            this.dgvRegistro.Size = new System.Drawing.Size(684, 481);
+            this.dgvRegistro.Size = new System.Drawing.Size(684, 486);
             this.dgvRegistro.TabIndex = 43;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(621, 560);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 44;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // ColEmpleado
             // 
@@ -144,14 +135,34 @@
             // 
             this.ColEstado.HeaderText = "Estado";
             this.ColEstado.Name = "ColEstado";
-            this.ColEstado.ReadOnly = false;
             this.ColEstado.Width = 120;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(621, 565);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 44;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(540, 565);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 45;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 595);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgvRegistro);
             this.Controls.Add(this.cmbDia);
@@ -178,10 +189,11 @@
         private System.Windows.Forms.ComboBox cmbAno;
         private System.Windows.Forms.ComboBox cmbDia;
         private System.Windows.Forms.DataGridView dgvRegistro;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraSalida;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColEstado;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
