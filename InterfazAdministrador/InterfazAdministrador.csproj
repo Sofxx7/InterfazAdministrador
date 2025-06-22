@@ -146,6 +146,12 @@
     <Compile Include="Interfaces\FrmDatosPersonales.Designer.cs">
       <DependentUpon>FrmDatosPersonales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\FrmModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\FrmModificar.Designer.cs">
+      <DependentUpon>FrmModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dto\AgregarDto.cs" />
     <Compile Include="Models\Dto\DeleteDto.cs" />
     <Compile Include="Program.cs" />
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces\FrmDatosPersonales.resx">
       <DependentUpon>FrmDatosPersonales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces\FrmModificar.resx">
+      <DependentUpon>FrmModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

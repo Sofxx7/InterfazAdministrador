@@ -26,5 +26,14 @@ namespace InterfazAdministrador.Data
 
             return query.ToList().Select(x => (x.registro, x.empleado, x.estado, x.fecha)).ToList();
         }
+
+        public List<RegistroDiario> ListarRegistrosDiariosPorFecha(string dia, string mes, string ano)
+        {
+            var query = from r in db.RegistroDiario
+                        join f in db.Fecha on r.idFecha equals f.idFecha
+                        where f.dia == dia && f.mes == mes && f.ano == ano
+                        select r;
+            return query.ToList();
+        }
     }
 }
