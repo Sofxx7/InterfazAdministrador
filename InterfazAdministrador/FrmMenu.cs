@@ -58,5 +58,10 @@ namespace InterfazAdministrador
         {
             CargarFormulario(new FrmModificar());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmHorasExtras());
+        }
     }
 }

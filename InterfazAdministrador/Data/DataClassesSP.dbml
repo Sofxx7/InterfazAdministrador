@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_asistencia" Class="DataClassesSPDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=proyectos-upt.database.windows.net;Initial Catalog=db_asistencia;Persist Security Info=True;User ID=proyectos;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="InterfazAdministrador.Properties.Settings" SettingsPropertyName="db_asistenciaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SP_Autenticar" Method="SP_Autenticar">
+    <Parameter Name="idEmpleado" Type="System.String" DbType="Char(8)" />
+    <ElementType Name="SP_AutenticarResult">
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="hash_contrasena" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
