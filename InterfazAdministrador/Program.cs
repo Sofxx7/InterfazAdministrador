@@ -16,7 +16,9 @@ namespace InterfazAdministrador
        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLoginFiltrado());
+            FrmLoginFiltrado login = new FrmLoginFiltrado();
+            login.StartPosition = FormStartPosition.CenterScreen;
+            Application.Run(login);
         }
     }
 }
