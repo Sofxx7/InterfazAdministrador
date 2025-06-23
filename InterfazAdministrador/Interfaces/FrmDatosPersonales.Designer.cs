@@ -64,7 +64,7 @@
             this.btnEliminarFiltro.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnEliminarFiltro.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnEliminarFiltro.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarFiltro.Location = new System.Drawing.Point(466, 38);
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(558, 38);
             this.btnEliminarFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarFiltro.Name = "btnEliminarFiltro";
             this.btnEliminarFiltro.Size = new System.Drawing.Size(116, 29);
@@ -331,7 +331,7 @@
             this.txtFiltrar.Name = "txtFiltrar";
             this.txtFiltrar.PlaceholderText = "";
             this.txtFiltrar.SelectedText = "";
-            this.txtFiltrar.Size = new System.Drawing.Size(298, 29);
+            this.txtFiltrar.Size = new System.Drawing.Size(408, 29);
             this.txtFiltrar.TabIndex = 30;
             this.txtFiltrar.TextChanged += new System.EventHandler(this.txtFiltrar_TextChanged);
             // 

@@ -91,10 +91,11 @@
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
+            this.lblBienvenida.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.lblBienvenida.Location = new System.Drawing.Point(37, 40);
             this.lblBienvenida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(70, 13);
+            this.lblBienvenida.Size = new System.Drawing.Size(108, 19);
             this.lblBienvenida.TabIndex = 0;
             this.lblBienvenida.Text = "lblBienvenida";
             // 

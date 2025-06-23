@@ -42,19 +42,6 @@ namespace InterfazAdministrador.Interfaces
             llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
         }
 
-        private void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            string buscar = txtFiltrar.Text.ToLower();
-
-            if (string.IsNullOrEmpty(buscar)) return;
-
-            List<Empleado> empleadosFiltrados = empleadoRepository.ListarEmpleados()
-                .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
-                .ToList();
-
-            llenarDGVEmpleadosCaras(empleadosFiltrados);
-        }
-
         private void btnLimpiarFiltro_Click(object sender, EventArgs e)
         {
             txtFiltrar.Text = string.Empty;
@@ -379,6 +366,19 @@ namespace InterfazAdministrador.Interfaces
                 MessageBox.Show($"Error al detener la cámara: {ex.Message}",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtFiltrar_TextChanged(object sender, EventArgs e)
+        {
+            string buscar = txtFiltrar.Text.ToLower();
+
+            if (string.IsNullOrEmpty(buscar)) return;
+
+            List<Empleado> empleadosFiltrados = empleadoRepository.ListarEmpleados()
+                .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
+                .ToList();
+
+            llenarDGVEmpleadosCaras(empleadosFiltrados);
         }
     }
 }

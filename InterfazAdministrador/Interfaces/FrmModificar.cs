@@ -19,6 +19,7 @@ namespace InterfazAdministrador.Interfaces
         private readonly RegistroDiarioRepository registroRepository = new RegistroDiarioRepository();
         private List<Fecha> fechasCache;
         private List<EstadoAsistencia> estadosAsistencia;
+        private List<Empleado> empleados;
         private bool _evitandoEvento = false;
         private Dictionary<int, object> estadosOriginales = new Dictionary<int, object>();
 
@@ -115,7 +116,38 @@ namespace InterfazAdministrador.Interfaces
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltrar.Text.ToLower();
-            if (string.IsNullOrEmpty(buscar)) return;
+
+            if (cmbAno.SelectedItem == null || cmbMes.SelectedItem == null || cmbDia.SelectedItem == null)
+                return;
+
+            string anoSeleccionado = cmbAno.SelectedItem.ToString();
+            string mesSeleccionado = cmbMes.SelectedItem.ToString();
+            string diaSeleccionado = cmbDia.SelectedItem.ToString();
+
+            List<RegistroDiario> registros = registroRepository.ListarRegistrosDiariosPorFecha(diaSeleccionado, mesSeleccionado, anoSeleccionado);
+            dgvRegistro.Rows.Clear();
+            estadosOriginales.Clear();
+            int i = 0;
+            foreach (var registro in registros)
+            {
+                var empleado = empleadoRepository.ObtenerEmpleadoPorId(registro.idEmpleado);
+                if (empleado == null) continue;
+                string nombreCompleto = $"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}";
+                if (!string.IsNullOrEmpty(buscar))
+                {
+                    if (!(empleado.nombreEmpleado.ToLower().Contains(buscar) || empleado.apellidoEmpleado.ToLower().Contains(buscar)))
+                        continue;
+                }
+                var estadoAsistenciaLocal = estadosAsistencia.FirstOrDefault(x => x.idEvento == registro.estadoAsistencia);
+                dgvRegistro.Rows.Add(
+                    nombreCompleto,
+                    registro.horaEntrada,
+                    registro.horaSalida,
+                    estadoAsistenciaLocal != null ? estadoAsistenciaLocal.idEvento : (object)null
+                );
+                estadosOriginales[i] = estadoAsistenciaLocal != null ? estadoAsistenciaLocal.idEvento : (object)null;
+                i++;
+            }
         }
 
         private void cmbAno_SelectedIndexChanged(object sender, EventArgs e)
@@ -276,6 +308,11 @@ namespace InterfazAdministrador.Interfaces
             {
                 MessageBox.Show("No hay cambios para guardar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnEliminarFiltro_Click(object sender, EventArgs e)
+        {
+            ActualizarRegistros();
         }
     }
 }

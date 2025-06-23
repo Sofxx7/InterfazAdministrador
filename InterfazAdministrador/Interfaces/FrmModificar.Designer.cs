@@ -95,6 +95,7 @@
             this.btnEliminarFiltro.Size = new System.Drawing.Size(116, 33);
             this.btnEliminarFiltro.TabIndex = 32;
             this.btnEliminarFiltro.Text = "Eliminar filtro";
+            this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
             // 
             // dgvRegistro
             // 

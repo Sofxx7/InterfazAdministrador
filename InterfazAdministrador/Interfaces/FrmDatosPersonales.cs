@@ -54,31 +54,15 @@ namespace InterfazAdministrador.Interfaces
 
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
-            empleados = empleadoRepository.ListarEmpleados();
-            listRoles = rolRepository.ObtenerRoles();
-            listTurnos = tenorRepository.ObtenerTurnos();
+            string buscar = txtFiltrar.Text.ToLower();
 
-            btnEliminar.Enabled = false;
-            btnModificar.Enabled = false;
+            if (string.IsNullOrEmpty(buscar)) return;
 
-            txtNombre.Enabled = false;
-            txtApellido.Enabled = false;
-            txtDNI.Enabled = false;
+            List<Empleado> empleadosFiltrados = empleados
+                .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
+                .ToList();
 
-            cmbRol.Enabled = false;
-            cmbTurno.Enabled = false;
-
-            cmbRol.DataSource = listRoles;
-            cmbRol.DisplayMember = "nombreRol";
-            cmbRol.ValueMember = "idRol";
-            cmbRol.SelectedIndex = -1;
-
-            cmbTurno.DataSource = listTurnos;
-            cmbTurno.DisplayMember = "nombreTurno";
-            cmbTurno.ValueMember = "idTurno";
-            cmbTurno.SelectedIndex = -1;
-
-            llenarDGVEmpleadosCaras(empleados);
+            llenarDGVEmpleadosCaras(empleadosFiltrados);
         }
 
         private void LimpiarCampos()
