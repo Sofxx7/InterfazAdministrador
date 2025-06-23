@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterfazAdministrador.Data
 {
@@ -13,6 +10,23 @@ namespace InterfazAdministrador.Data
         public List<EstadoAsistencia> ListarEstadoAsistencia()
         {
             return db.EstadoAsistencia.ToList();
+        }
+
+        public string ObtenerEstadoAsistenciaPorId(int? idEstadoAsistencia)
+        {
+            if (idEstadoAsistencia == null)
+            {
+                return "Desconocido";
+            }
+            var estado = db.EstadoAsistencia.FirstOrDefault(e => e.idEvento == idEstadoAsistencia);
+            if (estado != null)
+            {
+                return estado.nombreEvento;
+            }
+            else
+            {
+                return "Desconocido";
+            }
         }
     }
 }

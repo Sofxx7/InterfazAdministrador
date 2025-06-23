@@ -36,18 +36,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
             this.dgvEmpleado = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblResumenMes = new System.Windows.Forms.Label();
-            this.dgvAsistenciaMes = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvResumen = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAsistencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColTardanzas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFaltas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbMes = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.cmbAno = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaMes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvEmpleado
@@ -66,8 +65,6 @@
             this.dgvEmpleado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmpleado.ColumnHeadersHeight = 18;
             this.dgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvEmpleado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColEmpleado});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,13 +74,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEmpleado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmpleado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvEmpleado.Location = new System.Drawing.Point(51, 119);
+            this.dgvEmpleado.Location = new System.Drawing.Point(38, 97);
+            this.dgvEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.ReadOnly = true;
             this.dgvEmpleado.RowHeadersVisible = false;
             this.dgvEmpleado.RowHeadersWidth = 51;
             this.dgvEmpleado.RowTemplate.Height = 24;
-            this.dgvEmpleado.Size = new System.Drawing.Size(841, 279);
+            this.dgvEmpleado.Size = new System.Drawing.Size(631, 227);
             this.dgvEmpleado.TabIndex = 30;
             this.dgvEmpleado.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvEmpleado.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -107,30 +105,22 @@
             this.dgvEmpleado.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvEmpleado.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // ColEmpleado
-            // 
-            this.ColEmpleado.HeaderText = "Empleado";
-            this.ColEmpleado.MinimumWidth = 6;
-            this.ColEmpleado.Name = "ColEmpleado";
-            this.ColEmpleado.ReadOnly = true;
-            // 
             // lblResumenMes
             // 
             this.lblResumenMes.AutoSize = true;
             this.lblResumenMes.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumenMes.Location = new System.Drawing.Point(47, 440);
-            this.lblResumenMes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResumenMes.Location = new System.Drawing.Point(35, 358);
             this.lblResumenMes.Name = "lblResumenMes";
-            this.lblResumenMes.Size = new System.Drawing.Size(269, 22);
+            this.lblResumenMes.Size = new System.Drawing.Size(221, 18);
             this.lblResumenMes.TabIndex = 26;
             this.lblResumenMes.Text = "Resumen de Asistencia del Mes";
             // 
-            // dgvAsistenciaMes
+            // dgvResumen
             // 
-            this.dgvAsistenciaMes.AllowUserToAddRows = false;
-            this.dgvAsistenciaMes.AllowUserToDeleteRows = false;
+            this.dgvResumen.AllowUserToAddRows = false;
+            this.dgvResumen.AllowUserToDeleteRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvAsistenciaMes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvResumen.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(188)))), ((int)(((byte)(148)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,10 +128,10 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAsistenciaMes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvAsistenciaMes.ColumnHeadersHeight = 18;
-            this.dgvAsistenciaMes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvAsistenciaMes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvResumen.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvResumen.ColumnHeadersHeight = 18;
+            this.dgvResumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvResumen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.ColAsistencias,
             this.ColTardanzas,
@@ -153,37 +143,38 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAsistenciaMes.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvAsistenciaMes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAsistenciaMes.Location = new System.Drawing.Point(51, 486);
-            this.dgvAsistenciaMes.Name = "dgvAsistenciaMes";
-            this.dgvAsistenciaMes.ReadOnly = true;
-            this.dgvAsistenciaMes.RowHeadersVisible = false;
-            this.dgvAsistenciaMes.RowHeadersWidth = 51;
-            this.dgvAsistenciaMes.RowTemplate.Height = 24;
-            this.dgvAsistenciaMes.Size = new System.Drawing.Size(841, 255);
-            this.dgvAsistenciaMes.TabIndex = 31;
-            this.dgvAsistenciaMes.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAsistenciaMes.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvAsistenciaMes.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvAsistenciaMes.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvAsistenciaMes.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvAsistenciaMes.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAsistenciaMes.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvAsistenciaMes.ThemeStyle.HeaderStyle.Height = 18;
-            this.dgvAsistenciaMes.ThemeStyle.ReadOnly = true;
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvAsistenciaMes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvResumen.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvResumen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvResumen.Location = new System.Drawing.Point(38, 395);
+            this.dgvResumen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvResumen.Name = "dgvResumen";
+            this.dgvResumen.ReadOnly = true;
+            this.dgvResumen.RowHeadersVisible = false;
+            this.dgvResumen.RowHeadersWidth = 51;
+            this.dgvResumen.RowTemplate.Height = 24;
+            this.dgvResumen.Size = new System.Drawing.Size(631, 207);
+            this.dgvResumen.TabIndex = 31;
+            this.dgvResumen.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvResumen.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvResumen.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvResumen.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvResumen.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvResumen.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvResumen.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvResumen.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dgvResumen.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvResumen.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvResumen.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvResumen.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvResumen.ThemeStyle.HeaderStyle.Height = 18;
+            this.dgvResumen.ThemeStyle.ReadOnly = true;
+            this.dgvResumen.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvResumen.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvResumen.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvResumen.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvResumen.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvResumen.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dgvResumen.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -226,62 +217,64 @@
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageOffset = new System.Drawing.Point(0, 15);
             this.guna2Button1.ImageSize = new System.Drawing.Size(26, 26);
-            this.guna2Button1.Location = new System.Drawing.Point(535, 39);
+            this.guna2Button1.Location = new System.Drawing.Point(401, 32);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(54, 53);
+            this.guna2Button1.Size = new System.Drawing.Size(40, 43);
             this.guna2Button1.TabIndex = 32;
-            this.guna2Button1.Text = "guna2Button1";
+            this.guna2Button1.Text = "btnExportar";
             // 
-            // guna2ComboBox1
+            // cmbMes
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 12;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(613, 47);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(157, 36);
-            this.guna2ComboBox1.TabIndex = 33;
+            this.cmbMes.BackColor = System.Drawing.Color.Transparent;
+            this.cmbMes.BorderRadius = 12;
+            this.cmbMes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMes.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbMes.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbMes.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbMes.ItemHeight = 30;
+            this.cmbMes.Location = new System.Drawing.Point(460, 38);
+            this.cmbMes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbMes.Name = "cmbMes";
+            this.cmbMes.Size = new System.Drawing.Size(119, 36);
+            this.cmbMes.TabIndex = 33;
             // 
-            // guna2ComboBox2
+            // cmbAno
             // 
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderRadius = 12;
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(776, 47);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.Size = new System.Drawing.Size(116, 36);
-            this.guna2ComboBox2.TabIndex = 34;
+            this.cmbAno.BackColor = System.Drawing.Color.Transparent;
+            this.cmbAno.BorderRadius = 12;
+            this.cmbAno.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAno.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbAno.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbAno.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbAno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbAno.ItemHeight = 30;
+            this.cmbAno.Location = new System.Drawing.Point(582, 38);
+            this.cmbAno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbAno.Name = "cmbAno";
+            this.cmbAno.Size = new System.Drawing.Size(88, 36);
+            this.cmbAno.TabIndex = 34;
             // 
             // FrmAsistencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(940, 792);
-            this.Controls.Add(this.guna2ComboBox2);
-            this.Controls.Add(this.guna2ComboBox1);
+            this.ClientSize = new System.Drawing.Size(705, 640);
+            this.Controls.Add(this.cmbAno);
+            this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.dgvAsistenciaMes);
+            this.Controls.Add(this.dgvResumen);
             this.Controls.Add(this.dgvEmpleado);
             this.Controls.Add(this.lblResumenMes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAsistencia";
             this.Text = "Asistencia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAsistenciaMes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResumen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,15 +282,14 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2DataGridView dgvEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
         private System.Windows.Forms.Label lblResumenMes;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvAsistenciaMes;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvResumen;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAsistencias;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColTardanzas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFaltas;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbMes;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbAno;
     }
 }

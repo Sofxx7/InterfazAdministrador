@@ -87,6 +87,11 @@
   <ItemGroup>
     <Compile Include="Data\CaraRepository.cs" />
     <Compile Include="Data\CredencialRepository.cs" />
+    <Compile Include="Data\DataClassesSP.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesSP.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Data\DataClassesTable.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +101,8 @@
     <Compile Include="Data\EstadoAsistenciaRepository.cs" />
     <Compile Include="Data\FechaRepository.cs" />
     <Compile Include="Data\RegistroDiarioRepository.cs" />
+    <Compile Include="Data\RolRepository.cs" />
+    <Compile Include="Data\TurnoRepository.cs" />
     <Compile Include="FrmLoginFiltrado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +210,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\DataClassesSP.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClassesSP.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\DataClassesSP.dbml.layout">
+      <DependentUpon>DataClassesSP.dbml</DependentUpon>
+    </None>
     <None Include="Data\DataClassesTable.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesTable.designer.cs</LastGenOutput>
