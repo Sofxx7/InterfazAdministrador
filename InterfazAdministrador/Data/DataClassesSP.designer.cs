@@ -68,6 +68,13 @@ namespace InterfazAdministrador.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idEmpleado);
 			return ((ISingleResult<SP_AutenticarResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_Listar_Registros_Diario")]
+		public ISingleResult<SP_Listar_Registros_DiarioResult> SP_Listar_Registros_Diario([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(2)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(2)")] string mes)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ano, mes);
+			return ((ISingleResult<SP_Listar_Registros_DiarioResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_AutenticarResult
@@ -109,6 +116,338 @@ namespace InterfazAdministrador.Data
 				if ((this._hash_contrasena != value))
 				{
 					this._hash_contrasena = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_Listar_Registros_DiarioResult
+	{
+		
+		private int _idFecha;
+		
+		private string _idEmpleado;
+		
+		private System.Nullable<System.TimeSpan> _horaEntrada;
+		
+		private System.Nullable<System.TimeSpan> _inicioDescanso;
+		
+		private System.Nullable<System.TimeSpan> _finDescanso;
+		
+		private System.Nullable<System.TimeSpan> _horaSalida;
+		
+		private System.Nullable<int> _idEstadoAsistencia;
+		
+		private string _idEmpleado1;
+		
+		private string _nombreEmpleado;
+		
+		private string _apellidoEmpleado;
+		
+		private int _idRol;
+		
+		private int _idTurno;
+		
+		private System.Nullable<int> _idEvento;
+		
+		private string _nombreEvento;
+		
+		private int _idFecha1;
+		
+		private string _dia;
+		
+		private string _mes;
+		
+		private string _ano;
+		
+		public SP_Listar_Registros_DiarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFecha", DbType="Int NOT NULL")]
+		public int idFecha
+		{
+			get
+			{
+				return this._idFecha;
+			}
+			set
+			{
+				if ((this._idFecha != value))
+				{
+					this._idFecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmpleado", DbType="Char(8) NOT NULL", CanBeNull=false)]
+		public string idEmpleado
+		{
+			get
+			{
+				return this._idEmpleado;
+			}
+			set
+			{
+				if ((this._idEmpleado != value))
+				{
+					this._idEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaEntrada", DbType="Time")]
+		public System.Nullable<System.TimeSpan> horaEntrada
+		{
+			get
+			{
+				return this._horaEntrada;
+			}
+			set
+			{
+				if ((this._horaEntrada != value))
+				{
+					this._horaEntrada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_inicioDescanso", DbType="Time")]
+		public System.Nullable<System.TimeSpan> inicioDescanso
+		{
+			get
+			{
+				return this._inicioDescanso;
+			}
+			set
+			{
+				if ((this._inicioDescanso != value))
+				{
+					this._inicioDescanso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finDescanso", DbType="Time")]
+		public System.Nullable<System.TimeSpan> finDescanso
+		{
+			get
+			{
+				return this._finDescanso;
+			}
+			set
+			{
+				if ((this._finDescanso != value))
+				{
+					this._finDescanso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_horaSalida", DbType="Time")]
+		public System.Nullable<System.TimeSpan> horaSalida
+		{
+			get
+			{
+				return this._horaSalida;
+			}
+			set
+			{
+				if ((this._horaSalida != value))
+				{
+					this._horaSalida = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEstadoAsistencia", DbType="Int")]
+		public System.Nullable<int> idEstadoAsistencia
+		{
+			get
+			{
+				return this._idEstadoAsistencia;
+			}
+			set
+			{
+				if ((this._idEstadoAsistencia != value))
+				{
+					this._idEstadoAsistencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEmpleado1", DbType="Char(8) NOT NULL", CanBeNull=false)]
+		public string idEmpleado1
+		{
+			get
+			{
+				return this._idEmpleado1;
+			}
+			set
+			{
+				if ((this._idEmpleado1 != value))
+				{
+					this._idEmpleado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreEmpleado", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nombreEmpleado
+		{
+			get
+			{
+				return this._nombreEmpleado;
+			}
+			set
+			{
+				if ((this._nombreEmpleado != value))
+				{
+					this._nombreEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellidoEmpleado", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string apellidoEmpleado
+		{
+			get
+			{
+				return this._apellidoEmpleado;
+			}
+			set
+			{
+				if ((this._apellidoEmpleado != value))
+				{
+					this._apellidoEmpleado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRol", DbType="Int NOT NULL")]
+		public int idRol
+		{
+			get
+			{
+				return this._idRol;
+			}
+			set
+			{
+				if ((this._idRol != value))
+				{
+					this._idRol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTurno", DbType="Int NOT NULL")]
+		public int idTurno
+		{
+			get
+			{
+				return this._idTurno;
+			}
+			set
+			{
+				if ((this._idTurno != value))
+				{
+					this._idTurno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEvento", DbType="Int")]
+		public System.Nullable<int> idEvento
+		{
+			get
+			{
+				return this._idEvento;
+			}
+			set
+			{
+				if ((this._idEvento != value))
+				{
+					this._idEvento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreEvento", DbType="VarChar(20)")]
+		public string nombreEvento
+		{
+			get
+			{
+				return this._nombreEvento;
+			}
+			set
+			{
+				if ((this._nombreEvento != value))
+				{
+					this._nombreEvento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFecha1", DbType="Int NOT NULL")]
+		public int idFecha1
+		{
+			get
+			{
+				return this._idFecha1;
+			}
+			set
+			{
+				if ((this._idFecha1 != value))
+				{
+					this._idFecha1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dia", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string dia
+		{
+			get
+			{
+				return this._dia;
+			}
+			set
+			{
+				if ((this._dia != value))
+				{
+					this._dia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mes", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string mes
+		{
+			get
+			{
+				return this._mes;
+			}
+			set
+			{
+				if ((this._mes != value))
+				{
+					this._mes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ano", DbType="Char(4) NOT NULL", CanBeNull=false)]
+		public string ano
+		{
+			get
+			{
+				return this._ano;
+			}
+			set
+			{
+				if ((this._ano != value))
+				{
+					this._ano = value;
 				}
 			}
 		}

@@ -7,4 +7,28 @@
       <Column Name="hash_contrasena" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_Listar_Registros_Diario" Method="SP_Listar_Registros_Diario">
+    <Parameter Name="ano" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="mes" Type="System.String" DbType="VarChar(2)" />
+    <ElementType Name="SP_Listar_Registros_DiarioResult">
+      <Column Name="idFecha" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEmpleado" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="horaEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="inicioDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="finDescanso" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="horaSalida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="idEstadoAsistencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmpleado1" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreEmpleado" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoEmpleado" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idTurno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEvento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nombreEvento" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idFecha1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dia" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="mes" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ano" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
