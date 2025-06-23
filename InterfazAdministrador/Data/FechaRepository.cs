@@ -34,5 +34,10 @@ namespace InterfazAdministrador.Data
             }
             return fecha;
         }
+
+        public int ObtenerIDPorFecha(DateTime time)
+        {
+            return db.Fecha.Where(x => x.dia.Equals(time.Day) && x.mes.Equals(time.Month) && x.ano.Equals(time.Year)).SingleOrDefault().idFecha;
+        }   
     }
 }

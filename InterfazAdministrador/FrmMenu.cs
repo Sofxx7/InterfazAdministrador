@@ -22,7 +22,6 @@ namespace InterfazAdministrador
             if (pnlContenedor.Controls.Count > 0) pnlContenedor.Controls.RemoveAt(0);
 
             formulario.TopLevel = false;
-            formulario.Dock = DockStyle.Fill;
             pnlContenedor.Controls.Add(formulario);
             pnlContenedor.Tag = formulario;
             formulario.Show();
@@ -31,41 +30,48 @@ namespace InterfazAdministrador
 
         private void BtnAsistencia_Click_1(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmAsistencia());
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmModificar());
         }
 
         private void btnHorasExtras_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmHorasExtras());
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmEmpleados());
         }
 
         private void btnDatosPersonales_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmDatosPersonales());
         }
 
         private void btnDatosBiometricos_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmDatosBiometricos());
         }
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
+            gbLogoMenu.Visible = false;
             CargarFormulario(new FrmConfiguracion(administrador.idEmpleado));
         }
 
         private void BtnSalir_Click_1(object sender, EventArgs e)
-        {
+        { 
             Application.Exit();
         }
 
@@ -77,6 +83,11 @@ namespace InterfazAdministrador
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

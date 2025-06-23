@@ -32,6 +32,7 @@
             this.btnMinimizar = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContenedor = new Guna.UI2.WinForms.Guna2Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.gbLogoMenu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.BtnAsistencia = new Guna.UI2.WinForms.Guna2Button();
             this.BtnSalir = new Guna.UI2.WinForms.Guna2Button();
@@ -44,6 +45,7 @@
             this.btnCerrar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbLogoMenu)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,9 +59,9 @@
             this.guna2Panel1.Controls.Add(this.btnCerrar);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(952, 640);
+            this.guna2Panel1.Size = new System.Drawing.Size(1269, 788);
             this.guna2Panel1.TabIndex = 3;
             // 
             // btnMinimizar
@@ -71,9 +73,10 @@
             this.btnMinimizar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(858, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(1144, 17);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(36, 23);
+            this.btnMinimizar.Size = new System.Drawing.Size(48, 28);
             this.btnMinimizar.TabIndex = 10;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
@@ -82,22 +85,34 @@
             this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
             this.pnlContenedor.BorderRadius = 40;
             this.pnlContenedor.Controls.Add(this.lblBienvenida);
-            this.pnlContenedor.Location = new System.Drawing.Point(232, 49);
-            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlContenedor.Controls.Add(this.gbLogoMenu);
+            this.pnlContenedor.Location = new System.Drawing.Point(306, 60);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(705, 591);
+            this.pnlContenedor.Size = new System.Drawing.Size(943, 708);
             this.pnlContenedor.TabIndex = 3;
             // 
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
             this.lblBienvenida.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblBienvenida.Location = new System.Drawing.Point(37, 40);
-            this.lblBienvenida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBienvenida.Location = new System.Drawing.Point(288, 433);
             this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(108, 19);
-            this.lblBienvenida.TabIndex = 0;
+            this.lblBienvenida.Size = new System.Drawing.Size(132, 24);
+            this.lblBienvenida.TabIndex = 2;
             this.lblBienvenida.Text = "lblBienvenida";
+            // 
+            // gbLogoMenu
+            // 
+            this.gbLogoMenu.Image = global::InterfazAdministrador.Properties.Resources.logoq;
+            this.gbLogoMenu.ImageRotate = 0F;
+            this.gbLogoMenu.Location = new System.Drawing.Point(165, 3);
+            this.gbLogoMenu.Name = "gbLogoMenu";
+            this.gbLogoMenu.Size = new System.Drawing.Size(621, 560);
+            this.gbLogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gbLogoMenu.TabIndex = 1;
+            this.gbLogoMenu.TabStop = false;
+            this.gbLogoMenu.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2Panel2
             // 
@@ -111,10 +126,10 @@
             this.guna2Panel2.Controls.Add(this.btnEmpleado);
             this.guna2Panel2.Controls.Add(this.btnHorasExtras);
             this.guna2Panel2.Controls.Add(this.btnModificar);
-            this.guna2Panel2.Location = new System.Drawing.Point(19, 49);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel2.Location = new System.Drawing.Point(25, 60);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(215, 603);
+            this.guna2Panel2.Size = new System.Drawing.Size(287, 708);
             this.guna2Panel2.TabIndex = 1;
             // 
             // BtnAsistencia
@@ -131,10 +146,10 @@
             this.BtnAsistencia.Image = global::InterfazAdministrador.Properties.Resources.asistencia1;
             this.BtnAsistencia.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnAsistencia.ImageSize = new System.Drawing.Size(35, 35);
-            this.BtnAsistencia.Location = new System.Drawing.Point(24, 31);
-            this.BtnAsistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAsistencia.Location = new System.Drawing.Point(3, 38);
+            this.BtnAsistencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnAsistencia.Name = "BtnAsistencia";
-            this.BtnAsistencia.Size = new System.Drawing.Size(167, 49);
+            this.BtnAsistencia.Size = new System.Drawing.Size(281, 60);
             this.BtnAsistencia.TabIndex = 0;
             this.BtnAsistencia.Text = "Asistencia";
             this.BtnAsistencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -154,10 +169,10 @@
             this.BtnSalir.Image = global::InterfazAdministrador.Properties.Resources.salir;
             this.BtnSalir.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.BtnSalir.ImageSize = new System.Drawing.Size(30, 30);
-            this.BtnSalir.Location = new System.Drawing.Point(24, 538);
-            this.BtnSalir.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSalir.Location = new System.Drawing.Point(32, 646);
+            this.BtnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Size = new System.Drawing.Size(123, 37);
+            this.BtnSalir.Size = new System.Drawing.Size(164, 46);
             this.BtnSalir.TabIndex = 7;
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -177,10 +192,10 @@
             this.guna2Button7.Image = global::InterfazAdministrador.Properties.Resources.configuracion;
             this.guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button7.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button7.Location = new System.Drawing.Point(23, 496);
-            this.guna2Button7.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Button7.Location = new System.Drawing.Point(31, 597);
+            this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(158, 37);
+            this.guna2Button7.Size = new System.Drawing.Size(211, 46);
             this.guna2Button7.TabIndex = 6;
             this.guna2Button7.Text = "Configuracion";
             this.guna2Button7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -200,10 +215,10 @@
             this.btnDatosBiometricos.Image = global::InterfazAdministrador.Properties.Resources.datos_biometricos;
             this.btnDatosBiometricos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDatosBiometricos.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnDatosBiometricos.Location = new System.Drawing.Point(26, 253);
-            this.btnDatosBiometricos.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatosBiometricos.Location = new System.Drawing.Point(3, 311);
+            this.btnDatosBiometricos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDatosBiometricos.Name = "btnDatosBiometricos";
-            this.btnDatosBiometricos.Size = new System.Drawing.Size(187, 37);
+            this.btnDatosBiometricos.Size = new System.Drawing.Size(281, 46);
             this.btnDatosBiometricos.TabIndex = 5;
             this.btnDatosBiometricos.Text = "Datos Biometricos";
             this.btnDatosBiometricos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -223,10 +238,10 @@
             this.btnDatosPersonales.Image = global::InterfazAdministrador.Properties.Resources.datos_personales1;
             this.btnDatosPersonales.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDatosPersonales.ImageSize = new System.Drawing.Size(38, 30);
-            this.btnDatosPersonales.Location = new System.Drawing.Point(20, 207);
-            this.btnDatosPersonales.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDatosPersonales.Location = new System.Drawing.Point(3, 261);
+            this.btnDatosPersonales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDatosPersonales.Name = "btnDatosPersonales";
-            this.btnDatosPersonales.Size = new System.Drawing.Size(184, 37);
+            this.btnDatosPersonales.Size = new System.Drawing.Size(284, 46);
             this.btnDatosPersonales.TabIndex = 4;
             this.btnDatosPersonales.Text = "Datos Personales";
             this.btnDatosPersonales.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -241,15 +256,15 @@
             this.btnEmpleado.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEmpleado.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEmpleado.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(219)))), ((int)(((byte)(185)))));
-            this.btnEmpleado.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpleado.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.btnEmpleado.ForeColor = System.Drawing.Color.DimGray;
             this.btnEmpleado.Image = global::InterfazAdministrador.Properties.Resources.empleado;
             this.btnEmpleado.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnEmpleado.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnEmpleado.Location = new System.Drawing.Point(26, 164);
-            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEmpleado.Location = new System.Drawing.Point(3, 202);
+            this.btnEmpleado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEmpleado.Name = "btnEmpleado";
-            this.btnEmpleado.Size = new System.Drawing.Size(163, 37);
+            this.btnEmpleado.Size = new System.Drawing.Size(281, 46);
             this.btnEmpleado.TabIndex = 3;
             this.btnEmpleado.Text = "Empleados";
             this.btnEmpleado.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -269,10 +284,10 @@
             this.btnHorasExtras.Image = global::InterfazAdministrador.Properties.Resources.horasextras;
             this.btnHorasExtras.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHorasExtras.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnHorasExtras.Location = new System.Drawing.Point(26, 121);
-            this.btnHorasExtras.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHorasExtras.Location = new System.Drawing.Point(3, 149);
+            this.btnHorasExtras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHorasExtras.Name = "btnHorasExtras";
-            this.btnHorasExtras.Size = new System.Drawing.Size(167, 37);
+            this.btnHorasExtras.Size = new System.Drawing.Size(281, 46);
             this.btnHorasExtras.TabIndex = 2;
             this.btnHorasExtras.Text = "Horas Extras";
             this.btnHorasExtras.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -292,10 +307,10 @@
             this.btnModificar.Image = global::InterfazAdministrador.Properties.Resources.modificar1;
             this.btnModificar.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnModificar.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnModificar.Location = new System.Drawing.Point(26, 79);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Location = new System.Drawing.Point(3, 99);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(192, 37);
+            this.btnModificar.Size = new System.Drawing.Size(281, 46);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -311,26 +326,28 @@
             this.btnCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(900, 14);
+            this.btnCerrar.Location = new System.Drawing.Point(1200, 17);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(36, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(48, 28);
             this.btnCerrar.TabIndex = 8;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 640);
+            this.ClientSize = new System.Drawing.Size(1269, 788);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenuP";
+            this.Text = "a";
             this.guna2Panel1.ResumeLayout(false);
             this.pnlContenedor.ResumeLayout(false);
             this.pnlContenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbLogoMenu)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -341,7 +358,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btnMinimizar;
         private Guna.UI2.WinForms.Guna2Panel pnlContenedor;
-        private System.Windows.Forms.Label lblBienvenida;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button BtnAsistencia;
         private Guna.UI2.WinForms.Guna2Button BtnSalir;
@@ -352,5 +368,7 @@
         private Guna.UI2.WinForms.Guna2Button btnHorasExtras;
         private Guna.UI2.WinForms.Guna2Button btnModificar;
         private Guna.UI2.WinForms.Guna2Button btnCerrar;
+        private Guna.UI2.WinForms.Guna2PictureBox gbLogoMenu;
+        private System.Windows.Forms.Label lblBienvenida;
     }
 }
