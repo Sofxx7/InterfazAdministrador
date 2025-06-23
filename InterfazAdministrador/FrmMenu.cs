@@ -14,44 +14,24 @@ namespace InterfazAdministrador
             InitializeComponent();
             administrador = empleado;
 
-            lblUsuario.Text = $"{administrador.nombreEmpleado} {administrador.apellidoEmpleado}";
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            lblBienvenida.Text = $" Bienvenido(a) {administrador.nombreEmpleado} {administrador.apellidoEmpleado}";
         }
 
         private void CargarFormulario(Form formulario)
         {
-            if (this.pnlContenedor.Controls.Count > 0) this.pnlContenedor.Controls.RemoveAt(0);
+            if (pnlContenedor.Controls.Count > 0) pnlContenedor.Controls.RemoveAt(0);
 
             formulario.TopLevel = false;
             formulario.Dock = DockStyle.Fill;
-            this.pnlContenedor.Controls.Add(formulario);
-            this.pnlContenedor.Tag = formulario;
+            pnlContenedor.Controls.Add(formulario);
+            pnlContenedor.Tag = formulario;
             formulario.Show();
 
         }
 
-        private void btnAsistencia_Click(object sender, EventArgs e)
+        private void BtnAsistencia_Click_1(object sender, EventArgs e)
         {
             CargarFormulario(new FrmAsistencia());
-        }
-
-        private void btnDatosBiometricos_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FrmDatosBiometricos());
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FrmConfiguracion(administrador.idEmpleado));
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            CargarFormulario(new FrmDatosPersonales());
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -59,9 +39,34 @@ namespace InterfazAdministrador
             CargarFormulario(new FrmModificar());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnHorasExtras_Click(object sender, EventArgs e)
         {
             CargarFormulario(new FrmHorasExtras());
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmEmpleados());
+        }
+
+        private void btnDatosPersonales_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmDatosPersonales());
+        }
+
+        private void btnDatosBiometricos_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmDatosBiometricos());
+        }
+
+        private void guna2Button7_Click(object sender, EventArgs e)
+        {
+            CargarFormulario(new FrmConfiguracion());
+        }
+
+        private void BtnSalir_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

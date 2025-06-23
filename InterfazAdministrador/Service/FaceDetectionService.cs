@@ -11,7 +11,7 @@ namespace InterfazAdministrador.Service
 {
     internal class FaceDetectionService
     {
-        private const string url = "https://fda.anvian.net";
+        private const string url = "http://localhost:5000";
 
         private static readonly HttpClient client = new HttpClient();
 
