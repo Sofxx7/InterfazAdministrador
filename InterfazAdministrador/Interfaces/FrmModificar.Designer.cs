@@ -38,7 +38,7 @@
             this.ColEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColHoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEstado = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             this.btnGuardar = new Guna.UI2.WinForms.Guna2Button();
             this.cmbDia = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -129,7 +129,6 @@
             this.dgvRegistro.Location = new System.Drawing.Point(23, 141);
             this.dgvRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRegistro.Name = "dgvRegistro";
-            this.dgvRegistro.ReadOnly = true;
             this.dgvRegistro.RowHeadersVisible = false;
             this.dgvRegistro.RowHeadersWidth = 51;
             this.dgvRegistro.RowTemplate.Height = 24;
@@ -148,7 +147,7 @@
             this.dgvRegistro.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvRegistro.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvRegistro.ThemeStyle.HeaderStyle.Height = 18;
-            this.dgvRegistro.ThemeStyle.ReadOnly = true;
+            this.dgvRegistro.ThemeStyle.ReadOnly = false;
             this.dgvRegistro.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRegistro.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvRegistro.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,28 +161,24 @@
             this.ColEmpleado.HeaderText = "Empleado";
             this.ColEmpleado.MinimumWidth = 6;
             this.ColEmpleado.Name = "ColEmpleado";
-            this.ColEmpleado.ReadOnly = true;
             // 
             // ColHoraEntrada
             // 
             this.ColHoraEntrada.HeaderText = "HoraEntrada";
             this.ColHoraEntrada.MinimumWidth = 6;
             this.ColHoraEntrada.Name = "ColHoraEntrada";
-            this.ColHoraEntrada.ReadOnly = true;
             // 
             // ColHoraSalida
             // 
             this.ColHoraSalida.HeaderText = "HoraSalida";
             this.ColHoraSalida.MinimumWidth = 6;
             this.ColHoraSalida.Name = "ColHoraSalida";
-            this.ColHoraSalida.ReadOnly = true;
             // 
             // ColEstado
             // 
             this.ColEstado.HeaderText = "Estado";
             this.ColEstado.MinimumWidth = 6;
             this.ColEstado.Name = "ColEstado";
-            this.ColEstado.ReadOnly = true;
             // 
             // btnCancelar
             // 
@@ -310,7 +305,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEmpleado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraEntrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColHoraSalida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColEstado;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColEstado;
         private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2ComboBox cmbDia;
