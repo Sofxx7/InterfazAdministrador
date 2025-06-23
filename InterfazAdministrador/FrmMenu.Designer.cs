@@ -75,6 +75,7 @@
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(36, 23);
             this.btnMinimizar.TabIndex = 10;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // pnlContenedor
             // 
@@ -313,6 +314,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(36, 23);
             this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FrmMenu
             // 
