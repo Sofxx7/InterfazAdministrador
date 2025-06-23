@@ -34,5 +34,16 @@ namespace InterfazAdministrador.Properties {
                 return ((string)(this["db_asistenciaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=asistencia_db;Integrated Security=True;Encr" +
+            "ypt=False;TrustServerCertificate=True")]
+        public string asistencia_dbConnectionString {
+            get {
+                return ((string)(this["asistencia_dbConnectionString"]));
+            }
+        }
     }
 }

@@ -30,9 +30,7 @@ namespace InterfazAdministrador.Interfaces
             InitializeComponent();
 
             empleadosCache = empleadoRepository.ListarEmpleados();
-            estadosAsistenciaCache = estadoAsistenciaRepository.ListarEstadoAsistencia();
             fechasCache = fechaRepository.ObtenerFechas();
-            registrosDiariosCache = new List<RegistroDiario>();
             LoadComboBoxes();
             CargarDgvReporte();
             CargarDgvATF();

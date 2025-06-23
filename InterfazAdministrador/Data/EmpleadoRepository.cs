@@ -30,5 +30,24 @@ namespace InterfazAdministrador.Data
             db.SubmitChanges();
             return true;
         }
+
+        public void ActualizarEmpleado(Empleado empleado)
+        {
+            var empleadoExistente = db.Empleado.FirstOrDefault(e => e.idEmpleado.Equals(empleado.idEmpleado));
+            if (empleadoExistente != null)
+            {
+                empleadoExistente.nombreEmpleado = empleado.nombreEmpleado;
+                empleadoExistente.apellidoEmpleado = empleado.apellidoEmpleado;
+                empleadoExistente.idRol = empleado.idRol;
+                empleadoExistente.idTurno = empleado.idTurno;
+                db.SubmitChanges();
+            }
+        }
+
+        public void AgregarEmpleado(Empleado empleado)
+        {
+            db.Empleado.InsertOnSubmit(empleado);
+            db.SubmitChanges();
+        }
     }
 }

@@ -489,6 +489,8 @@ namespace InterfazAdministrador.Data
 		
 		private string _sal_contrasena;
 		
+		private EntityRef<Empleado> _Empleado;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -505,6 +507,7 @@ namespace InterfazAdministrador.Data
 		
 		public Credencial()
 		{
+			this._Empleado = default(EntityRef<Empleado>);
 			OnCreated();
 		}
 		
@@ -539,6 +542,10 @@ namespace InterfazAdministrador.Data
 			{
 				if ((this._idEmpleado != value))
 				{
+					if (this._Empleado.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidEmpleadoChanging(value);
 					this.SendPropertyChanging();
 					this._idEmpleado = value;
@@ -588,6 +595,40 @@ namespace InterfazAdministrador.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Credencial", Storage="_Empleado", ThisKey="idEmpleado", OtherKey="idEmpleado", IsForeignKey=true)]
+		public Empleado Empleado
+		{
+			get
+			{
+				return this._Empleado.Entity;
+			}
+			set
+			{
+				Empleado previousValue = this._Empleado.Entity;
+				if (((previousValue != value) 
+							|| (this._Empleado.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Empleado.Entity = null;
+						previousValue.Credencial.Remove(this);
+					}
+					this._Empleado.Entity = value;
+					if ((value != null))
+					{
+						value.Credencial.Add(this);
+						this._idEmpleado = value.idEmpleado;
+					}
+					else
+					{
+						this._idEmpleado = default(string);
+					}
+					this.SendPropertyChanged("Empleado");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -627,6 +668,8 @@ namespace InterfazAdministrador.Data
 		
 		private EntitySet<Cara> _Cara;
 		
+		private EntitySet<Credencial> _Credencial;
+		
 		private EntitySet<HoraExtra> _HoraExtra;
 		
 		private EntitySet<RegistroDiario> _RegistroDiario;
@@ -654,6 +697,7 @@ namespace InterfazAdministrador.Data
 		public Empleado()
 		{
 			this._Cara = new EntitySet<Cara>(new Action<Cara>(this.attach_Cara), new Action<Cara>(this.detach_Cara));
+			this._Credencial = new EntitySet<Credencial>(new Action<Credencial>(this.attach_Credencial), new Action<Credencial>(this.detach_Credencial));
 			this._HoraExtra = new EntitySet<HoraExtra>(new Action<HoraExtra>(this.attach_HoraExtra), new Action<HoraExtra>(this.detach_HoraExtra));
 			this._RegistroDiario = new EntitySet<RegistroDiario>(new Action<RegistroDiario>(this.attach_RegistroDiario), new Action<RegistroDiario>(this.detach_RegistroDiario));
 			this._Turno = default(EntityRef<Turno>);
@@ -779,6 +823,19 @@ namespace InterfazAdministrador.Data
 			set
 			{
 				this._Cara.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Credencial", Storage="_Credencial", ThisKey="idEmpleado", OtherKey="idEmpleado")]
+		public EntitySet<Credencial> Credencial
+		{
+			get
+			{
+				return this._Credencial;
+			}
+			set
+			{
+				this._Credencial.Assign(value);
 			}
 		}
 		
@@ -908,6 +965,18 @@ namespace InterfazAdministrador.Data
 			entity.Empleado = null;
 		}
 		
+		private void attach_Credencial(Credencial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = this;
+		}
+		
+		private void detach_Credencial(Credencial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = null;
+		}
+		
 		private void attach_HoraExtra(HoraExtra entity)
 		{
 			this.SendPropertyChanging();
@@ -1001,7 +1070,7 @@ namespace InterfazAdministrador.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EstadoAsistencia_RegistroDiario", Storage="_RegistroDiario", ThisKey="idEvento", OtherKey="idEstadoAsistencia")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EstadoAsistencia_RegistroDiario", Storage="_RegistroDiario", ThisKey="idEvento", OtherKey="estadoAsistencia")]
 		public EntitySet<RegistroDiario> RegistroDiario
 		{
 			get
@@ -1037,13 +1106,13 @@ namespace InterfazAdministrador.Data
 		private void attach_RegistroDiario(RegistroDiario entity)
 		{
 			this.SendPropertyChanging();
-			entity.EstadoAsistencia = this;
+			entity.EstadoAsistencia1 = this;
 		}
 		
 		private void detach_RegistroDiario(RegistroDiario entity)
 		{
 			this.SendPropertyChanging();
-			entity.EstadoAsistencia = null;
+			entity.EstadoAsistencia1 = null;
 		}
 	}
 	
@@ -1447,11 +1516,11 @@ namespace InterfazAdministrador.Data
 		
 		private System.Nullable<System.TimeSpan> _horaSalida;
 		
-		private System.Nullable<int> _idEstadoAsistencia;
-		
-		private EntityRef<EstadoAsistencia> _EstadoAsistencia;
+		private int _estadoAsistencia;
 		
 		private EntityRef<Empleado> _Empleado;
+		
+		private EntityRef<EstadoAsistencia> _EstadoAsistencia1;
 		
 		private EntityRef<Fecha> _Fecha;
 		
@@ -1471,14 +1540,14 @@ namespace InterfazAdministrador.Data
     partial void OnfinDescansoChanged();
     partial void OnhoraSalidaChanging(System.Nullable<System.TimeSpan> value);
     partial void OnhoraSalidaChanged();
-    partial void OnidEstadoAsistenciaChanging(System.Nullable<int> value);
-    partial void OnidEstadoAsistenciaChanged();
+    partial void OnestadoAsistenciaChanging(int value);
+    partial void OnestadoAsistenciaChanged();
     #endregion
 		
 		public RegistroDiario()
 		{
-			this._EstadoAsistencia = default(EntityRef<EstadoAsistencia>);
 			this._Empleado = default(EntityRef<Empleado>);
+			this._EstadoAsistencia1 = default(EntityRef<EstadoAsistencia>);
 			this._Fecha = default(EntityRef<Fecha>);
 			OnCreated();
 		}
@@ -1611,60 +1680,26 @@ namespace InterfazAdministrador.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEstadoAsistencia", DbType="Int")]
-		public System.Nullable<int> idEstadoAsistencia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estadoAsistencia", DbType="Int NOT NULL")]
+		public int estadoAsistencia
 		{
 			get
 			{
-				return this._idEstadoAsistencia;
+				return this._estadoAsistencia;
 			}
 			set
 			{
-				if ((this._idEstadoAsistencia != value))
+				if ((this._estadoAsistencia != value))
 				{
-					if (this._EstadoAsistencia.HasLoadedOrAssignedValue)
+					if (this._EstadoAsistencia1.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnidEstadoAsistenciaChanging(value);
+					this.OnestadoAsistenciaChanging(value);
 					this.SendPropertyChanging();
-					this._idEstadoAsistencia = value;
-					this.SendPropertyChanged("idEstadoAsistencia");
-					this.OnidEstadoAsistenciaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EstadoAsistencia_RegistroDiario", Storage="_EstadoAsistencia", ThisKey="idEstadoAsistencia", OtherKey="idEvento", IsForeignKey=true)]
-		public EstadoAsistencia EstadoAsistencia
-		{
-			get
-			{
-				return this._EstadoAsistencia.Entity;
-			}
-			set
-			{
-				EstadoAsistencia previousValue = this._EstadoAsistencia.Entity;
-				if (((previousValue != value) 
-							|| (this._EstadoAsistencia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EstadoAsistencia.Entity = null;
-						previousValue.RegistroDiario.Remove(this);
-					}
-					this._EstadoAsistencia.Entity = value;
-					if ((value != null))
-					{
-						value.RegistroDiario.Add(this);
-						this._idEstadoAsistencia = value.idEvento;
-					}
-					else
-					{
-						this._idEstadoAsistencia = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EstadoAsistencia");
+					this._estadoAsistencia = value;
+					this.SendPropertyChanged("estadoAsistencia");
+					this.OnestadoAsistenciaChanged();
 				}
 			}
 		}
@@ -1699,6 +1734,40 @@ namespace InterfazAdministrador.Data
 						this._idEmpleado = default(string);
 					}
 					this.SendPropertyChanged("Empleado");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EstadoAsistencia_RegistroDiario", Storage="_EstadoAsistencia1", ThisKey="estadoAsistencia", OtherKey="idEvento", IsForeignKey=true)]
+		public EstadoAsistencia EstadoAsistencia1
+		{
+			get
+			{
+				return this._EstadoAsistencia1.Entity;
+			}
+			set
+			{
+				EstadoAsistencia previousValue = this._EstadoAsistencia1.Entity;
+				if (((previousValue != value) 
+							|| (this._EstadoAsistencia1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EstadoAsistencia1.Entity = null;
+						previousValue.RegistroDiario.Remove(this);
+					}
+					this._EstadoAsistencia1.Entity = value;
+					if ((value != null))
+					{
+						value.RegistroDiario.Add(this);
+						this._estadoAsistencia = value.idEvento;
+					}
+					else
+					{
+						this._estadoAsistencia = default(int);
+					}
+					this.SendPropertyChanged("EstadoAsistencia1");
 				}
 			}
 		}

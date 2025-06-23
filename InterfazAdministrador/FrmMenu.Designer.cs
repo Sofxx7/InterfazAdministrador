@@ -32,7 +32,6 @@
             this.btnMinimizar = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContenedor = new Guna.UI2.WinForms.Guna2Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
-            this.btnMaximizar = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.BtnAsistencia = new Guna.UI2.WinForms.Guna2Button();
             this.BtnSalir = new Guna.UI2.WinForms.Guna2Button();
@@ -54,7 +53,6 @@
             this.guna2Panel1.BorderRadius = 40;
             this.guna2Panel1.Controls.Add(this.btnMinimizar);
             this.guna2Panel1.Controls.Add(this.pnlContenedor);
-            this.guna2Panel1.Controls.Add(this.btnMaximizar);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Controls.Add(this.btnCerrar);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,7 +71,7 @@
             this.btnMinimizar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(812, 14);
+            this.btnMinimizar.Location = new System.Drawing.Point(858, 12);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(36, 23);
             this.btnMinimizar.TabIndex = 10;
@@ -98,21 +96,6 @@
             this.lblBienvenida.Size = new System.Drawing.Size(70, 13);
             this.lblBienvenida.TabIndex = 0;
             this.lblBienvenida.Text = "lblBienvenida";
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.AutoRoundedCorners = true;
-            this.btnMaximizar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMaximizar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnMaximizar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnMaximizar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnMaximizar.FillColor = System.Drawing.Color.Gold;
-            this.btnMaximizar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMaximizar.ForeColor = System.Drawing.Color.White;
-            this.btnMaximizar.Location = new System.Drawing.Point(856, 14);
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(36, 23);
-            this.btnMaximizar.TabIndex = 9;
             // 
             // guna2Panel2
             // 
@@ -356,7 +339,6 @@
         private Guna.UI2.WinForms.Guna2Button btnMinimizar;
         private Guna.UI2.WinForms.Guna2Panel pnlContenedor;
         private System.Windows.Forms.Label lblBienvenida;
-        private Guna.UI2.WinForms.Guna2Button btnMaximizar;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Button BtnAsistencia;
         private Guna.UI2.WinForms.Guna2Button BtnSalir;

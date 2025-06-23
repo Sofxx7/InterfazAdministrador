@@ -21,7 +21,7 @@ namespace InterfazAdministrador.Data
             var query = from r in db.RegistroDiario
                         join e in db.Empleado on r.idEmpleado equals e.idEmpleado
                         join f in db.Fecha on r.idFecha equals f.idFecha
-                        join ea in db.EstadoAsistencia on r.idEstadoAsistencia equals ea.idEvento into eaJoin
+                        join ea in db.EstadoAsistencia on r.estadoAsistencia equals ea.idEvento into eaJoin
                         from ea in eaJoin.DefaultIfEmpty()
                         where f.ano == ano && f.mes == mes.ToString()
                         select new { registro = r, empleado = e, estado = ea, fecha = f };
@@ -45,7 +45,7 @@ namespace InterfazAdministrador.Data
                             where r.idEmpleado == idEmpleado && f.dia == dia && f.mes == mes && f.ano == ano
                             select r).FirstOrDefault();
             if (registro == null) return false;
-            registro.idEstadoAsistencia = idEstadoAsistencia;
+            registro.estadoAsistencia = idEstadoAsistencia;
             db.SubmitChanges();
             return true;
         }
