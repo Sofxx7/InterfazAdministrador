@@ -61,7 +61,7 @@ namespace InterfazAdministrador
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
-            CargarFormulario(new FrmConfiguracion());
+            CargarFormulario(new FrmConfiguracion(administrador.idEmpleado));
         }
 
         private void BtnSalir_Click_1(object sender, EventArgs e)

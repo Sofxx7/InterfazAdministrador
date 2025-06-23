@@ -23,8 +23,6 @@ namespace InterfazAdministrador.Interfaces
 
         private List<Fecha> fechasCache;
         private List<Empleado> empleadosCache;
-        private List<RegistroDiario> registrosDiariosCache;
-        private List<EstadoAsistencia> estadosAsistenciaCache;
 
 
         public FrmAsistencia()
