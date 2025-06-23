@@ -75,14 +75,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMostrarReporte.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMostrarReporte.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvMostrarReporte.Location = new System.Drawing.Point(38, 97);
-            this.dgvMostrarReporte.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMostrarReporte.Location = new System.Drawing.Point(52, 83);
+            this.dgvMostrarReporte.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMostrarReporte.Name = "dgvMostrarReporte";
             this.dgvMostrarReporte.ReadOnly = true;
             this.dgvMostrarReporte.RowHeadersVisible = false;
             this.dgvMostrarReporte.RowHeadersWidth = 51;
             this.dgvMostrarReporte.RowTemplate.Height = 24;
-            this.dgvMostrarReporte.Size = new System.Drawing.Size(631, 227);
+            this.dgvMostrarReporte.Size = new System.Drawing.Size(841, 279);
             this.dgvMostrarReporte.TabIndex = 30;
             this.dgvMostrarReporte.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMostrarReporte.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -110,9 +110,10 @@
             // 
             this.lblResumenMes.AutoSize = true;
             this.lblResumenMes.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumenMes.Location = new System.Drawing.Point(35, 336);
+            this.lblResumenMes.Location = new System.Drawing.Point(47, 382);
+            this.lblResumenMes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResumenMes.Name = "lblResumenMes";
-            this.lblResumenMes.Size = new System.Drawing.Size(221, 18);
+            this.lblResumenMes.Size = new System.Drawing.Size(269, 22);
             this.lblResumenMes.TabIndex = 26;
             this.lblResumenMes.Text = "Resumen de Asistencia del Mes";
             // 
@@ -146,14 +147,14 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvResumen.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvResumen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvResumen.Location = new System.Drawing.Point(38, 373);
-            this.dgvResumen.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvResumen.Location = new System.Drawing.Point(51, 417);
+            this.dgvResumen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvResumen.Name = "dgvResumen";
             this.dgvResumen.ReadOnly = true;
             this.dgvResumen.RowHeadersVisible = false;
             this.dgvResumen.RowHeadersWidth = 51;
             this.dgvResumen.RowTemplate.Height = 24;
-            this.dgvResumen.Size = new System.Drawing.Size(631, 207);
+            this.dgvResumen.Size = new System.Drawing.Size(841, 255);
             this.dgvResumen.TabIndex = 31;
             this.dgvResumen.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvResumen.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -218,10 +219,10 @@
             this.btnExportar.Image = ((System.Drawing.Image)(resources.GetObject("btnExportar.Image")));
             this.btnExportar.ImageOffset = new System.Drawing.Point(0, 15);
             this.btnExportar.ImageSize = new System.Drawing.Size(26, 26);
-            this.btnExportar.Location = new System.Drawing.Point(401, 32);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportar.Location = new System.Drawing.Point(546, 19);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(40, 43);
+            this.btnExportar.Size = new System.Drawing.Size(53, 53);
             this.btnExportar.TabIndex = 32;
             this.btnExportar.Text = "btnExportar";
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
@@ -237,10 +238,10 @@
             this.cmbMes.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbMes.ItemHeight = 30;
-            this.cmbMes.Location = new System.Drawing.Point(460, 38);
-            this.cmbMes.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbMes.Location = new System.Drawing.Point(611, 26);
+            this.cmbMes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbMes.Name = "cmbMes";
-            this.cmbMes.Size = new System.Drawing.Size(119, 36);
+            this.cmbMes.Size = new System.Drawing.Size(157, 36);
             this.cmbMes.TabIndex = 33;
             this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
@@ -255,19 +256,19 @@
             this.cmbAno.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbAno.ItemHeight = 30;
-            this.cmbAno.Location = new System.Drawing.Point(582, 38);
-            this.cmbAno.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAno.Location = new System.Drawing.Point(776, 27);
+            this.cmbAno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbAno.Name = "cmbAno";
-            this.cmbAno.Size = new System.Drawing.Size(88, 36);
+            this.cmbAno.Size = new System.Drawing.Size(116, 36);
             this.cmbAno.TabIndex = 34;
             this.cmbAno.SelectedIndexChanged += new System.EventHandler(this.cmbAno_SelectedIndexChanged);
             // 
             // FrmAsistencia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(705, 591);
+            this.ClientSize = new System.Drawing.Size(943, 708);
             this.Controls.Add(this.cmbAno);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.btnExportar);
@@ -275,6 +276,7 @@
             this.Controls.Add(this.dgvMostrarReporte);
             this.Controls.Add(this.lblResumenMes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAsistencia";
             this.Text = "Asistencia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarReporte)).EndInit();

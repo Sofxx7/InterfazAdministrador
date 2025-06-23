@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDatosBiometricos));
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtFiltrar = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,8 +55,8 @@
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(41, 34);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(55, 42);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(3, 2);
             this.guna2HtmlLabel1.TabIndex = 25;
@@ -74,12 +74,12 @@
             this.txtFiltrar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFiltrar.Location = new System.Drawing.Point(166, 23);
-            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtFiltrar.Location = new System.Drawing.Point(221, 28);
+            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtFiltrar.Name = "txtFiltrar";
             this.txtFiltrar.PlaceholderText = "";
             this.txtFiltrar.SelectedText = "";
-            this.txtFiltrar.Size = new System.Drawing.Size(373, 32);
+            this.txtFiltrar.Size = new System.Drawing.Size(497, 39);
             this.txtFiltrar.TabIndex = 26;
             this.txtFiltrar.TextChanged += new System.EventHandler(this.txtFiltrar_TextChanged);
             // 
@@ -93,10 +93,10 @@
             this.btnLimpiarFiltro.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnLimpiarFiltro.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarFiltro.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarFiltro.Location = new System.Drawing.Point(543, 23);
-            this.btnLimpiarFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiarFiltro.Location = new System.Drawing.Point(724, 28);
+            this.btnLimpiarFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiarFiltro.Name = "btnLimpiarFiltro";
-            this.btnLimpiarFiltro.Size = new System.Drawing.Size(116, 31);
+            this.btnLimpiarFiltro.Size = new System.Drawing.Size(155, 38);
             this.btnLimpiarFiltro.TabIndex = 28;
             this.btnLimpiarFiltro.Text = "Eliminar filtro";
             this.btnLimpiarFiltro.Click += new System.EventHandler(this.btnLimpiarFiltro_Click);
@@ -105,38 +105,38 @@
             // 
             this.dgvEmpleadosCaras.AllowUserToAddRows = false;
             this.dgvEmpleadosCaras.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvEmpleadosCaras.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(188)))), ((int)(((byte)(148)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmpleadosCaras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvEmpleadosCaras.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(188)))), ((int)(((byte)(148)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmpleadosCaras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEmpleadosCaras.ColumnHeadersHeight = 18;
             this.dgvEmpleadosCaras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvEmpleadosCaras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColEmpleado,
             this.ColCaras});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmpleadosCaras.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmpleadosCaras.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmpleadosCaras.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvEmpleadosCaras.Location = new System.Drawing.Point(41, 80);
-            this.dgvEmpleadosCaras.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvEmpleadosCaras.Location = new System.Drawing.Point(55, 98);
+            this.dgvEmpleadosCaras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
             this.dgvEmpleadosCaras.ReadOnly = true;
             this.dgvEmpleadosCaras.RowHeadersVisible = false;
             this.dgvEmpleadosCaras.RowHeadersWidth = 51;
             this.dgvEmpleadosCaras.RowTemplate.Height = 24;
-            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(268, 500);
+            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(357, 569);
             this.dgvEmpleadosCaras.TabIndex = 42;
             this.dgvEmpleadosCaras.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvEmpleadosCaras.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -178,10 +178,10 @@
             // lblCantidadCaras
             // 
             this.lblCantidadCaras.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidadCaras.Location = new System.Drawing.Point(470, 375);
-            this.lblCantidadCaras.Margin = new System.Windows.Forms.Padding(2);
+            this.lblCantidadCaras.Location = new System.Drawing.Point(627, 462);
+            this.lblCantidadCaras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblCantidadCaras.Name = "lblCantidadCaras";
-            this.lblCantidadCaras.Size = new System.Drawing.Size(86, 15);
+            this.lblCantidadCaras.Size = new System.Drawing.Size(108, 18);
             this.lblCantidadCaras.TabIndex = 47;
             this.lblCantidadCaras.Text = "guna2HtmlLabel2";
             // 
@@ -195,10 +195,10 @@
             this.btnEliminarCara.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnEliminarCara.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnEliminarCara.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCara.Location = new System.Drawing.Point(509, 413);
-            this.btnEliminarCara.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminarCara.Location = new System.Drawing.Point(679, 508);
+            this.btnEliminarCara.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminarCara.Name = "btnEliminarCara";
-            this.btnEliminarCara.Size = new System.Drawing.Size(116, 35);
+            this.btnEliminarCara.Size = new System.Drawing.Size(155, 43);
             this.btnEliminarCara.TabIndex = 48;
             this.btnEliminarCara.Text = "Eliminar cara";
             this.btnEliminarCara.Click += new System.EventHandler(this.btnEliminarCara_Click);
@@ -213,10 +213,10 @@
             this.btnAgregarCara.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnAgregarCara.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnAgregarCara.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarCara.Location = new System.Drawing.Point(382, 413);
-            this.btnAgregarCara.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarCara.Location = new System.Drawing.Point(509, 508);
+            this.btnAgregarCara.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregarCara.Name = "btnAgregarCara";
-            this.btnAgregarCara.Size = new System.Drawing.Size(116, 35);
+            this.btnAgregarCara.Size = new System.Drawing.Size(155, 43);
             this.btnAgregarCara.TabIndex = 49;
             this.btnAgregarCara.Text = "Agregar cara";
             this.btnAgregarCara.Click += new System.EventHandler(this.btnAgregarCara_Click);
@@ -224,10 +224,10 @@
             // lblMostrarIniciandoCamara
             // 
             this.lblMostrarIniciandoCamara.BackColor = System.Drawing.Color.Transparent;
-            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(353, 462);
-            this.lblMostrarIniciandoCamara.Margin = new System.Windows.Forms.Padding(2);
+            this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(471, 569);
+            this.lblMostrarIniciandoCamara.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
-            this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(86, 15);
+            this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(108, 18);
             this.lblMostrarIniciandoCamara.TabIndex = 50;
             this.lblMostrarIniciandoCamara.Text = "guna2HtmlLabel3";
             // 
@@ -241,10 +241,10 @@
             this.btnSiguiente.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnSiguiente.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnSiguiente.ForeColor = System.Drawing.Color.White;
-            this.btnSiguiente.Location = new System.Drawing.Point(562, 370);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSiguiente.Location = new System.Drawing.Point(749, 455);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(45, 24);
+            this.btnSiguiente.Size = new System.Drawing.Size(60, 30);
             this.btnSiguiente.TabIndex = 51;
             this.btnSiguiente.Text = ">>";
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -259,10 +259,10 @@
             this.btnAnterior.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnAnterior.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
-            this.btnAnterior.Location = new System.Drawing.Point(411, 370);
-            this.btnAnterior.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnterior.Location = new System.Drawing.Point(548, 455);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(45, 24);
+            this.btnAnterior.Size = new System.Drawing.Size(60, 30);
             this.btnAnterior.TabIndex = 52;
             this.btnAnterior.Text = "<<";
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
@@ -271,10 +271,10 @@
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(41, 25);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(55, 31);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(116, 20);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(148, 25);
             this.guna2HtmlLabel4.TabIndex = 53;
             this.guna2HtmlLabel4.Text = "Filtrar empleado:";
             // 
@@ -283,10 +283,10 @@
             this.pbCamara.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbCamara.FillColor = System.Drawing.Color.Transparent;
             this.pbCamara.ImageRotate = 0F;
-            this.pbCamara.Location = new System.Drawing.Point(360, 80);
-            this.pbCamara.Margin = new System.Windows.Forms.Padding(2);
+            this.pbCamara.Location = new System.Drawing.Point(480, 98);
+            this.pbCamara.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbCamara.Name = "pbCamara";
-            this.pbCamara.Size = new System.Drawing.Size(299, 279);
+            this.pbCamara.Size = new System.Drawing.Size(398, 343);
             this.pbCamara.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCamara.TabIndex = 54;
             this.pbCamara.TabStop = false;
@@ -297,20 +297,20 @@
             this.pbLogo.FillColor = System.Drawing.Color.Transparent;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.ImageRotate = 0F;
-            this.pbLogo.Location = new System.Drawing.Point(360, 80);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.pbLogo.Location = new System.Drawing.Point(480, 98);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(299, 279);
+            this.pbLogo.Size = new System.Drawing.Size(398, 343);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 55;
             this.pbLogo.TabStop = false;
             // 
             // FrmDatosBiometricos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(705, 591);
+            this.ClientSize = new System.Drawing.Size(940, 708);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pbCamara);
             this.Controls.Add(this.guna2HtmlLabel4);
@@ -325,6 +325,7 @@
             this.Controls.Add(this.txtFiltrar);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmDatosBiometricos";
             this.Text = "DatatosBiometricos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleadosCaras)).EndInit();
