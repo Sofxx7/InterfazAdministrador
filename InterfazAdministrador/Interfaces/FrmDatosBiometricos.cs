@@ -31,7 +31,7 @@ namespace InterfazAdministrador.Interfaces
             InitializeComponent();
 
             lblMostrarIniciandoCamara.Text = string.Empty;
-            lblCantidadCaras.Text = string.Empty;
+            lbl.Text = string.Empty;
             btnAgregarCara.Enabled = false;
             btnEliminarCara.Enabled = false;
             btnSiguiente.Enabled = false;
@@ -89,7 +89,8 @@ namespace InterfazAdministrador.Interfaces
                 {
                     Invoke(new Action(() =>
                     {
-                        lblMostrarIniciandoCamara.Text = "No se pudo capturar la imagen de la cámara.";
+                        MessageBox.Show("No se pudo capturar la imagen de la cámara. Asegúrese de que la cámara esté funcionando correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblMostrarIniciandoCamara.Text = string.Empty;
                     }));
                     return;
                 }
@@ -103,7 +104,8 @@ namespace InterfazAdministrador.Interfaces
                     Invoke(new Action(() =>
                     {
                         ActualizarImagenCara(caraIndex);
-                        lblMostrarIniciandoCamara.Text = "Cara agregada exitosamente.";
+                        MessageBox.Show("Cara agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblMostrarIniciandoCamara.Text = string.Empty;
                         llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
                     }));
                 }
@@ -111,7 +113,8 @@ namespace InterfazAdministrador.Interfaces
                 {
                     Invoke(new Action(() =>
                     {
-                        lblMostrarIniciandoCamara.Text = "Error al agregar la cara. Intente nuevamente.";
+                        MessageBox.Show("Error al agregar la cara. Intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblMostrarIniciandoCamara.Text = string.Empty;
                     }));
                     LimpiarInterfazCaras();
                 }
@@ -120,13 +123,12 @@ namespace InterfazAdministrador.Interfaces
 
         private void btnEliminarCara_Click(object sender, EventArgs e)
         {
-            lblMostrarIniciandoCamara.Text = "Eliminando cara seleccionada...";
-
             if (caraList == null || caraList.Count == 0)
             {
                 Invoke(new Action(() =>
                 {
-                    lblMostrarIniciandoCamara.Text = "No hay caras para eliminar.";
+                    MessageBox.Show("No hay caras registradas para el empleado seleccionado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lblMostrarIniciandoCamara.Text = string.Empty;
                 }));
                 return;
             }
@@ -137,12 +139,13 @@ namespace InterfazAdministrador.Interfaces
                 caraList = caraRepository.ListarCaras(empleadoSeleccionado.idEmpleado);
                 caraIndex = Math.Min(caraIndex, caraList.Count - 1);
                 ActualizarImagenCara(caraIndex);
-                lblMostrarIniciandoCamara.Text = "Cara eliminada exitosamente.";
+                MessageBox.Show("Cara eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblMostrarIniciandoCamara.Text = string.Empty;
                 llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
             }
             else
             {
-                lblMostrarIniciandoCamara.Text = "Error al eliminar la cara. Intente nuevamente.";
+                MessageBox.Show("Error al eliminar la cara. Intente nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -256,7 +259,7 @@ namespace InterfazAdministrador.Interfaces
             btnAgregarCara.Enabled = agregar;
             btnEliminarCara.Enabled = eliminar;
 
-            lblCantidadCaras.Text = texto ? $"{caraIndex + 1}/{caraList.Count}" : string.Empty;
+            lbl.Text = texto ? $"{caraIndex + 1}/{caraList.Count}" : string.Empty;
         }
 
         private void RunCamara()
@@ -347,18 +350,6 @@ namespace InterfazAdministrador.Interfaces
                 {
                     pbCamara.Image?.Dispose();
                     pbCamara.Image = null;
-                }
-
-                if (pbLogo.InvokeRequired)
-                {
-                    pbLogo.Invoke((MethodInvoker)delegate
-                    {
-                        pbLogo.Visible = true;
-                    });
-                }
-                else
-                {
-                    pbLogo.Visible = true;
                 }
             }
             catch (Exception ex)

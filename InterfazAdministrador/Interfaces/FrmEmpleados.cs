@@ -1,12 +1,8 @@
 ﻿using InterfazAdministrador.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfazAdministrador.Interfaces
@@ -64,9 +60,9 @@ namespace InterfazAdministrador.Interfaces
 
             int fila = e.RowIndex;
 
-            if (fila >= 0 && fila < dgvEmpleados.Rows.Count)
+            if (fila >= 0 && fila < dgvEmpleado.Rows.Count)
             {
-                string nombreCompleto = dgvEmpleados.Rows[fila].Cells[0].Value.ToString();
+                string nombreCompleto = dgvEmpleado.Rows[fila].Cells[0].Value.ToString();
 
                 empleadoSeleccionado = empleados.Single(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto));
                 if (empleadoSeleccionado == null) MessageBox.Show("Error al obtener al empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -204,10 +200,10 @@ namespace InterfazAdministrador.Interfaces
 
         private void llenarDGVEmpleados(List<Empleado> empleados)
         {
-            dgvEmpleados.Rows.Clear();
+            dgvEmpleado.Rows.Clear();
             foreach (var empleado in empleados)
             {
-                dgvEmpleados.Rows.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
+                dgvEmpleado.Rows.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
             }
         }
 
