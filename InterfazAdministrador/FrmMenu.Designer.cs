@@ -84,7 +84,7 @@
             this.pnlContenedor.Location = new System.Drawing.Point(232, 49);
             this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(705, 603);
+            this.pnlContenedor.Size = new System.Drawing.Size(705, 591);
             this.pnlContenedor.TabIndex = 3;
             // 
             // lblBienvenida

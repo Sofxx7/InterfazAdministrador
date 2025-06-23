@@ -57,9 +57,9 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(41, 34);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(0, 0);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(3, 2);
             this.guna2HtmlLabel1.TabIndex = 25;
             this.guna2HtmlLabel1.Text = null;
             // 
@@ -94,7 +94,7 @@
             this.btnFiltrar.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
             this.btnFiltrar.Location = new System.Drawing.Point(470, 23);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(64, 31);
             this.btnFiltrar.TabIndex = 27;
@@ -112,7 +112,7 @@
             this.btnLimpiarFiltro.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnLimpiarFiltro.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarFiltro.Location = new System.Drawing.Point(543, 23);
-            this.btnLimpiarFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimpiarFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimpiarFiltro.Name = "btnLimpiarFiltro";
             this.btnLimpiarFiltro.Size = new System.Drawing.Size(116, 31);
             this.btnLimpiarFiltro.TabIndex = 28;
@@ -148,13 +148,13 @@
             this.dgvEmpleadosCaras.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmpleadosCaras.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvEmpleadosCaras.Location = new System.Drawing.Point(41, 80);
-            this.dgvEmpleadosCaras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmpleadosCaras.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmpleadosCaras.Name = "dgvEmpleadosCaras";
             this.dgvEmpleadosCaras.ReadOnly = true;
             this.dgvEmpleadosCaras.RowHeadersVisible = false;
             this.dgvEmpleadosCaras.RowHeadersWidth = 51;
             this.dgvEmpleadosCaras.RowTemplate.Height = 24;
-            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(268, 521);
+            this.dgvEmpleadosCaras.Size = new System.Drawing.Size(268, 500);
             this.dgvEmpleadosCaras.TabIndex = 42;
             this.dgvEmpleadosCaras.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvEmpleadosCaras.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -197,7 +197,7 @@
             // 
             this.lblCantidadCaras.BackColor = System.Drawing.Color.Transparent;
             this.lblCantidadCaras.Location = new System.Drawing.Point(470, 375);
-            this.lblCantidadCaras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lblCantidadCaras.Margin = new System.Windows.Forms.Padding(2);
             this.lblCantidadCaras.Name = "lblCantidadCaras";
             this.lblCantidadCaras.Size = new System.Drawing.Size(86, 15);
             this.lblCantidadCaras.TabIndex = 47;
@@ -214,7 +214,7 @@
             this.btnEliminarCara.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnEliminarCara.ForeColor = System.Drawing.Color.White;
             this.btnEliminarCara.Location = new System.Drawing.Point(509, 413);
-            this.btnEliminarCara.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarCara.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarCara.Name = "btnEliminarCara";
             this.btnEliminarCara.Size = new System.Drawing.Size(116, 35);
             this.btnEliminarCara.TabIndex = 48;
@@ -232,7 +232,7 @@
             this.btnAgregarCara.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnAgregarCara.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCara.Location = new System.Drawing.Point(382, 413);
-            this.btnAgregarCara.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarCara.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarCara.Name = "btnAgregarCara";
             this.btnAgregarCara.Size = new System.Drawing.Size(116, 35);
             this.btnAgregarCara.TabIndex = 49;
@@ -243,7 +243,7 @@
             // 
             this.lblMostrarIniciandoCamara.BackColor = System.Drawing.Color.Transparent;
             this.lblMostrarIniciandoCamara.Location = new System.Drawing.Point(353, 462);
-            this.lblMostrarIniciandoCamara.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lblMostrarIniciandoCamara.Margin = new System.Windows.Forms.Padding(2);
             this.lblMostrarIniciandoCamara.Name = "lblMostrarIniciandoCamara";
             this.lblMostrarIniciandoCamara.Size = new System.Drawing.Size(86, 15);
             this.lblMostrarIniciandoCamara.TabIndex = 50;
@@ -260,7 +260,7 @@
             this.btnSiguiente.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnSiguiente.ForeColor = System.Drawing.Color.White;
             this.btnSiguiente.Location = new System.Drawing.Point(562, 370);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(45, 24);
             this.btnSiguiente.TabIndex = 51;
@@ -278,7 +278,7 @@
             this.btnAnterior.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnAnterior.ForeColor = System.Drawing.Color.White;
             this.btnAnterior.Location = new System.Drawing.Point(411, 370);
-            this.btnAnterior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(45, 24);
             this.btnAnterior.TabIndex = 52;
@@ -290,7 +290,7 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(41, 25);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(116, 20);
             this.guna2HtmlLabel4.TabIndex = 53;
@@ -302,7 +302,7 @@
             this.pbCamara.FillColor = System.Drawing.Color.Transparent;
             this.pbCamara.ImageRotate = 0F;
             this.pbCamara.Location = new System.Drawing.Point(360, 80);
-            this.pbCamara.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbCamara.Margin = new System.Windows.Forms.Padding(2);
             this.pbCamara.Name = "pbCamara";
             this.pbCamara.Size = new System.Drawing.Size(299, 279);
             this.pbCamara.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -328,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(705, 640);
+            this.ClientSize = new System.Drawing.Size(705, 591);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pbCamara);
             this.Controls.Add(this.guna2HtmlLabel4);

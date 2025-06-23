@@ -110,7 +110,7 @@
             // 
             this.lblResumenMes.AutoSize = true;
             this.lblResumenMes.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResumenMes.Location = new System.Drawing.Point(35, 358);
+            this.lblResumenMes.Location = new System.Drawing.Point(35, 336);
             this.lblResumenMes.Name = "lblResumenMes";
             this.lblResumenMes.Size = new System.Drawing.Size(221, 18);
             this.lblResumenMes.TabIndex = 26;
@@ -146,7 +146,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvResumen.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvResumen.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvResumen.Location = new System.Drawing.Point(38, 395);
+            this.dgvResumen.Location = new System.Drawing.Point(38, 373);
             this.dgvResumen.Margin = new System.Windows.Forms.Padding(2);
             this.dgvResumen.Name = "dgvResumen";
             this.dgvResumen.ReadOnly = true;
@@ -267,7 +267,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(705, 640);
+            this.ClientSize = new System.Drawing.Size(705, 591);
             this.Controls.Add(this.cmbAno);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.btnExportar);

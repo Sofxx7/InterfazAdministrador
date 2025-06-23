@@ -62,13 +62,14 @@
             this.chart2.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(450, 158);
+            this.chart2.Location = new System.Drawing.Point(338, 117);
+            this.chart2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chart2.Name = "chart2";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(274, 162);
+            this.chart2.Size = new System.Drawing.Size(206, 132);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             // 
@@ -76,9 +77,10 @@
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(45, 52);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(34, 42);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(148, 25);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(116, 20);
             this.guna2HtmlLabel4.TabIndex = 59;
             this.guna2HtmlLabel4.Text = "Filtrar empleado:";
             // 
@@ -94,12 +96,12 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(211, 49);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Location = new System.Drawing.Point(158, 40);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(387, 39);
+            this.guna2TextBox1.Size = new System.Drawing.Size(290, 32);
             this.guna2TextBox1.TabIndex = 58;
             // 
             // dgvEmpleado
@@ -129,13 +131,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEmpleado.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmpleado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvEmpleado.Location = new System.Drawing.Point(45, 125);
+            this.dgvEmpleado.Location = new System.Drawing.Point(34, 102);
+            this.dgvEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvEmpleado.Name = "dgvEmpleado";
             this.dgvEmpleado.ReadOnly = true;
             this.dgvEmpleado.RowHeadersVisible = false;
             this.dgvEmpleado.RowHeadersWidth = 51;
             this.dgvEmpleado.RowTemplate.Height = 24;
-            this.dgvEmpleado.Size = new System.Drawing.Size(339, 602);
+            this.dgvEmpleado.Size = new System.Drawing.Size(254, 478);
             this.dgvEmpleado.TabIndex = 60;
             this.dgvEmpleado.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvEmpleado.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -170,9 +173,10 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(450, 125);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(338, 91);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(90, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(71, 20);
             this.guna2HtmlLabel1.TabIndex = 61;
             this.guna2HtmlLabel1.Text = "Tardanzas";
             // 
@@ -180,9 +184,10 @@
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(450, 326);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(338, 254);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(56, 25);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(44, 20);
             this.guna2HtmlLabel2.TabIndex = 62;
             this.guna2HtmlLabel2.Text = "Faltas";
             // 
@@ -192,13 +197,14 @@
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(450, 357);
+            this.chart1.Location = new System.Drawing.Point(338, 279);
+            this.chart1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(274, 162);
+            this.chart1.Size = new System.Drawing.Size(206, 132);
             this.chart1.TabIndex = 63;
             this.chart1.Text = "chart1";
             // 
@@ -206,9 +212,10 @@
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(450, 534);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(338, 423);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(101, 25);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(81, 20);
             this.guna2HtmlLabel3.TabIndex = 64;
             this.guna2HtmlLabel3.Text = "Asistencias";
             // 
@@ -218,22 +225,23 @@
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(450, 565);
+            this.chart3.Location = new System.Drawing.Point(338, 448);
+            this.chart3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
-            this.chart3.Size = new System.Drawing.Size(274, 162);
+            this.chart3.Size = new System.Drawing.Size(206, 132);
             this.chart3.TabIndex = 65;
             this.chart3.Text = "chart3";
             // 
             // FrmEmpleados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(940, 792);
+            this.ClientSize = new System.Drawing.Size(705, 591);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.chart1);
@@ -244,6 +252,7 @@
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.chart2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmEmpleados";
             this.Text = "FrmEmpleados";
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
