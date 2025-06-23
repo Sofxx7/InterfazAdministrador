@@ -1,4 +1,5 @@
 ﻿using InterfazAdministrador.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,6 +49,11 @@ namespace InterfazAdministrador.Data
             registro.estadoAsistencia = idEstadoAsistencia;
             db.SubmitChanges();
             return true;
+        }
+
+        public List<RegistroDiario> ListarRegistrosDiarios()
+        {
+            return db.RegistroDiario.ToList();
         }
     }
 }
