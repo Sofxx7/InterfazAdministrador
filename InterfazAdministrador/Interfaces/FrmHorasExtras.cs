@@ -84,14 +84,16 @@ namespace InterfazAdministrador.Interfaces
         {
             dgvEmpleados.Rows.Clear();
 
+            var idfecha = fechaRepository.ObtenerIDPorFecha(DateTime.Now);
+
             foreach (var emp in empleados)
             {
                 int totalHorasExtras = horaExtraRepository
-                    .ObtenerHorasExtrasPorEmpleado(emp.idEmpleado);
+                    .ObtenerHorasExtrasPorEmpleado(emp.idEmpleado, idfecha);
 
                 dgvEmpleados.Rows.Add(
                     $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}",
-                    totalHorasExtras
+                    totalHorasExtras / 60
                 );
             }
         }
@@ -126,7 +128,7 @@ namespace InterfazAdministrador.Interfaces
                 {
                     idEmpleado = empleadoSeleccionado.idEmpleado,
                     idFecha = idfecha,
-                    minutosHorasExtras = horas
+                    minutosHorasExtras = horas * 60
                 };
 
                 if (horaExtraRepository.InsertarHoraExtra(nuevaHoraExtra))
@@ -139,6 +141,8 @@ namespace InterfazAdministrador.Interfaces
                 {
                     MessageBox.Show("No se pudo guardar las horas extras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                llenarDGVEmpleados(empleados);
             }
             catch (Exception ex)
             {

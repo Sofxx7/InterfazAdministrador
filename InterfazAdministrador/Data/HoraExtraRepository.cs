@@ -24,16 +24,15 @@ namespace InterfazAdministrador.Data
             }
         }
 
-        public int ObtenerHorasExtrasPorEmpleado(string idEmpleadoStr)
+        public int ObtenerHorasExtrasPorEmpleado(string idEmpleadoStr, int idFecha)
         {
-            if (!int.TryParse(idEmpleadoStr, out int idEmpleado))
+            if (string.IsNullOrWhiteSpace(idEmpleadoStr))
                 return 0;
 
             return db.HoraExtra
-                   .Where(h => h.idEmpleado.Equals(idEmpleado))
-                   .Sum(h => (int?)h.minutosHorasExtras) ?? 0;
+                     .Where(h => h.idEmpleado == idEmpleadoStr && h.idFecha.Equals(idFecha))
+                     .Select(h => (int?)h.minutosHorasExtras)
+                     .FirstOrDefault() ?? 0;
         }
-
-
     }
 }
