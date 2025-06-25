@@ -112,7 +112,6 @@
             this.gbLogoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gbLogoMenu.TabIndex = 1;
             this.gbLogoMenu.TabStop = false;
-            this.gbLogoMenu.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2Panel2
             // 

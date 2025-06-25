@@ -50,8 +50,9 @@
             this.guna2Panel4.Controls.Add(this.btnLogin);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel4.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(790, 539);
+            this.guna2Panel4.Size = new System.Drawing.Size(1053, 663);
             this.guna2Panel4.TabIndex = 4;
             // 
             // btnCerrar
@@ -64,9 +65,10 @@
             this.btnCerrar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(746, 8);
+            this.btnCerrar.Location = new System.Drawing.Point(995, 10);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(36, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(48, 28);
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.Text = "X";
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -85,13 +87,13 @@
             this.txtContrasena.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtContrasena.ForeColor = System.Drawing.Color.Black;
             this.txtContrasena.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtContrasena.Location = new System.Drawing.Point(286, 380);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtContrasena.Location = new System.Drawing.Point(381, 468);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.PlaceholderText = "Contraseña";
             this.txtContrasena.SelectedText = "";
-            this.txtContrasena.Size = new System.Drawing.Size(216, 28);
+            this.txtContrasena.Size = new System.Drawing.Size(288, 34);
             this.txtContrasena.TabIndex = 18;
             // 
             // txtUsuario
@@ -108,21 +110,23 @@
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsuario.Location = new System.Drawing.Point(286, 340);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtUsuario.Location = new System.Drawing.Point(381, 418);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PlaceholderText = "Código";
             this.txtUsuario.SelectedText = "";
-            this.txtUsuario.Size = new System.Drawing.Size(216, 28);
+            this.txtUsuario.Size = new System.Drawing.Size(288, 34);
             this.txtUsuario.TabIndex = 16;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(188, 3);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(251, 4);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(407, 405);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(543, 498);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox2.TabIndex = 15;
             this.guna2PictureBox2.TabStop = false;
@@ -138,21 +142,22 @@
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnLogin.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(344, 435);
+            this.btnLogin.Location = new System.Drawing.Point(459, 535);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(102, 30);
+            this.btnLogin.Size = new System.Drawing.Size(136, 37);
             this.btnLogin.TabIndex = 9;
             this.btnLogin.Text = "INGRESAR";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // FrmLoginFiltrado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 539);
+            this.ClientSize = new System.Drawing.Size(1053, 663);
             this.Controls.Add(this.guna2Panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmLoginFiltrado";
             this.Text = "FrmLoginFiltrado";
             this.guna2Panel4.ResumeLayout(false);

@@ -71,8 +71,12 @@ namespace InterfazAdministrador
         }
 
         private void BtnSalir_Click_1(object sender, EventArgs e)
-        { 
-            Application.Exit();
+        {
+            FrmLoginFiltrado login = new FrmLoginFiltrado();
+            login.StartPosition = FormStartPosition.CenterScreen;
+            Hide();
+            login.FormClosed += (s, args) => this.Close();
+            login.Show();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -85,9 +89,5 @@ namespace InterfazAdministrador
             WindowState = FormWindowState.Minimized;
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

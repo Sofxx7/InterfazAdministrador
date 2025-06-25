@@ -13,22 +13,29 @@ namespace InterfazAdministrador.Interfaces
 {
     public partial class FrmHorasExtras : Form
     {
-        private List<Empleado> empleados;
-        private Empleado empleadoSeleccionado;
         private readonly EmpleadoRepository empleadoRepository = new EmpleadoRepository();
         private readonly FechaRepository fechaRepository = new FechaRepository();
-        private readonly DataClassesTableDataContext db = new DataClassesTableDataContext();
+        private readonly HoraExtraRepository horaExtraRepository = new HoraExtraRepository();
+
+        private List<Empleado> empleados;
+        private Empleado empleadoSeleccionado;
 
         public FrmHorasExtras()
         {
             InitializeComponent();
             this.Load += FrmHorasExtras_Load1;
-            gbHorasExtras.Enabled = false;
-            txtNombre.Enabled = false;
         }
 
         private void FrmHorasExtras_Load1(object sender, EventArgs e)
         {
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+            empleados = empleadoRepository.ListarEmpleados();
+            gbHorasExtras.Enabled = false;
+            txtNombre.Enabled = false;
             llenarDGVEmpleados(empleados);
         }
 
@@ -43,7 +50,11 @@ namespace InterfazAdministrador.Interfaces
         {
             string buscar = txtFiltrar.Text.ToLower();
 
-            if (string.IsNullOrEmpty(buscar)) return;
+            if (string.IsNullOrEmpty(buscar))
+            {
+                llenarDGVEmpleados(empleados);
+                return;
+            }
 
             List<Empleado> empleadosFiltrados = empleados
                 .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
@@ -59,27 +70,33 @@ namespace InterfazAdministrador.Interfaces
             if (fila >= 0 && fila < dgvEmpleados.Rows.Count)
             {
                 gbHorasExtras.Enabled = true;
-
+ 
                 string nombreCompleto = dgvEmpleados.Rows[fila].Cells[0].Value.ToString();
 
                 empleadoSeleccionado = empleados.Single(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto));
                 if (empleadoSeleccionado == null) MessageBox.Show("Error al obtener al empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtNombre.Text = empleadoSeleccionado.nombreEmpleado;
-                
             }
         }
 
         private void llenarDGVEmpleados(List<Empleado> empls)
         {
             dgvEmpleados.Rows.Clear();
-            foreach (var empleado in empls)
+
+            foreach (var emp in empleados)
             {
-                dgvEmpleados.Rows.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
+                int totalHorasExtras = horaExtraRepository
+                    .ObtenerHorasExtrasPorEmpleado(emp.idEmpleado);
+
+                dgvEmpleados.Rows.Add(
+                    $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}",
+                    totalHorasExtras
+                );
             }
         }
 
-        private void btnAgregarHorasExtras_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (dgvEmpleados.CurrentRow == null)
             {
@@ -89,25 +106,44 @@ namespace InterfazAdministrador.Interfaces
 
             var empleado = (Empleado)dgvEmpleados.CurrentRow.DataBoundItem;
 
-            if (!int.TryParse(txtHorasExtras.Text, out int horas) || horas <= 0)
+            if (!int.TryParse(txtHorasExtras.Text, out int horas) || horas <= 0 || horas > 2)
             {
                 MessageBox.Show("Ingrese una cantidad válida de horas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var idfecha = fechaRepository.ObtenerIDPorFecha(DateTime.Now);
-
-            HoraExtra nuevaHoraExtra = new HoraExtra
+            try
             {
-                idEmpleado = empleado.idEmpleado,
-                idFecha = idfecha,
-                minutosHorasExtras = horas
-            };
+                var idfecha = fechaRepository.ObtenerIDPorFecha(DateTime.Now);
 
-            db.HoraExtra.InsertOnSubmit(nuevaHoraExtra);
-            db.SubmitChanges();
+                if (idfecha <= 0)
+                {
+                    MessageBox.Show("No se pudo obtener la fecha actual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            MessageBox.Show("Horas extras añadidas correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HoraExtra nuevaHoraExtra = new HoraExtra
+                {
+                    idEmpleado = empleadoSeleccionado.idEmpleado,
+                    idFecha = idfecha,
+                    minutosHorasExtras = horas
+                };
+
+                if (horaExtraRepository.InsertarHoraExtra(nuevaHoraExtra))
+                {
+                    MessageBox.Show("Horas extras añadidas correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    txtHorasExtras.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar las horas extras.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar horas extras: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -37,7 +37,8 @@ namespace InterfazAdministrador.Data
 
         public int ObtenerIDPorFecha(DateTime time)
         {
-            return db.Fecha.Where(x => x.dia.Equals(time.Day) && x.mes.Equals(time.Month) && x.ano.Equals(time.Year)).SingleOrDefault().idFecha;
-        }   
+            var fecha = db.Fecha.Where(x => x.dia.Equals(time.Day) && x.mes.Equals(time.Month) && x.ano.Equals(time.Year)).SingleOrDefault();
+            return fecha?.idFecha ?? -1;
+        }
     }
 }
