@@ -35,6 +35,19 @@ namespace InterfazAdministrador
         {
             string usuario = txtUsuario.Text;
             string contrasena = txtContrasena.Text;
+
+            if (usuario == null || usuario == string.Empty)
+            {
+                MessageBox.Show("El campo de usuario no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (contrasena == null || contrasena == string.Empty)
+            {
+                MessageBox.Show("El campo de contraseña no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int intentos = 0;
 
             bool esValido = await credencialRepository.VerificarCredencialesAsync(usuario, contrasena);
