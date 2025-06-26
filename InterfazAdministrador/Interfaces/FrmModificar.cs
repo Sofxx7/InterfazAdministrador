@@ -1,11 +1,8 @@
 ﻿using InterfazAdministrador.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,17 +17,50 @@ namespace InterfazAdministrador.Interfaces
         private List<Fecha> fechasCache;
         private List<EstadoAsistencia> estadosAsistencia;
         private List<Empleado> empleados;
-        private bool _evitandoEvento = false;
-        private Dictionary<int, object> estadosOriginales = new Dictionary<int, object>();
 
         public FrmModificar()
         {
             InitializeComponent();
+            this.Load += FrmModificar_LoadAsync;
+        }
 
-            fechasCache = fechaRepository.ObtenerFechas();
-            estadosAsistencia = estadoRepository.ListarEstadoAsistencia();
-            CargarComboBoxes();
-            ConfigurarDgvRegistro();
+        private async void FrmModificar_LoadAsync(object sender, EventArgs e)
+        {
+            await CargarDatosInicialesAsync();
+        }
+
+        private async Task CargarDatosInicialesAsync()
+        {
+            try
+            {
+                var fechasTask = Task.Run(() => fechaRepository.ObtenerFechas());
+                var estadosTask = Task.Run(() => estadoRepository.ListarEstadoAsistencia());
+                var empleadosTask = Task.Run(() => empleadoRepository.ListarEmpleados());
+                fechasCache = await fechasTask;
+                estadosAsistencia = await estadosTask;
+                empleados = await empleadosTask;
+                if (fechasCache == null || fechasCache.Count == 0)
+                {
+                    MessageBox.Show("No hay fechas registradas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (estadosAsistencia == null || estadosAsistencia.Count == 0)
+                {
+                    MessageBox.Show("No hay estados de asistencia registrados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (empleados == null || empleados.Count == 0)
+                {
+                    MessageBox.Show("No hay empleados registrados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                CargarComboBoxes();
+                ConfigurarDgvRegistro();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos iniciales: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarComboBoxes()
@@ -116,18 +146,15 @@ namespace InterfazAdministrador.Interfaces
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltrar.Text.ToLower();
-
             if (cmbAno.SelectedItem == null || cmbMes.SelectedItem == null || cmbDia.SelectedItem == null)
                 return;
-
             string anoSeleccionado = cmbAno.SelectedItem.ToString();
             string mesSeleccionado = cmbMes.SelectedItem.ToString();
             string diaSeleccionado = cmbDia.SelectedItem.ToString();
-
             List<RegistroDiario> registros = registroRepository.ListarRegistrosDiariosPorFecha(diaSeleccionado, mesSeleccionado, anoSeleccionado);
             dgvRegistro.Rows.Clear();
-            estadosOriginales.Clear();
             int i = 0;
+            bool hayResultados = false;
             foreach (var registro in registros)
             {
                 var empleado = empleadoRepository.ObtenerEmpleadoPorId(registro.idEmpleado);
@@ -145,8 +172,13 @@ namespace InterfazAdministrador.Interfaces
                     registro.horaSalida,
                     estadoAsistenciaLocal != null ? estadoAsistenciaLocal.idEvento : (object)null
                 );
-                estadosOriginales[i] = estadoAsistenciaLocal != null ? estadoAsistenciaLocal.idEvento : (object)null;
                 i++;
+                hayResultados = true;
+            }
+            if (!hayResultados)
+            {
+                MessageBox.Show("No se encontraron empleados con ese filtro.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvRegistro.Rows.Clear();
             }
         }
 
@@ -169,31 +201,26 @@ namespace InterfazAdministrador.Interfaces
 
         private void ActualizarRegistros()
         {
-            _evitandoEvento = true;
             dgvRegistro.Rows.Clear();
-            estadosOriginales.Clear();
             if (cmbAno.SelectedItem == null || cmbMes.SelectedItem == null || cmbDia.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, seleccione un año, mes y día válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _evitandoEvento = false;
                 return;
             }
-
             string anoSeleccionado = cmbAno.SelectedItem.ToString();
             string mesSeleccionado = cmbMes.SelectedItem.ToString();
             string diaSeleccionado = cmbDia.SelectedItem.ToString();
-
             List<RegistroDiario> registros = registroRepository.ListarRegistrosDiariosPorFecha(diaSeleccionado, mesSeleccionado, anoSeleccionado);
-            if (registros.Count == 0)
+            if (registros == null || registros.Count == 0)
             {
                 MessageBox.Show("No se encontraron registros para la fecha seleccionada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _evitandoEvento = false;
                 return;
             }
             int i = 0;
             foreach (var registro in registros)
             {
                 var empleado = empleadoRepository.ObtenerEmpleadoPorId(registro.idEmpleado);
+                if (empleado == null) continue;
                 var estado = estadosAsistencia.FirstOrDefault(e => e.idEvento == registro.estadoAsistencia);
                 dgvRegistro.Rows.Add(
                     $"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}",
@@ -201,10 +228,8 @@ namespace InterfazAdministrador.Interfaces
                     registro.horaSalida,
                     estado != null ? estado.idEvento : (object)null
                 );
-                estadosOriginales[i] = estado != null ? estado.idEvento : (object)null;
                 i++;
             }
-            _evitandoEvento = false;
         }
 
         private void ConfigurarDgvRegistro()
@@ -275,8 +300,7 @@ namespace InterfazAdministrador.Interfaces
             {
                 var row = dgvRegistro.Rows[i];
                 var nuevoEstado = row.Cells["ColEstado"].Value;
-                var originalEstado = estadosOriginales.ContainsKey(i) ? estadosOriginales[i] : null;
-                if ((nuevoEstado == null && originalEstado != null) || (nuevoEstado != null && !nuevoEstado.Equals(originalEstado)))
+                if ((nuevoEstado == null) || (nuevoEstado != null))
                 {
                     var empleadoNombre = row.Cells["ColEmpleado"].Value?.ToString();
                     if (string.IsNullOrEmpty(empleadoNombre)) continue;
@@ -312,6 +336,7 @@ namespace InterfazAdministrador.Interfaces
 
         private void btnEliminarFiltro_Click(object sender, EventArgs e)
         {
+            txtFiltrar.Text = string.Empty;
             ActualizarRegistros();
         }
     }

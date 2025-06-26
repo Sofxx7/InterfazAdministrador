@@ -24,16 +24,38 @@ namespace InterfazAdministrador.Interfaces
         private List<Fecha> fechasCache;
         private List<Empleado> empleadosCache;
 
-
         public FrmAsistencia()
         {
             InitializeComponent();
+            CargarDatosIniciales();
+        }
 
-            empleadosCache = empleadoRepository.ListarEmpleados();
-            fechasCache = fechaRepository.ObtenerFechas();
-            LoadComboBoxes();
-            CargarDgvReporte();
-            CargarDgvATF();
+        private async void CargarDatosIniciales()
+        {
+            try
+            {
+                var empleadosTask = System.Threading.Tasks.Task.Run(() => empleadoRepository.ListarEmpleados());
+                var fechasTask = System.Threading.Tasks.Task.Run(() => fechaRepository.ObtenerFechas());
+                empleadosCache = await empleadosTask;
+                fechasCache = await fechasTask;
+                if (empleadosCache == null || empleadosCache.Count == 0)
+                {
+                    MessageBox.Show("No hay empleados registrados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (fechasCache == null || fechasCache.Count == 0)
+                {
+                    MessageBox.Show("No hay fechas registradas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                LoadComboBoxes();
+                CargarDgvReporte();
+                CargarDgvATF();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos iniciales: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadComboBoxes()
@@ -45,7 +67,7 @@ namespace InterfazAdministrador.Interfaces
             actualMonth = currentDate.Month;
             actualYear = currentDate.Year.ToString();
 
-            var years = fechasCache.Select(f => f.ano).Distinct().ToList();
+            var years = fechasCache?.Select(f => f.ano).Distinct().ToList();
             if (years != null && years.Any())
             {
                 cmbAno.DataSource = years;
@@ -60,6 +82,12 @@ namespace InterfazAdministrador.Interfaces
                     actualYear = cmbAno.SelectedItem?.ToString() ?? actualYear;
                 }
             }
+            else
+            {
+                cmbAno.DataSource = null;
+                cmbMes.DataSource = null;
+                return;
+            }
 
             LoadMonthsForSelectedYear();
 
@@ -69,7 +97,7 @@ namespace InterfazAdministrador.Interfaces
 
         private void LoadMonthsForSelectedYear()
         {
-            if (cmbAno.SelectedItem == null) return;
+            if (cmbAno.SelectedItem == null) { cmbMes.DataSource = null; return; }
 
             string selectedYear = cmbAno.SelectedItem.ToString();
             var months = fechasCache
@@ -111,6 +139,10 @@ namespace InterfazAdministrador.Interfaces
                     cmbMes.SelectedIndex = cmbMes.Items.Count - 1;
                 }
             }
+            else
+            {
+                cmbMes.DataSource = null;
+            }
         }
 
         private void cmbAno_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,14 +166,18 @@ namespace InterfazAdministrador.Interfaces
             string mesSeleccionado = cmbMes.SelectedItem?.ToString();
             string anoSeleccionado = cmbAno.SelectedItem?.ToString();
 
-            if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado))
-                return;
+            if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado)) return;
 
-            int mesNumero = int.Parse(tool.monthToNumber(mesSeleccionado));
+            int mesNumero;
+            if (!int.TryParse(tool.monthToNumber(mesSeleccionado), out mesNumero))
+            {
+                MessageBox.Show("Mes seleccionado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             var registrosJoin = registroDiarioRepository.ListarRegistrosDiariosJoin(anoSeleccionado, mesNumero);
+            if (registrosJoin == null || registrosJoin.Count == 0) return;
 
-            // Obtener solo los días con registros
             var diasConRegistros = registrosJoin
                 .Select(x => int.Parse(x.fecha.dia))
                 .Distinct()
@@ -210,7 +246,15 @@ namespace InterfazAdministrador.Interfaces
             if (string.IsNullOrEmpty(mesSeleccionado) || string.IsNullOrEmpty(anoSeleccionado))
                 return;
 
-            var registrosJoin = registroDiarioRepository.ListarRegistrosDiariosJoin(anoSeleccionado, int.Parse(tool.monthToNumber(mesSeleccionado)));
+            int mesNumero;
+            if (!int.TryParse(tool.monthToNumber(mesSeleccionado), out mesNumero))
+            {
+                MessageBox.Show("Mes seleccionado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var registrosJoin = registroDiarioRepository.ListarRegistrosDiariosJoin(anoSeleccionado, mesNumero);
+            if (registrosJoin == null || registrosJoin.Count == 0) return;
 
             var empleadosAgrupados = registrosJoin
                 .GroupBy(x => x.empleado)
@@ -261,12 +305,16 @@ namespace InterfazAdministrador.Interfaces
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            if (dgvMostrarReporte.Rows.Count == 0 && dgvResumen.Rows.Count == 0)
+            if ((dgvMostrarReporte.Rows == null || dgvMostrarReporte.Rows.Count == 0) && (dgvResumen.Rows == null || dgvResumen.Rows.Count == 0))
             {
                 MessageBox.Show("No hay datos para exportar.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
+            if (cmbMes.SelectedItem == null || cmbAno.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un año y un mes antes de exportar.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string mes = cmbMes.SelectedItem?.ToString() ?? "Mes";
             string ano = cmbAno.SelectedItem?.ToString() ?? "Año";
             string defaultFileName = $"{mes}{ano}.xlsx";

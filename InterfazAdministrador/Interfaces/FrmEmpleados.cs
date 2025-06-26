@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfazAdministrador.Interfaces
@@ -24,25 +25,67 @@ namespace InterfazAdministrador.Interfaces
             this.Load += FrmEmpleados_Load;
         }
 
-        private void FrmEmpleados_Load(object sender, EventArgs e)
+        private async void FrmEmpleados_Load(object sender, EventArgs e)
         {
-            empleados = empleadoRepository.ListarEmpleados();
-            fechas = fechaRepository.ObtenerFechas();
-            registroDiarios = registroDiarioRepository.ListarRegistrosDiarios();
-            InterfacesColocar(false);
-            llenarDGVEmpleados(empleados);
+            await CargarDatosInicialesAsync();
+        }
+
+        private async Task CargarDatosInicialesAsync()
+        {
+            try
+            {
+                var empleadosTask = System.Threading.Tasks.Task.Run(() => empleadoRepository.ListarEmpleados());
+                var fechasTask = System.Threading.Tasks.Task.Run(() => fechaRepository.ObtenerFechas());
+                var registrosTask = System.Threading.Tasks.Task.Run(() => registroDiarioRepository.ListarRegistrosDiarios());
+                empleados = await empleadosTask;
+                fechas = await fechasTask;
+                registroDiarios = await registrosTask;
+                if (empleados == null || empleados.Count == 0)
+                {
+                    MessageBox.Show("No hay empleados registrados.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InterfacesColocar(false);
+                    return;
+                }
+                if (fechas == null || fechas.Count == 0)
+                {
+                    MessageBox.Show("No hay fechas registradas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InterfacesColocar(false);
+                    return;
+                }
+                if (registroDiarios == null)
+                {
+                    MessageBox.Show("No se pudieron cargar los registros diarios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InterfacesColocar(false);
+                    return;
+                }
+                InterfacesColocar(false);
+                llenarDGVEmpleados(empleados);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos iniciales: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                InterfacesColocar(false);
+            }
         }
 
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltrar.Text.ToLower();
-
-            if (string.IsNullOrEmpty(buscar)) return;
-
+            if (string.IsNullOrEmpty(buscar))
+            {
+                llenarDGVEmpleados(empleados);
+                return;
+            }
             List<Empleado> empleadosFiltrados = empleados
                 .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
                 .ToList();
-
+            if (empleadosFiltrados.Count == 0)
+            {
+                MessageBox.Show("No se encontraron empleados con ese filtro.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvEmpleado.Rows.Clear();
+                InterfacesColocar(false);
+                return;
+            }
             llenarDGVEmpleados(empleadosFiltrados);
         }
 
@@ -62,16 +105,30 @@ namespace InterfazAdministrador.Interfaces
 
             if (fila >= 0 && fila < dgvEmpleado.Rows.Count)
             {
-                string nombreCompleto = dgvEmpleado.Rows[fila].Cells[0].Value.ToString();
-
-                empleadoSeleccionado = empleados.Single(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto));
-                if (empleadoSeleccionado == null) MessageBox.Show("Error al obtener al empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var cellValue = dgvEmpleado.Rows[fila].Cells[0].Value;
+                if (cellValue == null)
+                {
+                    MessageBox.Show("No se pudo obtener el nombre del empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    InterfacesColocar(false);
+                    return;
+                }
+                string nombreCompleto = cellValue.ToString();
+                var empleado = empleados.FirstOrDefault(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto));
+                if (empleado == null)
+                {
+                    MessageBox.Show("Error al obtener al empleado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    InterfacesColocar(false);
+                    return;
+                }
+                empleadoSeleccionado = empleado;
                 InterfacesColocar(true);
-
                 MostrarGraficoTardanzaPorMes(empleadoSeleccionado.idEmpleado);
                 MostrarGraficoFaltasPorMes(empleadoSeleccionado.idEmpleado);
                 MostrarGraficoAsistenciasPorMes(empleadoSeleccionado.idEmpleado);
-
+            }
+            else
+            {
+                InterfacesColocar(false);
             }
         }
 

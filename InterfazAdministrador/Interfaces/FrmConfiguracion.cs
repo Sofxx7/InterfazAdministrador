@@ -30,31 +30,50 @@ namespace InterfazAdministrador.Interfaces
                 MessageBox.Show("Todos los campos son obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            if (nuevaContrasena.Length < 6)
+            {
+                MessageBox.Show("La nueva contraseña debe tener al menos 6 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (nuevaContrasena != repetirContrasena)
             {
                 MessageBox.Show("Las nuevas contraseñas no coinciden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            bool esValida = await credencialRepository.VerificarCredencialesAsync(idEmpleado, contrasenaActual);
-            if (!esValida)
+            if (nuevaContrasena == contrasenaActual)
             {
-                MessageBox.Show("La contraseña actual es incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La nueva contraseña no puede ser igual a la actual.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            bool actualizada = await credencialRepository.ActualizarContrasenaAsync(idEmpleado, nuevaContrasena);
-            if (actualizada)
+            btnGuardar.Enabled = false;
+            try
             {
-                MessageBox.Show("Contraseña actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtContraActual.Clear();
-                txtNuevaContra.Clear();
-                txtRepetirNuevaContra.Clear();
+                bool esValida = await credencialRepository.VerificarCredencialesAsync(idEmpleado, contrasenaActual);
+                if (!esValida)
+                {
+                    MessageBox.Show("La contraseña actual es incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                bool actualizada = await credencialRepository.ActualizarContrasenaAsync(idEmpleado, nuevaContrasena);
+                if (actualizada)
+                {
+                    MessageBox.Show("Contraseña actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtContraActual.Clear();
+                    txtNuevaContra.Clear();
+                    txtRepetirNuevaContra.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar la contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se pudo actualizar la contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnGuardar.Enabled = true;
             }
         }
     }

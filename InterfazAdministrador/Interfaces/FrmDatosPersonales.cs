@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InterfazAdministrador.Interfaces
@@ -20,14 +21,23 @@ namespace InterfazAdministrador.Interfaces
         public FrmDatosPersonales()
         {
             InitializeComponent();
-            this.Load += FrmDatosPersonales_Load;
+            this.Load += FrmDatosPersonales_LoadAsync;
         }
 
-        private void FrmDatosPersonales_Load(object sender, EventArgs e)
+        private async void FrmDatosPersonales_LoadAsync(object sender, EventArgs e)
         {
-            empleados = empleadoRepository.ListarEmpleados();
-            listRoles = rolRepository.ObtenerRoles();
-            listTurnos = tenorRepository.ObtenerTurnos();
+            await CargarDatosAsync();
+        }
+
+        private async Task CargarDatosAsync()
+        {
+            var empleadosTask = Task.Run(() => empleadoRepository.ListarEmpleados());
+            var rolesTask = Task.Run(() => rolRepository.ObtenerRoles());
+            var turnosTask = Task.Run(() => tenorRepository.ObtenerTurnos());
+
+            empleados = await empleadosTask;
+            listRoles = await rolesTask;
+            listTurnos = await turnosTask;
 
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -49,7 +59,25 @@ namespace InterfazAdministrador.Interfaces
             cmbTurno.ValueMember = "idTurno";
             cmbTurno.SelectedIndex = -1;
 
-            llenarDGVEmpleadosCaras(empleados);
+            LlenarDGVEmpleadosCarasOptimizado(empleados);
+        }
+
+        private void LlenarDGVEmpleadosCarasOptimizado(List<Empleado> empleados)
+        {
+            dgvEmpleados.SuspendLayout();
+            dgvEmpleados.Rows.Clear();
+            if (dgvEmpleados.RowCount > 0)
+                dgvEmpleados.RowCount = 0;
+            var rows = new List<DataGridViewRow>();
+            foreach (var empleado in empleados)
+            {
+                var row = new DataGridViewRow();
+                row.CreateCells(dgvEmpleados, $"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
+                rows.Add(row);
+            }
+            if (rows.Count > 0)
+                dgvEmpleados.Rows.AddRange(rows.ToArray());
+            dgvEmpleados.ResumeLayout();
         }
 
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
@@ -62,7 +90,7 @@ namespace InterfazAdministrador.Interfaces
                 .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
                 .ToList();
 
-            llenarDGVEmpleadosCaras(empleadosFiltrados);
+            LlenarDGVEmpleadosCarasOptimizado(empleadosFiltrados);
         }
 
         private void LimpiarCampos()
@@ -100,16 +128,7 @@ namespace InterfazAdministrador.Interfaces
         private void btnEliminarFiltro_Click(object sender, EventArgs e)
         {
             txtFiltrar.Text = string.Empty;
-            llenarDGVEmpleadosCaras(empleados);
-        }
-
-        private void llenarDGVEmpleadosCaras(List<Empleado> empleados)
-        {
-            dgvEmpleados.Rows.Clear();
-            foreach (var empleado in empleados)
-            {
-                dgvEmpleados.Rows.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}");
-            }
+            LlenarDGVEmpleadosCarasOptimizado(empleados);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -126,7 +145,7 @@ namespace InterfazAdministrador.Interfaces
                 if (eliminado)
                 {
                     MessageBox.Show("Empleado eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    llenarDGVEmpleadosCaras(empleados);
+                    LlenarDGVEmpleadosCarasOptimizado(empleados);
                 }
                 else
                 {
@@ -173,7 +192,7 @@ namespace InterfazAdministrador.Interfaces
             empleadoRepository.ActualizarEmpleado(empleadoSeleccionado);
             MessageBox.Show("Empleado modificado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarCampos();
-            llenarDGVEmpleadosCaras(empleados);
+            LlenarDGVEmpleadosCarasOptimizado(empleados);
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
@@ -213,7 +232,7 @@ namespace InterfazAdministrador.Interfaces
             empleadoRepository.AgregarEmpleado(empleadoSeleccionado);
             MessageBox.Show("Empleado agregado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarCampos();
-            llenarDGVEmpleadosCaras(empleados);
+            LlenarDGVEmpleadosCarasOptimizado(empleados);
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;

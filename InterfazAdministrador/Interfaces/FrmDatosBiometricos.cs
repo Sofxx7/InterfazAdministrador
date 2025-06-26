@@ -25,6 +25,7 @@ namespace InterfazAdministrador.Interfaces
         private Empleado empleadoSeleccionado = null;
         private List<Cara> caraList;
         private int caraIndex = 0;
+        private List<Empleado> empleadosCache = new List<Empleado>();
 
         public FrmDatosBiometricos()
         {
@@ -39,23 +40,46 @@ namespace InterfazAdministrador.Interfaces
 
             pbLogo.Visible = true;
 
-            llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
+            this.Load += FrmDatosBiometricos_LoadAsync;
+        }
+
+        private async void FrmDatosBiometricos_LoadAsync(object sender, EventArgs e)
+        {
+            await CargarEmpleadosAsync();
+        }
+
+        private async Task CargarEmpleadosAsync()
+        {
+            empleadosCache = await Task.Run(() => empleadoRepository.ListarEmpleados());
+            LlenarDGVEmpleadosCarasOptimizado(empleadosCache);
         }
 
         private void btnLimpiarFiltro_Click(object sender, EventArgs e)
         {
             txtFiltrar.Text = string.Empty;
-            llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
+            LlenarDGVEmpleadosCarasOptimizado(empleadosCache);
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            ActualizarImagenCara(--caraIndex);
+            if (caraList == null || caraList.Count == 0)
+            {
+                MessageBox.Show("No hay caras para mostrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (caraIndex > 0)
+                ActualizarImagenCara(--caraIndex);
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            ActualizarImagenCara(++caraIndex);
+            if (caraList == null || caraList.Count == 0)
+            {
+                MessageBox.Show("No hay caras para mostrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (caraIndex < caraList.Count - 1)
+                ActualizarImagenCara(++caraIndex);
         }
 
         private void btnAgregarCara_Click(object sender, EventArgs e)
@@ -106,7 +130,7 @@ namespace InterfazAdministrador.Interfaces
                         ActualizarImagenCara(caraIndex);
                         MessageBox.Show("Cara agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         lblMostrarIniciandoCamara.Text = string.Empty;
-                        llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
+                        LlenarDGVEmpleadosCarasOptimizado(empleadosCache);
                     }));
                 }
                 else
@@ -123,13 +147,15 @@ namespace InterfazAdministrador.Interfaces
 
         private void btnEliminarCara_Click(object sender, EventArgs e)
         {
+            if (empleadoSeleccionado == null)
+            {
+                MessageBox.Show("Seleccione un empleado antes de eliminar una cara.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (caraList == null || caraList.Count == 0)
             {
-                Invoke(new Action(() =>
-                {
-                    MessageBox.Show("No hay caras registradas para el empleado seleccionado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    lblMostrarIniciandoCamara.Text = string.Empty;
-                }));
+                MessageBox.Show("No hay caras registradas para el empleado seleccionado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblMostrarIniciandoCamara.Text = string.Empty;
                 return;
             }
             var caraId = caraList[caraIndex].idCara;
@@ -141,7 +167,7 @@ namespace InterfazAdministrador.Interfaces
                 ActualizarImagenCara(caraIndex);
                 MessageBox.Show("Cara eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblMostrarIniciandoCamara.Text = string.Empty;
-                llenarDGVEmpleadosCaras(empleadoRepository.ListarEmpleados());
+                LlenarDGVEmpleadosCarasOptimizado(empleadosCache);
             }
             else
             {
@@ -158,11 +184,15 @@ namespace InterfazAdministrador.Interfaces
             if (fila >= 0 && fila < dgvEmpleadosCaras.Rows.Count)
             {
                 string nombreCompleto = dgvEmpleadosCaras.Rows[fila].Cells[0].Value.ToString();
-
-                string idEmpleado = empleadoRepository.ListarEmpleados().Single(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto)).idEmpleado;
-                if (idEmpleado == null) MessageBox.Show("No se pudo encontrar el empleado seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                empleadoSeleccionado = empleadoRepository.ListarEmpleados().Single(emp => emp.idEmpleado.Equals(idEmpleado));
-                caraList = caraRepository.ListarCaras(idEmpleado);
+                var empleado = empleadosCache.SingleOrDefault(emp => $"{emp.apellidoEmpleado}, {emp.nombreEmpleado}".Equals(nombreCompleto));
+                if (empleado == null)
+                {
+                    MessageBox.Show("No se pudo encontrar el empleado seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                empleadoSeleccionado = empleado;
+                caraList = caraRepository.ListarCaras(empleadoSeleccionado.idEmpleado);
+                caraIndex = 0;
 
                 if (caraList.Count > 0)
                 {
@@ -175,13 +205,22 @@ namespace InterfazAdministrador.Interfaces
             }
         }
 
-        private void llenarDGVEmpleadosCaras(List<Empleado> empleados)
+        private void LlenarDGVEmpleadosCarasOptimizado(List<Empleado> empleados)
         {
+            dgvEmpleadosCaras.SuspendLayout();
             dgvEmpleadosCaras.Rows.Clear();
+            if (dgvEmpleadosCaras.RowCount > 0)
+                dgvEmpleadosCaras.RowCount = 0;
+            var rows = new List<DataGridViewRow>();
             foreach (var empleado in empleados)
             {
-                dgvEmpleadosCaras.Rows.Add($"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}", caraRepository.tieneCaras(empleado.idEmpleado) ? "Si" : "No");
+                var row = new DataGridViewRow();
+                row.CreateCells(dgvEmpleadosCaras, $"{empleado.apellidoEmpleado}, {empleado.nombreEmpleado}", caraRepository.tieneCaras(empleado.idEmpleado) ? "Si" : "No");
+                rows.Add(row);
             }
+            if (rows.Count > 0)
+                dgvEmpleadosCaras.Rows.AddRange(rows.ToArray());
+            dgvEmpleadosCaras.ResumeLayout();
         }
 
         private void ActualizarImagenCara(int index)
@@ -362,14 +401,15 @@ namespace InterfazAdministrador.Interfaces
         private void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
             string buscar = txtFiltrar.Text.ToLower();
-
-            if (string.IsNullOrEmpty(buscar)) return;
-
-            List<Empleado> empleadosFiltrados = empleadoRepository.ListarEmpleados()
+            if (string.IsNullOrEmpty(buscar))
+            {
+                LlenarDGVEmpleadosCarasOptimizado(empleadosCache);
+                return;
+            }
+            var empleadosFiltrados = empleadosCache
                 .Where(emp => emp.nombreEmpleado.ToLower().Contains(buscar) || emp.apellidoEmpleado.ToLower().Contains(buscar))
                 .ToList();
-
-            llenarDGVEmpleadosCaras(empleadosFiltrados);
+            LlenarDGVEmpleadosCarasOptimizado(empleadosFiltrados);
         }
     }
 }
