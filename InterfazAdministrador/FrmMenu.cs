@@ -28,7 +28,7 @@ namespace InterfazAdministrador
 
         }
 
-        private void BtnAsistencia_Click_1(object sender, EventArgs e)
+        private void BtnAsistencia_Click(object sender, EventArgs e)
         {
             gbLogoMenu.Visible = false;
             CargarFormulario(new FrmAsistencia());
@@ -46,13 +46,13 @@ namespace InterfazAdministrador
             CargarFormulario(new FrmHorasExtras());
         }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
+        private void btnEstadisticas_Click(object sender, EventArgs e)
         {
             gbLogoMenu.Visible = false;
             CargarFormulario(new FrmEmpleados());
         }
 
-        private void btnDatosPersonales_Click(object sender, EventArgs e)
+        private void btnEmpleados_Click(object sender, EventArgs e)
         {
             gbLogoMenu.Visible = false;
             CargarFormulario(new FrmDatosPersonales());
@@ -64,10 +64,22 @@ namespace InterfazAdministrador
             CargarFormulario(new FrmDatosBiometricos());
         }
 
-        private void guna2Button7_Click(object sender, EventArgs e)
+        private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             gbLogoMenu.Visible = false;
             CargarFormulario(new FrmConfiguracion(administrador.idEmpleado));
+        }
+
+        private void btnTurnos_Click(object sender, EventArgs e)
+        {
+            gbLogoMenu.Visible = false;
+            CargarFormulario(new FrmTurnos());
+        }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            gbLogoMenu.Visible = false;
+            CargarFormulario(new FrmRoles());
         }
 
         private void BtnSalir_Click_1(object sender, EventArgs e)
@@ -88,6 +100,5 @@ namespace InterfazAdministrador
         {
             WindowState = FormWindowState.Minimized;
         }
-
     }
 }

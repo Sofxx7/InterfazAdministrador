@@ -45,5 +45,10 @@ namespace InterfazAdministrador.Tools
             var dateTime = DateTime.ParseExact(monthName, "MMMM", new System.Globalization.CultureInfo("es-ES"));
             return dateTime.Month.ToString();
         }
+
+        internal string FormatearHora(TimeSpan horaInicio)
+        {
+            return horaInicio.ToString(@"hh\:mm");
+        }
     }
 }
