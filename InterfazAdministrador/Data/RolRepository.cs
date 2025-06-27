@@ -31,17 +31,13 @@ namespace InterfazAdministrador.Data
         public void ActualizarRol(Rol rol)
         {
             var actualizarRol = db.Rol.FirstOrDefault(e => e.nombreRol.Equals(rol.nombreRol));
-            if (actualizarRol != null)
-            {
-                actualizarRol.nombreRol = rol.nombreRol;
-                db.SubmitChanges();
-            }
+            actualizarRol.nombreRol = rol.nombreRol;
+            db.SubmitChanges();
         }
 
-        internal int NumEmpleadosConRol(string text)
+        public int NumEmpleadosConRol(string text)
         {
-            var rol = db.Rol.FirstOrDefault(r => r.nombreRol.Equals(text, StringComparison.OrdinalIgnoreCase));
-            return db.Empleado.Count(e => e.Rol.nombreRol.Equals(rol.nombreRol, StringComparison.OrdinalIgnoreCase));
+            return db.Empleado.Count(e => e.Rol.nombreRol.Equals(text));
         }
     }
 }

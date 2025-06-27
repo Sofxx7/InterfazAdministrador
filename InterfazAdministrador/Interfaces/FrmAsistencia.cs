@@ -275,7 +275,7 @@ namespace InterfazAdministrador.Interfaces
                     if (registro.horaEntrada.HasValue)
                     {
                         var nombreEstado = estado?.nombreEvento ?? string.Empty;
-                        if (nombreEstado.Equals("Asistencia"))
+                        if (nombreEstado.Equals("Asistencia") || nombreEstado.Equals("Justificado"))
                         {
                             asistencias++;
                         }

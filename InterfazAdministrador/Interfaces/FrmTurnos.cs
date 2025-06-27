@@ -55,7 +55,7 @@ namespace InterfazAdministrador.Interfaces
                 return;
             }
 
-            if (dtpInicio.Value.TimeOfDay - dtpFin.Value.TimeOfDay < TimeSpan.FromHours(6))
+            if (dtpFin.Value.TimeOfDay - dtpInicio.Value.TimeOfDay < TimeSpan.FromHours(6))
             {
                 MessageBox.Show("La duración del turno debe ser de al menos 6 horas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -117,7 +117,7 @@ namespace InterfazAdministrador.Interfaces
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"¿Está seguro de que desea eliminar el turno: {txtNombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"¿Está seguro de que desea eliminar el turno: {txtNombre.Text}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 bool eliminado = turnoRepository.EliminarTurno(txtNombre.Text);
@@ -154,7 +154,7 @@ namespace InterfazAdministrador.Interfaces
                 return;
             }
 
-            if (dtpInicio.Value.TimeOfDay - dtpFin.Value.TimeOfDay < TimeSpan.FromHours(6))
+            if (dtpFin.Value.TimeOfDay - dtpInicio.Value.TimeOfDay < TimeSpan.FromHours(6))
             {
                 MessageBox.Show("La duración del turno debe ser de al menos 6 horas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -190,6 +190,22 @@ namespace InterfazAdministrador.Interfaces
             btnAgregar.Enabled = true;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
+        }
+
+        private void dgvTurnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int fila = e.RowIndex;
+
+            if (fila >= 0 && fila < dgvTurnos.Rows.Count)
+            {
+                btnAgregar.Enabled = false;
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+
+                txtNombre.Text = dgvTurnos.Rows[fila].Cells[0].Value.ToString();
+                dtpInicio.Value = DateTime.Today.Add(dgvTurnos.Rows[fila].Cells[1].Value.ToString() == "00:00" ? TimeSpan.Zero : TimeSpan.Parse(dgvTurnos.Rows[fila].Cells[1].Value.ToString()));
+                dtpFin.Value = DateTime.Today.Add(dgvTurnos.Rows[fila].Cells[2].Value.ToString() == "00:00" ? TimeSpan.Zero : TimeSpan.Parse(dgvTurnos.Rows[fila].Cells[2].Value.ToString()));
+            }
         }
     }
 }

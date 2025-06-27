@@ -85,19 +85,19 @@ namespace InterfazAdministrador.Interfaces
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"¿Está seguro de que desea eliminar el rol: {txtNombre}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"¿Está seguro de que desea eliminar el rol: {txtNombre.Text}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 bool eliminado = rolRespository.EliminarRol(txtNombre.Text);
                 if (eliminado)
                 {
-                    MessageBox.Show("Empleado eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Rol eliminado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     roles = rolRespository.ObtenerRoles();
                     llenarDGV(roles);
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar el empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al eliminar el rol", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 txtNombre.Text = string.Empty;                
                 btnAgregar.Enabled = true;

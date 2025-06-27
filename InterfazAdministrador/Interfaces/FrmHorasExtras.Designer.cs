@@ -52,7 +52,7 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(40, 41);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(116, 20);
             this.guna2HtmlLabel4.TabIndex = 57;
@@ -69,7 +69,7 @@
             this.btnEliminarFil.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnEliminarFil.ForeColor = System.Drawing.Color.White;
             this.btnEliminarFil.Location = new System.Drawing.Point(542, 38);
-            this.btnEliminarFil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarFil.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarFil.Name = "btnEliminarFil";
             this.btnEliminarFil.Size = new System.Drawing.Size(116, 31);
             this.btnEliminarFil.TabIndex = 56;
@@ -112,7 +112,7 @@
             this.gbHorasExtras.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gbHorasExtras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.gbHorasExtras.Location = new System.Drawing.Point(355, 120);
-            this.gbHorasExtras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbHorasExtras.Margin = new System.Windows.Forms.Padding(2);
             this.gbHorasExtras.Name = "gbHorasExtras";
             this.gbHorasExtras.Size = new System.Drawing.Size(246, 233);
             this.gbHorasExtras.TabIndex = 59;
@@ -162,7 +162,7 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(20, 22);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(57, 20);
             this.guna2HtmlLabel2.TabIndex = 33;
@@ -179,7 +179,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(134, 180);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(88, 33);
             this.btnAgregar.TabIndex = 43;
@@ -192,7 +192,7 @@
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.Black;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(20, 96);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(173, 20);
             this.guna2HtmlLabel5.TabIndex = 37;
@@ -220,7 +220,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -280,9 +280,9 @@
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.btnEliminarFil);
             this.Controls.Add(this.txtFiltrar);
-            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmHorasExtras";
             this.Text = "FrmHorasExtras";
             this.gbHorasExtras.ResumeLayout(false);

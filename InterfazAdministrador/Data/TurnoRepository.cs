@@ -21,15 +21,14 @@ namespace InterfazAdministrador.Data
 
         internal int NumEmpleadosConTurno(string text)
         {
-            var turno = db.Turno.FirstOrDefault(t => t.nombreTurno.Equals(text, StringComparison.OrdinalIgnoreCase));
-            return db.Empleado.Count(e => e.Turno.nombreTurno.Equals(turno.nombreTurno, StringComparison.OrdinalIgnoreCase));
+            return db.Empleado.Count(e => e.Turno.nombreTurno.Equals(text));
         }
 
         internal bool EliminarTurno(string text)
         {
             var turno = db.Turno.FirstOrDefault(e => e.nombreTurno.Equals(text));
             if (turno == null) return false;
-            db.Rol.DeleteOnSubmit(turno);
+            db.Turno.DeleteOnSubmit(turno);
             db.SubmitChanges();
             return true;
         }
@@ -37,13 +36,10 @@ namespace InterfazAdministrador.Data
         internal void ActualizarTurno(Turno turno)
         {
             var actualizarTurno = db.Turno.FirstOrDefault(e => e.nombreTurno.Equals(turno.nombreTurno));
-            if (actualizarTurno != null)
-            {
-                actualizarTurno.nombreTurno = turno.nombreTurno;
-                actualizarTurno.horaInicio = turno.horaInicio;
-                actualizarTurno.horaFin = turno.horaFin;
-                db.SubmitChanges();
-            }
+            actualizarTurno.nombreTurno = turno.nombreTurno;
+            actualizarTurno.horaInicio = turno.horaInicio;
+            actualizarTurno.horaFin = turno.horaFin;
+            db.SubmitChanges();
         }
     }
 }
