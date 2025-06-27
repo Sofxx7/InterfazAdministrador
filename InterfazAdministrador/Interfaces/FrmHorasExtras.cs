@@ -56,8 +56,7 @@ namespace InterfazAdministrador.Interfaces
         private void btnEliminarFil_Click(object sender, EventArgs e)
         {
             txtFiltrar.Text = string.Empty;
-            dgvEmpleados.DataSource = null;
-            dgvEmpleados.DataSource = empleados;
+            llenarDGVEmpleados(empleados);
         }
 
         private void txtFiltrar_TextChanged(object sender, EventArgs e)

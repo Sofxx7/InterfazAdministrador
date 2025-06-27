@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFiltrar = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnEliminarFiltro = new Guna.UI2.WinForms.Guna2Button();
@@ -59,12 +59,12 @@
             this.txtFiltrar.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFiltrar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtFiltrar.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFiltrar.Location = new System.Drawing.Point(209, 44);
-            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtFiltrar.Location = new System.Drawing.Point(168, 36);
+            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtFiltrar.Name = "txtFiltrar";
             this.txtFiltrar.PlaceholderText = "";
             this.txtFiltrar.SelectedText = "";
-            this.txtFiltrar.Size = new System.Drawing.Size(333, 36);
+            this.txtFiltrar.Size = new System.Drawing.Size(239, 29);
             this.txtFiltrar.TabIndex = 28;
             this.txtFiltrar.TextChanged += new System.EventHandler(this.txtFiltrar_TextChanged);
             // 
@@ -72,10 +72,10 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Bahnschrift", 11.25F);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(31, 48);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 39);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(148, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(116, 20);
             this.guna2HtmlLabel1.TabIndex = 27;
             this.guna2HtmlLabel1.Text = "Filtrar empleado:";
             // 
@@ -89,10 +89,10 @@
             this.btnEliminarFiltro.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnEliminarFiltro.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnEliminarFiltro.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarFiltro.Location = new System.Drawing.Point(31, 103);
-            this.btnEliminarFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarFiltro.Location = new System.Drawing.Point(23, 84);
+            this.btnEliminarFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarFiltro.Name = "btnEliminarFiltro";
-            this.btnEliminarFiltro.Size = new System.Drawing.Size(155, 41);
+            this.btnEliminarFiltro.Size = new System.Drawing.Size(116, 33);
             this.btnEliminarFiltro.TabIndex = 32;
             this.btnEliminarFiltro.Text = "Eliminar filtro";
             this.btnEliminarFiltro.Click += new System.EventHandler(this.btnEliminarFiltro_Click);
@@ -101,16 +101,16 @@
             // 
             this.dgvRegistro.AllowUserToAddRows = false;
             this.dgvRegistro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvRegistro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(188)))), ((int)(((byte)(148)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvRegistro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(188)))), ((int)(((byte)(148)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRegistro.ColumnHeadersHeight = 18;
             this.dgvRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvRegistro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -118,22 +118,22 @@
             this.ColHoraEntrada,
             this.ColHoraSalida,
             this.ColEstado});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRegistro.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRegistro.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvRegistro.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvRegistro.Location = new System.Drawing.Point(31, 174);
-            this.dgvRegistro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvRegistro.Location = new System.Drawing.Point(23, 141);
+            this.dgvRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvRegistro.Name = "dgvRegistro";
             this.dgvRegistro.RowHeadersVisible = false;
             this.dgvRegistro.RowHeadersWidth = 51;
             this.dgvRegistro.RowTemplate.Height = 24;
-            this.dgvRegistro.Size = new System.Drawing.Size(883, 451);
+            this.dgvRegistro.Size = new System.Drawing.Size(662, 366);
             this.dgvRegistro.TabIndex = 33;
             this.dgvRegistro.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRegistro.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -191,10 +191,10 @@
             this.btnCancelar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnCancelar.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(656, 641);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Location = new System.Drawing.Point(492, 521);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(128, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(96, 32);
             this.btnCancelar.TabIndex = 34;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -209,10 +209,10 @@
             this.btnGuardar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(185)))), ((int)(((byte)(148)))));
             this.btnGuardar.Font = new System.Drawing.Font("Artifakt Element", 9.749999F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(790, 641);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuardar.Location = new System.Drawing.Point(592, 521);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(124, 39);
+            this.btnGuardar.Size = new System.Drawing.Size(93, 32);
             this.btnGuardar.TabIndex = 35;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -228,10 +228,10 @@
             this.cmbDia.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbDia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbDia.ItemHeight = 30;
-            this.cmbDia.Location = new System.Drawing.Point(559, 44);
-            this.cmbDia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbDia.Location = new System.Drawing.Point(419, 36);
+            this.cmbDia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbDia.Name = "cmbDia";
-            this.cmbDia.Size = new System.Drawing.Size(113, 36);
+            this.cmbDia.Size = new System.Drawing.Size(86, 36);
             this.cmbDia.TabIndex = 46;
             this.cmbDia.SelectedIndexChanged += new System.EventHandler(this.cmbDia_SelectedIndexChanged);
             // 
@@ -246,10 +246,10 @@
             this.cmbMes.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbMes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbMes.ItemHeight = 30;
-            this.cmbMes.Location = new System.Drawing.Point(675, 44);
-            this.cmbMes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbMes.Location = new System.Drawing.Point(506, 36);
+            this.cmbMes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMes.Name = "cmbMes";
-            this.cmbMes.Size = new System.Drawing.Size(113, 36);
+            this.cmbMes.Size = new System.Drawing.Size(86, 36);
             this.cmbMes.TabIndex = 47;
             this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.cmbMes_SelectedIndexChanged);
             // 
@@ -264,19 +264,19 @@
             this.cmbAno.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbAno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbAno.ItemHeight = 30;
-            this.cmbAno.Location = new System.Drawing.Point(794, 44);
-            this.cmbAno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbAno.Location = new System.Drawing.Point(596, 36);
+            this.cmbAno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbAno.Name = "cmbAno";
-            this.cmbAno.Size = new System.Drawing.Size(113, 36);
+            this.cmbAno.Size = new System.Drawing.Size(86, 36);
             this.cmbAno.TabIndex = 48;
             this.cmbAno.SelectedIndexChanged += new System.EventHandler(this.cmbAno_SelectedIndexChanged);
             // 
             // FrmModificar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(236)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(943, 708);
+            this.ClientSize = new System.Drawing.Size(707, 575);
             this.Controls.Add(this.cmbAno);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.cmbDia);
@@ -287,7 +287,7 @@
             this.Controls.Add(this.txtFiltrar);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmModificar";
             this.ShowIcon = false;
             this.Text = "FrmModificar";

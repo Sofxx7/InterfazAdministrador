@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMinimizar = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContenedor = new Guna.UI2.WinForms.Guna2Panel();
@@ -147,7 +148,7 @@
             this.btnRoles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(219)))), ((int)(((byte)(185)))));
             this.btnRoles.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.btnRoles.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRoles.Image = global::InterfazAdministrador.Properties.Resources.datos_biometricos;
+            this.btnRoles.Image = ((System.Drawing.Image)(resources.GetObject("btnRoles.Image")));
             this.btnRoles.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRoles.ImageSize = new System.Drawing.Size(30, 30);
             this.btnRoles.Location = new System.Drawing.Point(2, 375);
@@ -170,7 +171,7 @@
             this.btnTurnos.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(219)))), ((int)(((byte)(185)))));
             this.btnTurnos.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold);
             this.btnTurnos.ForeColor = System.Drawing.Color.DimGray;
-            this.btnTurnos.Image = global::InterfazAdministrador.Properties.Resources.datos_biometricos;
+            this.btnTurnos.Image = ((System.Drawing.Image)(resources.GetObject("btnTurnos.Image")));
             this.btnTurnos.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTurnos.ImageSize = new System.Drawing.Size(30, 30);
             this.btnTurnos.Location = new System.Drawing.Point(2, 334);
