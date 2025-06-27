@@ -30,9 +30,14 @@ namespace InterfazAdministrador.Interfaces
                 MessageBox.Show("Todos los campos son obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (nuevaContrasena.Length < 6)
+            if (nuevaContrasena.Length < 8)
             {
-                MessageBox.Show("La nueva contraseña debe tener al menos 6 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La nueva contraseña debe tener al menos 8 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!TieneMayuscula(nuevaContrasena) || !TieneNumero(nuevaContrasena) || !TieneCaracterEspecial(nuevaContrasena))
+            {
+                MessageBox.Show("La nueva contraseña debe contener al menos una letra mayúscula, un número y un carácter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (nuevaContrasena != repetirContrasena)
@@ -75,6 +80,36 @@ namespace InterfazAdministrador.Interfaces
             {
                 btnGuardar.Enabled = true;
             }
+        }
+
+        private bool TieneMayuscula(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (char.IsUpper(c))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool TieneNumero(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (char.IsDigit(c))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool TieneCaracterEspecial(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (!char.IsLetterOrDigit(c))
+                    return true;
+            }
+            return false;
         }
     }
 }
